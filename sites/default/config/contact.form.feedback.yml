@@ -1,0 +1,14 @@
+uuid: 919863cf-5808-41fb-9276-d0a2bfd27860
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: vymHlgJy26BuI5GGj9-IXjwR3dRC5C0tij4BpWJnoqw
+id: feedback
+label: 'Website feedback'
+recipients:
+  - wsadmin@uoguelph.ca
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

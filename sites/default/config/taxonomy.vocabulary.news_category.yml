@@ -1,0 +1,9 @@
+uuid: 149b61e3-a8f3-4068-af4e-8fe7c7f1347d
+langcode: en
+status: true
+dependencies: {  }
+name: 'News category'
+vid: news_category
+description: 'Use terms to group news articles on similar topics into categories. Terms defined by site admin.'
+hierarchy: 0
+weight: 0
