@@ -1,0 +1,27 @@
+uuid: 4fac0ff8-025f-4945-9420-7a2ff8e48ea5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_page_attachments
+    - node.type.page
+  module:
+    - file
+id: node.page.field_page_attachments
+field_name: field_page_attachments
+entity_type: node
+bundle: page
+label: 'File attachments'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf doc docx rtf png gif jpg jpeg zip xls xlsx ppt pptx csv dmg'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file
