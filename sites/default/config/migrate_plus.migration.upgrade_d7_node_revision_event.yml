@@ -1,0 +1,98 @@
+uuid: 00e031a4-1aca-4107-b50e-a944fe1552d7
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_event
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Event)'
+source:
+  plugin: d7_node_revision
+  node_type: event
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_event/0/status: comment
+  field_event_attachments:
+    plugin: iterator
+    source: field_event_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_event_body:
+    plugin: get
+    source: field_event_body
+  field_event_category:
+    plugin: iterator
+    source: field_event_category
+    process:
+      target_id: tid
+  field_event_date:
+    plugin: iterator
+    source: field_event_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_event_image:
+    plugin: iterator
+    source: field_event_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_event_image_caption:
+    plugin: get
+    source: field_event_image_caption
+  field_event_link:
+    plugin: d6_field_link
+    source: field_event_link
+  field_event_location:
+    plugin: get
+    source: field_event_location
+  field_event_multipart: field_event_multipart
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: event
+migration_dependencies:
+  required:
+    55: upgrade_d7_node_banner
+    56: upgrade_d7_node_course_outline
+    57: upgrade_d7_node_event
+    58: upgrade_d7_node_faq
+    59: upgrade_d7_node_feature
+    60: upgrade_d7_node_news
+    61: upgrade_d7_node_page
+    62: upgrade_d7_node_profile
+    63: upgrade_d7_node_service
+    64: upgrade_d7_node_social
+    65: upgrade_d7_node_webform
+  optional: {  }

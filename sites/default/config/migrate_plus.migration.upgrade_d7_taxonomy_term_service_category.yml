@@ -1,0 +1,49 @@
+uuid: c6d360b4-7d3f-4aaa-a6d2-5c1bcfec6c7d
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_service_category
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (Service category)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: service_category
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: upgrade_d7_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  changed: timestamp
+  field_service_icon:
+    plugin: get
+    source: field_service_icon
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: service_category
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance

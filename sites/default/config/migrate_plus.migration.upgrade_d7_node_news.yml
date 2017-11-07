@@ -1,0 +1,81 @@
+uuid: 4af17dec-4ff4-44d9-a196-accb7f3a1a0c
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_news
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Nodes (News)'
+source:
+  plugin: d7_node
+  node_type: news
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_news/0/status: comment
+  field_news_attachment:
+    plugin: iterator
+    source: field_news_attachment
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_news_body:
+    plugin: get
+    source: field_news_body
+  field_news_caption:
+    plugin: get
+    source: field_news_caption
+  field_news_image:
+    plugin: iterator
+    source: field_news_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_news_link:
+    plugin: d6_field_link
+    source: field_news_link
+  field_news_tags:
+    plugin: iterator
+    source: field_news_tags
+    process:
+      target_id: tid
+  field_news_writer:
+    plugin: get
+    source: field_news_writer
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity:node'
+  default_bundle: news
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

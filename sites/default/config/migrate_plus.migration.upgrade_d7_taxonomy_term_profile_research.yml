@@ -1,0 +1,46 @@
+uuid: b9cf125c-f28a-44aa-b24e-70df84ad48b4
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_profile_research
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (Area of research)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: profile_research
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: upgrade_d7_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  changed: timestamp
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: profile_research
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance

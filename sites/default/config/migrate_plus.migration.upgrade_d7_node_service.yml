@@ -1,0 +1,69 @@
+uuid: a37701f0-34d7-4db1-9435-56a24811d062
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_service
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Nodes (Service)'
+source:
+  plugin: d7_node
+  node_type: service
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_service/0/status: comment
+  field_service_audience:
+    plugin: iterator
+    source: field_service_audience
+    process:
+      target_id: tid
+  field_service_category:
+    plugin: iterator
+    source: field_service_category
+    process:
+      target_id: tid
+  field_service_description:
+    plugin: get
+    source: field_service_description
+  field_service_keywords:
+    plugin: iterator
+    source: field_service_keywords
+    process:
+      target_id: tid
+  field_service_price:
+    plugin: get
+    source: field_service_price
+  field_service_private: field_service_private
+  field_service_public: field_service_public
+  field_service_related:
+    plugin: get
+    source: field_service_related
+destination:
+  plugin: 'entity:node'
+  default_bundle: service
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

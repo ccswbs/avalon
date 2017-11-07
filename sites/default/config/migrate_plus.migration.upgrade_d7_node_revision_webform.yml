@@ -1,0 +1,50 @@
+uuid: 77719057-4544-41cb-93d6-c7131a7b04f8
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_webform
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Webform)'
+source:
+  plugin: d7_node_revision
+  node_type: webform
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_webform/0/status: comment
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: webform
+migration_dependencies:
+  required:
+    55: upgrade_d7_node_banner
+    56: upgrade_d7_node_course_outline
+    57: upgrade_d7_node_event
+    58: upgrade_d7_node_faq
+    59: upgrade_d7_node_feature
+    60: upgrade_d7_node_news
+    61: upgrade_d7_node_page
+    62: upgrade_d7_node_profile
+    63: upgrade_d7_node_service
+    64: upgrade_d7_node_social
+    65: upgrade_d7_node_webform
+  optional: {  }

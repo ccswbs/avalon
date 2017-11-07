@@ -1,0 +1,140 @@
+uuid: 95f84701-a47b-4287-a369-82b9c77477b7
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_profile
+class: Drupal\migrate\Plugin\Migration
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Profile)'
+source:
+  plugin: d7_node_revision
+  node_type: profile
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_profile/0/status: comment
+  field_profile_address:
+    plugin: get
+    source: field_profile_address
+  field_profile_align_names:
+    plugin: get
+    source: field_profile_align_names
+  field_profile_attachments:
+    plugin: iterator
+    source: field_profile_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_profile_caption:
+    plugin: get
+    source: field_profile_caption
+  field_profile_category:
+    plugin: iterator
+    source: field_profile_category
+    process:
+      target_id: tid
+  field_profile_custom: field_profile_custom
+  field_profile_email:
+    plugin: get
+    source: field_profile_email
+  field_profile_faxnumber:
+    plugin: get
+    source: field_profile_faxnumber
+  field_profile_image:
+    plugin: iterator
+    source: field_profile_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_profile_lab:
+    plugin: get
+    source: field_profile_lab
+  field_profile_lastname:
+    plugin: get
+    source: field_profile_lastname
+  field_profile_multipart: field_profile_multipart
+  field_profile_name:
+    plugin: get
+    source: field_profile_name
+  field_profile_office:
+    plugin: get
+    source: field_profile_office
+  field_profile_research:
+    plugin: iterator
+    source: field_profile_research
+    process:
+      target_id: tid
+  field_profile_role:
+    plugin: iterator
+    source: field_profile_role
+    process:
+      target_id: tid
+  field_profile_subunit:
+    plugin: iterator
+    source: field_profile_subunit
+    process:
+      target_id: tid
+  field_profile_summary:
+    plugin: get
+    source: field_profile_summary
+  field_profile_teaser:
+    plugin: get
+    source: field_profile_teaser
+  field_profile_telephonenumber:
+    plugin: get
+    source: field_profile_telephonenumber
+  field_profile_title:
+    plugin: get
+    source: field_profile_title
+  field_profile_unit:
+    plugin: iterator
+    source: field_profile_unit
+    process:
+      target_id: tid
+  field_profile_website:
+    plugin: d6_field_link
+    source: field_profile_website
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: profile
+migration_dependencies:
+  required:
+    55: upgrade_d7_node_banner
+    56: upgrade_d7_node_course_outline
+    57: upgrade_d7_node_event
+    58: upgrade_d7_node_faq
+    59: upgrade_d7_node_feature
+    60: upgrade_d7_node_news
+    61: upgrade_d7_node_page
+    62: upgrade_d7_node_profile
+    63: upgrade_d7_node_service
+    64: upgrade_d7_node_social
+    65: upgrade_d7_node_webform
+  optional: {  }
