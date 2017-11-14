@@ -27,4 +27,7 @@ content:
   links:
     weight: 101
     region: content
-hidden: {  }
+hidden:
+  field_page_attachments: true
+  field_page_category: true
+  field_tags: true
