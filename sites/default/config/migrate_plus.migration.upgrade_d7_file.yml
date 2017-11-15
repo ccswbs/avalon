@@ -1,4 +1,4 @@
-uuid: 3412aee8-b772-41cd-b1e5-ff3fe9291f67
+uuid: da55dc49-b7b5-44c4-ba13-20bb339d3868
 langcode: en
 status: true
 dependencies: {  }
@@ -14,7 +14,7 @@ source:
   plugin: d7_file
   scheme: public
   constants:
-    source_base_path: /
+    source_base_path: 'http://dev-hjckrrh.pantheonsite.io/'
 process:
   fid: fid
   filename: filename

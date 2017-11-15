@@ -1,4 +1,4 @@
-uuid: 3ae0d49b-dfce-41f6-96f4-700e4d508e7a
+uuid: 37164684-32dc-480c-a0d9-45a6f56efd7c
 langcode: en
 status: true
 dependencies: {  }
@@ -74,15 +74,15 @@ destination:
   default_bundle: news
 migration_dependencies:
   required:
-    55: upgrade_d7_node_banner
-    56: upgrade_d7_node_course_outline
-    57: upgrade_d7_node_event
-    58: upgrade_d7_node_faq
-    59: upgrade_d7_node_feature
-    60: upgrade_d7_node_news
-    61: upgrade_d7_node_page
-    62: upgrade_d7_node_profile
-    63: upgrade_d7_node_service
-    64: upgrade_d7_node_social
-    65: upgrade_d7_node_webform
+    70: upgrade_d7_node_banner
+    71: upgrade_d7_node_course_outline
+    72: upgrade_d7_node_event
+    73: upgrade_d7_node_faq
+    74: upgrade_d7_node_feature
+    75: upgrade_d7_node_news
+    76: upgrade_d7_node_page
+    77: upgrade_d7_node_profile
+    78: upgrade_d7_node_service
+    79: upgrade_d7_node_social
+    80: upgrade_d7_node_webform
   optional: {  }
