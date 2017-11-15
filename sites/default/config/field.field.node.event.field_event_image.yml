@@ -1,0 +1,38 @@
+uuid: f9936733-3a81-48ca-acfc-107bdb8d2bdb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_image
+    - node.type.event
+  module:
+    - image
+id: node.event.field_event_image
+field_name: field_event_image
+entity_type: node
+bundle: event
+label: 'Feature image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  alt_field: true
+  default_image:
+    alt: ''
+    title: ''
+    width: null
+    height: null
+    uuid: ''
+  file_directory: event_image
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 1140x570
+  min_resolution: 200x160
+  title_field: false
+  alt_field_required: true
+  title_field_required: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

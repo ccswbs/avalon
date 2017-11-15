@@ -1,0 +1,58 @@
+uuid: d3e5bb4e-2df0-4b1f-a238-d02f0b369ee0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.social.field_social_category
+    - field.field.node.social.field_social_link
+    - field.field.node.social.field_social_network
+    - field.field.node.social.field_tags
+    - node.type.social
+  module:
+    - link
+    - options
+    - user
+id: node.social.default
+targetEntityType: node
+bundle: social
+mode: default
+content:
+  field_social_category:
+    label: above
+    weight: 2
+    type: entity_reference_label
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  field_social_link:
+    label: above
+    weight: 1
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  field_social_network:
+    label: above
+    weight: 0
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    label: above
+    weight: 3
+    type: entity_reference_label
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

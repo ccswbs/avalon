@@ -1,0 +1,50 @@
+uuid: 25103399-df3f-48a4-9d21-72fbfe784e27
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.service.field_service_audience
+    - field.field.node.service.field_service_category
+    - field.field.node.service.field_service_description
+    - field.field.node.service.field_service_keywords
+    - field.field.node.service.field_service_price
+    - field.field.node.service.field_service_related
+    - node.type.service
+  module:
+    - text
+    - user
+id: node.service.default
+targetEntityType: node
+bundle: service
+mode: default
+content:
+  field_service_description:
+    label: above
+    weight: 0
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_service_price:
+    label: inline
+    weight: 1
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_service_related:
+    label: above
+    weight: 3
+    type: entity_reference_label
+    settings:
+      link: true
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_service_audience: true
+  field_service_category: true
+  field_service_keywords: true

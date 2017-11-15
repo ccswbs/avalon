@@ -1,0 +1,21 @@
+uuid: 905a174b-8fa5-4ea6-ab08-019b90d70216
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_unit
+    - node.type.profile
+id: node.profile.field_profile_unit
+field_name: field_profile_unit
+entity_type: node
+bundle: profile
+label: Unit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

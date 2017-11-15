@@ -1,0 +1,9 @@
+uuid: c899e6a3-d282-4f43-accc-1e7ea9945ab1
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course outline category'
+vid: course_outline_category
+description: ''
+hierarchy: 0
+weight: 0

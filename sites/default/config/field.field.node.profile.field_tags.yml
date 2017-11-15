@@ -1,0 +1,21 @@
+uuid: 6ef13ff4-096c-4c29-9f36-4d52201cba2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.profile
+id: node.profile.field_tags
+field_name: field_tags
+entity_type: node
+bundle: profile
+label: Keywords
+description: 'Enter a comma separated list of keywords.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

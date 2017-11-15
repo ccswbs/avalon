@@ -1,0 +1,32 @@
+uuid: 35b20d88-3fb9-460b-9473-680109e0eb03
+langcode: en
+status: true
+dependencies: {  }
+id: moderator
+label: moderator
+weight: 11
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'administer nodes'
+  - 'bypass node access'
+  - 'edit any banner content'
+  - 'edit any course_outline content'
+  - 'edit any event content'
+  - 'edit any faq content'
+  - 'edit any feature content'
+  - 'edit any news content'
+  - 'edit any page content'
+  - 'edit any profile content'
+  - 'edit any service content'
+  - 'edit any social content'
+  - 'edit any webform content'
+  - 'edit field_service_private'
+  - 'use text format filtered_html'
+  - 'view field_service_private'
+  - 'view own unpublished content'
+  - 'view revisions'
+  - 'view the administration theme'

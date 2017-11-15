@@ -1,0 +1,9 @@
+uuid: 5c7e4c02-51ee-4254-97e1-5bf0ca9e75f2
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile field labels'
+vid: profile_field_labels
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,27 @@
+uuid: 550202b9-eb56-4a7f-a1c3-f4c55866dc71
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_attachments
+    - node.type.event
+  module:
+    - file
+id: node.event.field_event_attachments
+field_name: field_event_attachments
+entity_type: node
+bundle: event
+label: 'File attachments'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  description_field: true
+  file_directory: ''
+  file_extensions: 'txt pdf doc docx rtf png gif jpg jpeg zip xls xlsx ppt pptx csv'
+  max_filesize: ''
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

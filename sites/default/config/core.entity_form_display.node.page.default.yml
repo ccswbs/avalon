@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.field.node.page.body
     - field.field.node.page.field_page_attachments
+    - field.field.node.page.field_page_body
     - field.field.node.page.field_page_category
     - field.field.node.page.field_tags
     - node.type.page
@@ -35,29 +36,35 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_page_attachments:
-    weight: 9
+    weight: 3
+    type: file_generic
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
+    region: content
+  field_page_body:
+    weight: 2
+    type: text_textarea_with_summary
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
     region: content
   field_page_category:
-    weight: 6
-    settings:
-      match_operator: CONTAINS
-      size: 60
-      placeholder: ''
+    weight: 1
+    type: options_select
+    settings: {  }
     third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   field_tags:
-    weight: 10
+    weight: 4
+    type: entity_reference_autocomplete
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete
     region: content
   path:
     type: path

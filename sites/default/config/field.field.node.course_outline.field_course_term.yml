@@ -1,0 +1,21 @@
+uuid: 2d5248dd-8b9a-4ff8-bc0d-0ed7d8879af5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_term
+    - node.type.course_outline
+id: node.course_outline.field_course_term
+field_name: field_course_term
+entity_type: node
+bundle: course_outline
+label: 'Course term'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

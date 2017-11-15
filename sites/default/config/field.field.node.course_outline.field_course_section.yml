@@ -1,0 +1,21 @@
+uuid: e5ca5a33-b846-4588-a09f-bdf9494b6c2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_section
+    - node.type.course_outline
+id: node.course_outline.field_course_section
+field_name: field_course_section
+entity_type: node
+bundle: course_outline
+label: Section
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: '01'
+default_value_callback: ''
+settings: {  }
+field_type: string

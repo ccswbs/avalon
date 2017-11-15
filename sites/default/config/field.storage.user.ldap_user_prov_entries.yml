@@ -1,0 +1,21 @@
+uuid: 397bfb37-5337-469d-a489-bbe82646e81b
+langcode: und
+status: true
+dependencies:
+  module:
+    - user
+id: user.ldap_user_prov_entries
+field_name: ldap_user_prov_entries
+entity_type: user
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

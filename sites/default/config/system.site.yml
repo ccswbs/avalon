@@ -1,11 +1,11 @@
 uuid: d581c894-a734-40e6-901f-88b13527e08a
-name: 'UG Avalon'
+name: appserver-9206f3c9.c.pantheon-dmz.internal
 mail: wsadmin@uoguelph.ca
 slogan: ''
 page:
-  403: ''
-  404: ''
-  front: /node
+  403: /r4032login
+  404: /
+  front: /front
 admin_compact_mode: false
 weight_select_max: 100
 langcode: en

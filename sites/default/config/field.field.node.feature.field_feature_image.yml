@@ -1,0 +1,38 @@
+uuid: e063cbbf-eeaf-4916-b5bd-ebb0867a95bd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feature_image
+    - node.type.feature
+  module:
+    - image
+id: node.feature.field_feature_image
+field_name: field_feature_image
+entity_type: node
+bundle: feature
+label: Image
+description: 'The recommended image size is 760x570px.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  alt_field: true
+  default_image:
+    alt: ''
+    title: ''
+    width: null
+    height: null
+    uuid: ''
+  file_directory: field_feature_image
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: 1140x570
+  min_resolution: 380x200
+  title_field: false
+  alt_field_required: true
+  title_field_required: false
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: image

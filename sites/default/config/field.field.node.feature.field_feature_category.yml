@@ -1,0 +1,21 @@
+uuid: 22f1b2a2-26f5-46a7-8f2f-88e0a9cf06c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feature_category
+    - node.type.feature
+id: node.feature.field_feature_category
+field_name: field_feature_category
+entity_type: node
+bundle: feature
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

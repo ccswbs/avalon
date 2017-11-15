@@ -1,0 +1,21 @@
+uuid: 4309651a-66c1-4f44-9a42-10fdaf922a55
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_course_name
+field_name: field_course_name
+entity_type: node
+type: string
+settings:
+  max_length: 128
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

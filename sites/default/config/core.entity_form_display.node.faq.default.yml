@@ -1,0 +1,91 @@
+uuid: d65d9c73-d0de-4cf6-9c07-10e37941c369
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.faq.field_faq_answer
+    - field.field.node.faq.field_faq_category
+    - field.field.node.faq.field_tags
+    - node.type.faq
+  module:
+    - path
+    - text
+id: node.faq.default
+targetEntityType: node
+bundle: faq
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_faq_answer:
+    weight: 2
+    type: text_textarea
+    settings:
+      rows: 10
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_faq_category:
+    weight: 0
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 3
+    type: entity_reference_autocomplete
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  promote:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 15
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 120
+    region: content
+    third_party_settings: {  }
+  sticky:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 16
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

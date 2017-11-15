@@ -1,0 +1,21 @@
+uuid: 5460fdcc-37a1-40a5-a65f-eedeb62139d5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_feature_text
+    - node.type.feature
+  module:
+    - text
+id: node.feature.field_feature_text
+field_name: field_feature_text
+entity_type: node
+bundle: feature
+label: Summary
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

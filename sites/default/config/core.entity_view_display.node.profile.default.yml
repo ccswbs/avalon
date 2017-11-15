@@ -1,0 +1,115 @@
+uuid: 89b1f080-647b-4fba-a418-d17fb7d98172
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.profile.field_profile_address
+    - field.field.node.profile.field_profile_align_names
+    - field.field.node.profile.field_profile_attachments
+    - field.field.node.profile.field_profile_caption
+    - field.field.node.profile.field_profile_category
+    - field.field.node.profile.field_profile_email
+    - field.field.node.profile.field_profile_faxnumber
+    - field.field.node.profile.field_profile_image
+    - field.field.node.profile.field_profile_lab
+    - field.field.node.profile.field_profile_lastname
+    - field.field.node.profile.field_profile_name
+    - field.field.node.profile.field_profile_office
+    - field.field.node.profile.field_profile_research
+    - field.field.node.profile.field_profile_role
+    - field.field.node.profile.field_profile_subunit
+    - field.field.node.profile.field_profile_summary
+    - field.field.node.profile.field_profile_teaser
+    - field.field.node.profile.field_profile_telephonenumber
+    - field.field.node.profile.field_profile_title
+    - field.field.node.profile.field_profile_unit
+    - field.field.node.profile.field_profile_website
+    - field.field.node.profile.field_tags
+    - node.type.profile
+  module:
+    - link
+    - text
+    - user
+id: node.profile.default
+targetEntityType: node
+bundle: profile
+mode: default
+content:
+  field_profile_email:
+    label: inline
+    weight: 6
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_profile_faxnumber:
+    label: inline
+    weight: 8
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_profile_lab:
+    label: inline
+    weight: 10
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_profile_office:
+    label: inline
+    weight: 9
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_profile_teaser:
+    label: above
+    weight: 32
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_profile_telephonenumber:
+    label: inline
+    weight: 7
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_profile_website:
+    label: inline
+    weight: 11
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_profile_address: true
+  field_profile_align_names: true
+  field_profile_attachments: true
+  field_profile_caption: true
+  field_profile_category: true
+  field_profile_image: true
+  field_profile_lastname: true
+  field_profile_name: true
+  field_profile_research: true
+  field_profile_role: true
+  field_profile_subunit: true
+  field_profile_summary: true
+  field_profile_title: true
+  field_profile_unit: true
+  field_tags: true

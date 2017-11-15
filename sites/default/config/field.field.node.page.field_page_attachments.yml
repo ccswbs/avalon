@@ -18,10 +18,10 @@ translatable: false
 default_value: {  }
 default_value_callback: ''
 settings:
-  file_directory: '[date:custom:Y]-[date:custom:m]'
+  description_field: true
+  file_directory: ''
   file_extensions: 'txt pdf doc docx rtf png gif jpg jpeg zip xls xlsx ppt pptx csv dmg'
   max_filesize: ''
-  description_field: true
   handler: 'default:file'
   handler_settings: {  }
 field_type: file

@@ -1,0 +1,21 @@
+uuid: 5ecabf72-8235-475a-aa58-31a91a39c60d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_category
+    - node.type.course_outline
+id: node.course_outline.field_course_category
+field_name: field_course_category
+entity_type: node
+bundle: course_outline
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

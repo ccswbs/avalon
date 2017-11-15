@@ -1,0 +1,21 @@
+uuid: f2f2d8aa-b306-40f6-bf9a-1e9ac706b1c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_subunit
+    - node.type.profile
+id: node.profile.field_profile_subunit
+field_name: field_profile_subunit
+entity_type: node
+bundle: profile
+label: Sub-unit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

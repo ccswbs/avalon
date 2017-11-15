@@ -1,0 +1,19 @@
+uuid: 4008523c-e0ea-4f62-a7ec-f886df3bc6aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_price
+    - node.type.service
+id: node.service.field_service_price
+field_name: field_service_price
+entity_type: node
+bundle: service
+label: Price
+description: 'This field can only be viewed by authenticated users.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

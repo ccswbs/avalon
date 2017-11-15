@@ -1,0 +1,21 @@
+uuid: f426ac2e-850d-4d3b-9a65-c7a8111c1975
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_glyphicon
+    - taxonomy.vocabulary.event_heading
+  module:
+    - options
+id: taxonomy_term.event_heading.field_glyphicon
+field_name: field_glyphicon
+entity_type: taxonomy_term
+bundle: event_heading
+label: Icon
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

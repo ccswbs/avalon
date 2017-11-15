@@ -1,0 +1,21 @@
+uuid: abdcc7dd-4b9e-4b72-b949-ec5cb74b7d01
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.feature
+id: node.feature.field_tags
+field_name: field_tags
+entity_type: node
+bundle: feature
+label: Keywords
+description: 'Enter a comma separated list of keywords.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,9 @@
+uuid: 5d250217-4f2d-42b2-ba8f-c22f26bcb116
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course outline academic level'
+vid: course_outline_academic_level
+description: ''
+hierarchy: 0
+weight: 0

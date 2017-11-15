@@ -1,0 +1,23 @@
+uuid: b653f4e7-906d-49e1-94d9-b4b4a8b7cd4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_instructor_url
+    - node.type.course_outline
+  module:
+    - link
+id: node.course_outline.field_course_instructor_url
+field_name: field_course_instructor_url
+entity_type: node
+bundle: course_outline
+label: 'Course instructor url'
+description: 'A link to the instructor''s profile page or external site'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

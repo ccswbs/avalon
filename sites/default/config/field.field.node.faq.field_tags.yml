@@ -1,0 +1,21 @@
+uuid: 3f1e28ab-00f3-44d6-8f65-9fa2777ca8b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.faq
+id: node.faq.field_tags
+field_name: field_tags
+entity_type: node
+bundle: faq
+label: Keywords
+description: 'Enter a comma separated list of keywords.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

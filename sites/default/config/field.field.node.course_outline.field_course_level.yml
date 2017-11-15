@@ -1,0 +1,21 @@
+uuid: c31e1de4-ab6b-48a7-8c46-c96f5c8b349d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_level
+    - node.type.course_outline
+id: node.course_outline.field_course_level
+field_name: field_course_level
+entity_type: node
+bundle: course_outline
+label: 'Course level'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

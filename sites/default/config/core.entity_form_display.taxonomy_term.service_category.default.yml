@@ -1,0 +1,44 @@
+uuid: 787feb42-4b8d-4192-ac2a-d10a4224f303
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.service_category.field_service_icon
+    - taxonomy.vocabulary.service_category
+  module:
+    - path
+    - text
+id: taxonomy_term.service_category.default
+targetEntityType: taxonomy_term
+bundle: service_category
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_service_icon:
+    weight: 0
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  name:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

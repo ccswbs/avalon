@@ -1,0 +1,27 @@
+uuid: 5af82e8e-0694-4c33-ac0b-3c56f19c4c75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_attachments
+    - node.type.profile
+  module:
+    - file
+id: node.profile.field_profile_attachments
+field_name: field_profile_attachments
+entity_type: node
+bundle: profile
+label: Attachments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  description_field: true
+  file_directory: ''
+  file_extensions: 'txt pdf doc docs odt ppt pps docx dotx ppsx pptx xlsx xltx mp3'
+  max_filesize: ''
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

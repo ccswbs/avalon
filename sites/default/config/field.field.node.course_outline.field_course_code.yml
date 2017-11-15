@@ -1,0 +1,21 @@
+uuid: b5d2d877-96f9-4d99-a746-8083b3560095
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_code
+    - node.type.course_outline
+id: node.course_outline.field_course_code
+field_name: field_course_code
+entity_type: node
+bundle: course_outline
+label: 'Course code'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: 'XXXX*0000'
+default_value_callback: ''
+settings: {  }
+field_type: string

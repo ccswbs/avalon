@@ -1,0 +1,18 @@
+uuid: ceff57db-fbab-46fd-9acc-710a8ddf6d61
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.banner
+id: node.banner.title
+field_name: title
+entity_type: node
+bundle: banner
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

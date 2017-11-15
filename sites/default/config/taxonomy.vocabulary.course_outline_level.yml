@@ -1,0 +1,9 @@
+uuid: ae3dbcb0-f312-4e18-a307-01289992aca0
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course outline level'
+vid: course_outline_level
+description: ''
+hierarchy: 0
+weight: 0

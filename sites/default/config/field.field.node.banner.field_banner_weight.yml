@@ -1,0 +1,23 @@
+uuid: dda2b6f2-146b-40c0-b3d7-45c384248983
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner_weight
+    - node.type.banner
+  module:
+    - options
+id: node.banner.field_banner_weight
+field_name: field_banner_weight
+entity_type: node
+bundle: banner
+label: Order
+description: 'Banners are ordered by weight. Lower weighted banners appear first. Banners of equal weight are ordered randomly.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings: {  }
+field_type: list_integer
