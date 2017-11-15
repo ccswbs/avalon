@@ -6,10 +6,14 @@ dependencies:
     - field.field.node.news.body
     - field.field.node.news.field_news_attachment
     - field.field.node.news.field_news_author
+    - field.field.node.news.field_news_body
+    - field.field.node.news.field_news_caption
     - field.field.node.news.field_news_category
     - field.field.node.news.field_news_image
     - field.field.node.news.field_news_image_caption
     - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_tags
+    - field.field.node.news.field_news_writer
     - field.field.node.news.field_tags
     - image.style.thumbnail
     - node.type.news
@@ -40,11 +44,11 @@ content:
     settings: {  }
     third_party_settings: {  }
   field_news_attachment:
-    weight: 28
+    weight: 6
+    type: file_generic
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
-    type: file_generic
     region: content
   field_news_author:
     weight: 7
@@ -54,6 +58,23 @@ content:
     third_party_settings: {  }
     type: string_textfield
     region: content
+  field_news_body:
+    weight: 5
+    type: text_textarea_with_summary
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_news_caption:
+    weight: 4
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
   field_news_category:
     weight: 8
     settings: {  }
@@ -61,12 +82,12 @@ content:
     type: options_select
     region: content
   field_news_image:
-    weight: 26
+    weight: 3
+    type: image_image
     settings:
       progress_indicator: throbber
       preview_image_style: thumbnail
     third_party_settings: {  }
-    type: image_image
     region: content
   field_news_image_caption:
     weight: 27
@@ -77,21 +98,35 @@ content:
     type: string_textarea
     region: content
   field_news_link:
-    weight: 30
+    weight: 9
+    type: link_default
     settings:
       placeholder_url: ''
       placeholder_title: ''
     third_party_settings: {  }
-    type: link_default
+    region: content
+  field_news_tags:
+    weight: 1
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_news_writer:
+    weight: 2
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
     region: content
   field_tags:
-    weight: 29
+    weight: 7
+    type: entity_reference_autocomplete
     settings:
       match_operator: CONTAINS
       size: 60
       placeholder: ''
     third_party_settings: {  }
-    type: entity_reference_autocomplete_tags
     region: content
   path:
     type: path

@@ -1,0 +1,85 @@
+uuid: 1b3599c8-dcc9-45eb-92cc-085ba9e829d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.course_outline.field_course_acad_level
+    - field.field.node.course_outline.field_course_attachments
+    - field.field.node.course_outline.field_course_body
+    - field.field.node.course_outline.field_course_category
+    - field.field.node.course_outline.field_course_code
+    - field.field.node.course_outline.field_course_department
+    - field.field.node.course_outline.field_course_instructor
+    - field.field.node.course_outline.field_course_instructor_url
+    - field.field.node.course_outline.field_course_level
+    - field.field.node.course_outline.field_course_name
+    - field.field.node.course_outline.field_course_section
+    - field.field.node.course_outline.field_course_subject
+    - field.field.node.course_outline.field_course_term
+    - field.field.node.course_outline.field_course_website
+    - field.field.node.course_outline.field_tags
+    - node.type.course_outline
+  module:
+    - link
+    - user
+id: node.course_outline.teaser
+targetEntityType: node
+bundle: course_outline
+mode: teaser
+content:
+  field_course_code:
+    label: inline
+    weight: 0
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_course_instructor:
+    label: inline
+    weight: 3
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_course_instructor_url:
+    label: above
+    weight: 4
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  field_course_website:
+    label: above
+    weight: 5
+    type: link
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_course_acad_level: true
+  field_course_attachments: true
+  field_course_body: true
+  field_course_category: true
+  field_course_department: true
+  field_course_level: true
+  field_course_name: true
+  field_course_section: true
+  field_course_subject: true
+  field_course_term: true
+  field_tags: true

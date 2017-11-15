@@ -1,0 +1,11 @@
+uuid: 6e2232c7-4ff7-4299-a7ee-52f7477748aa
+langcode: en
+status: true
+dependencies: {  }
+name: Event
+type: event
+description: 'Use <em>events</em> for calendar appointments.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

@@ -1,0 +1,30 @@
+uuid: 23154eae-9994-49ea-a585-b3e1d453f69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.event_heading.field_glyphicon
+    - taxonomy.vocabulary.event_heading
+  module:
+    - options
+    - text
+id: taxonomy_term.event_heading.default
+targetEntityType: taxonomy_term
+bundle: event_heading
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_glyphicon:
+    label: above
+    weight: 0
+    type: list_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

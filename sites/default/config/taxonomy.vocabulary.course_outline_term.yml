@@ -1,0 +1,9 @@
+uuid: d045c5e3-a903-4034-8cc5-24cb6bd95b29
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course outline term'
+vid: course_outline_term
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,42 @@
+uuid: 3fb39e5a-ae28-42ab-98c6-342bb9dfe900
+langcode: en
+status: true
+dependencies: {  }
+id: author
+label: author
+weight: 9
+is_admin: null
+permissions:
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'create banner content'
+  - 'create course_outline content'
+  - 'create event content'
+  - 'create faq content'
+  - 'create feature content'
+  - 'create field_service_private'
+  - 'create news content'
+  - 'create page content'
+  - 'create profile content'
+  - 'create service content'
+  - 'create social content'
+  - 'create webform content'
+  - 'edit own banner content'
+  - 'edit own course_outline content'
+  - 'edit own event content'
+  - 'edit own faq content'
+  - 'edit own feature content'
+  - 'edit own field_service_private'
+  - 'edit own news content'
+  - 'edit own page content'
+  - 'edit own profile content'
+  - 'edit own service content'
+  - 'edit own social content'
+  - 'edit own webform content'
+  - 'ug_permit node access'
+  - 'use text format filtered_html'
+  - 'view own field_service_private'
+  - 'view own unpublished content'
+  - 'view revisions'
+  - 'view the administration theme'

@@ -1,0 +1,20 @@
+uuid: 3fbd287c-7ab5-4330-9c0f-6c4cf23d3240
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_course_level
+field_name: field_course_level
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

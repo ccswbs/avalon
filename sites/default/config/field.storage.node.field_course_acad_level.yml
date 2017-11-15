@@ -1,0 +1,20 @@
+uuid: 24d58d09-a8e6-469f-816d-56d02550c026
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_course_acad_level
+field_name: field_course_acad_level
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

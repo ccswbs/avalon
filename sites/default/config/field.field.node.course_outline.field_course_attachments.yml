@@ -1,0 +1,27 @@
+uuid: 34bc53b6-e10c-4ff5-a1ae-b192e6a7c67a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_attachments
+    - node.type.course_outline
+  module:
+    - file
+id: node.course_outline.field_course_attachments
+field_name: field_course_attachments
+entity_type: node
+bundle: course_outline
+label: Attachments
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  description_field: true
+  file_directory: ''
+  file_extensions: 'txt pdf doc docx rtf png gif jpg jpeg zip xls xlsx ppt pptx csv dmg'
+  max_filesize: ''
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

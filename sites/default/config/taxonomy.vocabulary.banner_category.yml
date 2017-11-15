@@ -1,0 +1,9 @@
+uuid: ff413812-b936-4990-87e7-2d13fbc0d96d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Banner category'
+vid: banner_category
+description: 'Categories related to banners'
+hierarchy: 0
+weight: 0

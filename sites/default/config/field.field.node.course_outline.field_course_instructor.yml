@@ -1,0 +1,19 @@
+uuid: c93b16f8-0c38-4057-938d-a366d92f056f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_instructor
+    - node.type.course_outline
+id: node.course_outline.field_course_instructor
+field_name: field_course_instructor
+entity_type: node
+bundle: course_outline
+label: 'Course instructor'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

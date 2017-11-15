@@ -1,0 +1,19 @@
+uuid: 19aa26ff-6db0-4301-8fc6-e6a787ac3b02
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner_alttext
+    - node.type.banner
+id: node.banner.field_banner_alttext
+field_name: field_banner_alttext
+entity_type: node
+bundle: banner
+label: 'Alt text'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

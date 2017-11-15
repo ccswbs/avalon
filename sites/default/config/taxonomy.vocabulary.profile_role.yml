@@ -1,0 +1,9 @@
+uuid: bb111ad4-bb99-4a43-bbfb-0b3e1bf6553a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile role'
+vid: profile_role
+description: ''
+hierarchy: 0
+weight: 0

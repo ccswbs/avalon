@@ -1,0 +1,18 @@
+uuid: a1bd9e8b-469b-4921-aa20-f393c2560871
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_profile_align_names
+field_name: field_profile_align_names
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

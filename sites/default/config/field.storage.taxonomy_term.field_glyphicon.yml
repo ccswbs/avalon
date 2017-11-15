@@ -1,0 +1,621 @@
+uuid: 9028abfb-fc80-4985-9cff-b8417b0fa5c4
+langcode: und
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_glyphicon
+field_name: field_glyphicon
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: asterisk
+      label: asterisk
+    -
+      value: plus
+      label: plus
+    -
+      value: euro
+      label: euro
+    -
+      value: minus
+      label: minus
+    -
+      value: cloud
+      label: cloud
+    -
+      value: envelope
+      label: envelope
+    -
+      value: pencil
+      label: pencil
+    -
+      value: glass
+      label: glass
+    -
+      value: music
+      label: music
+    -
+      value: search
+      label: search
+    -
+      value: heart
+      label: heart
+    -
+      value: star
+      label: star
+    -
+      value: star-empty
+      label: star-empty
+    -
+      value: user
+      label: user
+    -
+      value: film
+      label: film
+    -
+      value: th-large
+      label: th-large
+    -
+      value: th
+      label: th
+    -
+      value: th-list
+      label: th-list
+    -
+      value: ok
+      label: ok
+    -
+      value: remove
+      label: remove
+    -
+      value: zoom-in
+      label: zoom-in
+    -
+      value: zoom-out
+      label: zoom-out
+    -
+      value: 'off'
+      label: 'off'
+    -
+      value: signal
+      label: signal
+    -
+      value: cog
+      label: cog
+    -
+      value: trash
+      label: trash
+    -
+      value: home
+      label: home
+    -
+      value: file
+      label: file
+    -
+      value: time
+      label: time
+    -
+      value: road
+      label: road
+    -
+      value: download-alt
+      label: download-alt
+    -
+      value: download
+      label: download
+    -
+      value: upload
+      label: upload
+    -
+      value: inbox
+      label: inbox
+    -
+      value: play-circle
+      label: play-circle
+    -
+      value: repeat
+      label: repeat
+    -
+      value: refresh
+      label: refresh
+    -
+      value: list-alt
+      label: list-alt
+    -
+      value: lock
+      label: lock
+    -
+      value: flag
+      label: flag
+    -
+      value: headphones
+      label: headphones
+    -
+      value: volume-off
+      label: volume-off
+    -
+      value: volume-down
+      label: volume-down
+    -
+      value: volume-up
+      label: volume-up
+    -
+      value: qrcode
+      label: qrcode
+    -
+      value: barcode
+      label: barcode
+    -
+      value: tag
+      label: tag
+    -
+      value: tags
+      label: tags
+    -
+      value: book
+      label: book
+    -
+      value: bookmark
+      label: bookmark
+    -
+      value: print
+      label: print
+    -
+      value: camera
+      label: camera
+    -
+      value: font
+      label: font
+    -
+      value: bold
+      label: bold
+    -
+      value: italic
+      label: italic
+    -
+      value: text-height
+      label: text-height
+    -
+      value: text-width
+      label: text-width
+    -
+      value: align-left
+      label: align-left
+    -
+      value: align-center
+      label: align-center
+    -
+      value: align-right
+      label: align-right
+    -
+      value: align-justify
+      label: align-justify
+    -
+      value: list
+      label: list
+    -
+      value: indent-left
+      label: indent-left
+    -
+      value: indent-right
+      label: indent-right
+    -
+      value: facetime-video
+      label: facetime-video
+    -
+      value: picture
+      label: picture
+    -
+      value: map-marker
+      label: map-marker
+    -
+      value: adjust
+      label: adjust
+    -
+      value: tint
+      label: tint
+    -
+      value: edit
+      label: edit
+    -
+      value: share
+      label: share
+    -
+      value: check
+      label: check
+    -
+      value: move
+      label: move
+    -
+      value: step-backward
+      label: step-backward
+    -
+      value: fast-backward
+      label: fast-backward
+    -
+      value: backward
+      label: backward
+    -
+      value: play
+      label: play
+    -
+      value: pause
+      label: pause
+    -
+      value: stop
+      label: stop
+    -
+      value: forward
+      label: forward
+    -
+      value: fast-forward
+      label: fast-forward
+    -
+      value: step-forward
+      label: step-forward
+    -
+      value: eject
+      label: eject
+    -
+      value: chevron-left
+      label: chevron-left
+    -
+      value: chevron-right
+      label: chevron-right
+    -
+      value: plus-sign
+      label: plus-sign
+    -
+      value: minus-sign
+      label: minus-sign
+    -
+      value: remove-sign
+      label: remove-sign
+    -
+      value: ok-sign
+      label: ok-sign
+    -
+      value: question-sign
+      label: question-sign
+    -
+      value: info-sign
+      label: info-sign
+    -
+      value: screenshot
+      label: screenshot
+    -
+      value: remove-circle
+      label: remove-circle
+    -
+      value: ok-circle
+      label: ok-circle
+    -
+      value: ban-circle
+      label: ban-circle
+    -
+      value: arrow-left
+      label: arrow-left
+    -
+      value: arrow-right
+      label: arrow-right
+    -
+      value: arrow-up
+      label: arrow-up
+    -
+      value: arrow-down
+      label: arrow-down
+    -
+      value: share-alt
+      label: share-alt
+    -
+      value: resize-full
+      label: resize-full
+    -
+      value: resize-small
+      label: resize-small
+    -
+      value: exclamation-sign
+      label: exclamation-sign
+    -
+      value: gift
+      label: gift
+    -
+      value: leaf
+      label: leaf
+    -
+      value: fire
+      label: fire
+    -
+      value: eye-open
+      label: eye-open
+    -
+      value: eye-close
+      label: eye-close
+    -
+      value: warning-sign
+      label: warning-sign
+    -
+      value: plane
+      label: plane
+    -
+      value: calendar
+      label: calendar
+    -
+      value: random
+      label: random
+    -
+      value: comment
+      label: comment
+    -
+      value: magnet
+      label: magnet
+    -
+      value: chevron-up
+      label: chevron-up
+    -
+      value: chevron-down
+      label: chevron-down
+    -
+      value: retweet
+      label: retweet
+    -
+      value: shopping-cart
+      label: shopping-cart
+    -
+      value: folder-close
+      label: folder-close
+    -
+      value: folder-open
+      label: folder-open
+    -
+      value: resize-vertical
+      label: resize-vertical
+    -
+      value: resize-horizontal
+      label: resize-horizontal
+    -
+      value: hdd
+      label: hdd
+    -
+      value: bullhorn
+      label: bullhorn
+    -
+      value: bell
+      label: bell
+    -
+      value: certificate
+      label: certificate
+    -
+      value: thumbs-up
+      label: thumbs-up
+    -
+      value: thumbs-down
+      label: thumbs-down
+    -
+      value: hand-right
+      label: hand-right
+    -
+      value: hand-left
+      label: hand-left
+    -
+      value: hand-up
+      label: hand-up
+    -
+      value: hand-down
+      label: hand-down
+    -
+      value: circle-arrow-right
+      label: circle-arrow-right
+    -
+      value: circle-arrow-left
+      label: circle-arrow-left
+    -
+      value: circle-arrow-up
+      label: circle-arrow-up
+    -
+      value: circle-arrow-down
+      label: circle-arrow-down
+    -
+      value: globe
+      label: globe
+    -
+      value: wrench
+      label: wrench
+    -
+      value: tasks
+      label: tasks
+    -
+      value: filter
+      label: filter
+    -
+      value: briefcase
+      label: briefcase
+    -
+      value: fullscreen
+      label: fullscreen
+    -
+      value: dashboard
+      label: dashboard
+    -
+      value: paperclip
+      label: paperclip
+    -
+      value: heart-empty
+      label: heart-empty
+    -
+      value: link
+      label: link
+    -
+      value: phone
+      label: phone
+    -
+      value: pushpin
+      label: pushpin
+    -
+      value: usd
+      label: usd
+    -
+      value: gbp
+      label: gbp
+    -
+      value: sort
+      label: sort
+    -
+      value: sort-by-alphabet
+      label: sort-by-alphabet
+    -
+      value: sort-by-alphabet-alt
+      label: sort-by-alphabet-alt
+    -
+      value: sort-by-order
+      label: sort-by-order
+    -
+      value: sort-by-order-alt
+      label: sort-by-order-alt
+    -
+      value: sort-by-attributes
+      label: sort-by-attributes
+    -
+      value: sort-by-attributes-alt
+      label: sort-by-attributes-alt
+    -
+      value: unchecked
+      label: unchecked
+    -
+      value: expand
+      label: expand
+    -
+      value: collapse-down
+      label: collapse-down
+    -
+      value: collapse-up
+      label: collapse-up
+    -
+      value: log-in
+      label: log-in
+    -
+      value: flash
+      label: flash
+    -
+      value: log-out
+      label: log-out
+    -
+      value: new-window
+      label: new-window
+    -
+      value: record
+      label: record
+    -
+      value: save
+      label: save
+    -
+      value: open
+      label: open
+    -
+      value: saved
+      label: saved
+    -
+      value: import
+      label: import
+    -
+      value: export
+      label: export
+    -
+      value: send
+      label: send
+    -
+      value: floppy-disk
+      label: floppy-disk
+    -
+      value: floppy-saved
+      label: floppy-saved
+    -
+      value: floppy-remove
+      label: floppy-remove
+    -
+      value: floppy-save
+      label: floppy-save
+    -
+      value: floppy-open
+      label: floppy-open
+    -
+      value: credit-card
+      label: credit-card
+    -
+      value: transfer
+      label: transfer
+    -
+      value: cutlery
+      label: cutlery
+    -
+      value: header
+      label: header
+    -
+      value: compressed
+      label: compressed
+    -
+      value: earphone
+      label: earphone
+    -
+      value: phone-alt
+      label: phone-alt
+    -
+      value: tower
+      label: tower
+    -
+      value: stats
+      label: stats
+    -
+      value: sd-video
+      label: sd-video
+    -
+      value: hd-video
+      label: hd-video
+    -
+      value: subtitles
+      label: subtitles
+    -
+      value: sound-stereo
+      label: sound-stereo
+    -
+      value: sound-dolby
+      label: sound-dolby
+    -
+      value: sound-5-1
+      label: sound-5-1
+    -
+      value: sound-6-1
+      label: sound-6-1
+    -
+      value: sound-7-1
+      label: sound-7-1
+    -
+      value: copyright-mark
+      label: copyright-mark
+    -
+      value: registration-mark
+      label: registration-mark
+    -
+      value: cloud-download
+      label: cloud-download
+    -
+      value: cloud-upload
+      label: cloud-upload
+    -
+      value: tree-conifer
+      label: tree-conifer
+    -
+      value: tree-deciduous
+      label: tree-deciduous
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

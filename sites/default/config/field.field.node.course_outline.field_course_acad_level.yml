@@ -1,0 +1,21 @@
+uuid: f9df6ad0-52d6-4076-8670-64ba0ebcea32
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_acad_level
+    - node.type.course_outline
+id: node.course_outline.field_course_acad_level
+field_name: field_course_acad_level
+entity_type: node
+bundle: course_outline
+label: 'Academic level'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

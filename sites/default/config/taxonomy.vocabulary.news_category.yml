@@ -4,6 +4,6 @@ status: true
 dependencies: {  }
 name: 'News category'
 vid: news_category
-description: 'Use terms to group news articles on similar topics into categories. Terms defined by site admin.'
+description: ''
 hierarchy: 0
 weight: 0

@@ -1,0 +1,21 @@
+uuid: be7f2cf5-4d6e-4eee-a2f9-d0d48b32d53e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_audience
+    - node.type.service
+id: node.service.field_service_audience
+field_name: field_service_audience
+entity_type: node
+bundle: service
+label: 'Service audience'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

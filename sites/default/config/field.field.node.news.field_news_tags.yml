@@ -1,0 +1,21 @@
+uuid: 58867e5b-6a46-46f8-b1bd-70bfeff87f5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_tags
+    - node.type.news
+id: node.news.field_news_tags
+field_name: field_news_tags
+entity_type: node
+bundle: news
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

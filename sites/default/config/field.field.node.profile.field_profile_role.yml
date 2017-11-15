@@ -1,0 +1,21 @@
+uuid: 178e25af-c9ec-493b-a5eb-75776739d5e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_role
+    - node.type.profile
+id: node.profile.field_profile_role
+field_name: field_profile_role
+entity_type: node
+bundle: profile
+label: Role
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

@@ -5,6 +5,10 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
+    - field.field.node.page.field_page_attachments
+    - field.field.node.page.field_page_body
+    - field.field.node.page.field_page_category
+    - field.field.node.page.field_tags
     - node.type.page
   module:
     - text
@@ -24,6 +28,14 @@ content:
     settings:
       trim_length: 600
     third_party_settings: {  }
+  field_page_body:
+    label: hidden
+    weight: 0
+    type: text_summary_or_trimmed
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
   links:
     weight: 101
     region: content

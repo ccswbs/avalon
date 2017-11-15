@@ -1,0 +1,71 @@
+uuid: 4aab0d91-5178-400a-b8a1-b18e77859350
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.profile.field_profile_address
+    - field.field.node.profile.field_profile_align_names
+    - field.field.node.profile.field_profile_attachments
+    - field.field.node.profile.field_profile_caption
+    - field.field.node.profile.field_profile_category
+    - field.field.node.profile.field_profile_email
+    - field.field.node.profile.field_profile_faxnumber
+    - field.field.node.profile.field_profile_image
+    - field.field.node.profile.field_profile_lab
+    - field.field.node.profile.field_profile_lastname
+    - field.field.node.profile.field_profile_name
+    - field.field.node.profile.field_profile_office
+    - field.field.node.profile.field_profile_research
+    - field.field.node.profile.field_profile_role
+    - field.field.node.profile.field_profile_subunit
+    - field.field.node.profile.field_profile_summary
+    - field.field.node.profile.field_profile_teaser
+    - field.field.node.profile.field_profile_telephonenumber
+    - field.field.node.profile.field_profile_title
+    - field.field.node.profile.field_profile_unit
+    - field.field.node.profile.field_profile_website
+    - field.field.node.profile.field_tags
+    - node.type.profile
+  module:
+    - image
+    - user
+id: node.profile.teaser
+targetEntityType: node
+bundle: profile
+mode: teaser
+content:
+  field_profile_image:
+    label: hidden
+    weight: 0
+    type: image
+    settings:
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_profile_address: true
+  field_profile_align_names: true
+  field_profile_attachments: true
+  field_profile_caption: true
+  field_profile_category: true
+  field_profile_email: true
+  field_profile_faxnumber: true
+  field_profile_lab: true
+  field_profile_lastname: true
+  field_profile_name: true
+  field_profile_office: true
+  field_profile_research: true
+  field_profile_role: true
+  field_profile_subunit: true
+  field_profile_summary: true
+  field_profile_teaser: true
+  field_profile_telephonenumber: true
+  field_profile_title: true
+  field_profile_unit: true
+  field_profile_website: true
+  field_tags: true

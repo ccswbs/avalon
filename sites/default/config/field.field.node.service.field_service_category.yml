@@ -1,0 +1,21 @@
+uuid: c3344be4-be0d-47e0-8070-cbbc5c03e9fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_category
+    - node.type.service
+id: node.service.field_service_category
+field_name: field_service_category
+entity_type: node
+bundle: service
+label: 'Service category'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

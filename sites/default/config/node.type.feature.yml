@@ -1,0 +1,11 @@
+uuid: 1eb6f6fd-9100-48e0-ac07-73fc5d57ec8c
+langcode: en
+status: true
+dependencies: {  }
+name: Feature
+type: feature
+description: 'The Featured Item allows content editors to create a lead-in to any page content on the website.'
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: true

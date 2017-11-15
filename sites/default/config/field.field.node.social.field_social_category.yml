@@ -1,0 +1,21 @@
+uuid: d620a158-bf1b-4596-b717-94394b4db410
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_social_category
+    - node.type.social
+id: node.social.field_social_category
+field_name: field_social_category
+entity_type: node
+bundle: social
+label: 'Account category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

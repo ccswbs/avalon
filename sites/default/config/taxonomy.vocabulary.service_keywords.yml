@@ -1,0 +1,9 @@
+uuid: e70248d0-9888-4e20-aa53-90a0cb4452fc
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service keywords'
+vid: service_keywords
+description: ''
+hierarchy: 0
+weight: 0

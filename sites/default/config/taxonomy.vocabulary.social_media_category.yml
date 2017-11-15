@@ -1,0 +1,9 @@
+uuid: 07950112-6b91-4cd9-aa74-d436ea10d22f
+langcode: en
+status: true
+dependencies: {  }
+name: 'Social media category'
+vid: social_media_category
+description: 'Group social media accounts by category'
+hierarchy: 0
+weight: 0

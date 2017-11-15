@@ -1,0 +1,21 @@
+uuid: 588189ad-d3f5-4cdb-8f54-d71c54501143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.course_outline
+id: node.course_outline.field_tags
+field_name: field_tags
+entity_type: node
+bundle: course_outline
+label: Keywords
+description: 'Enter a comma separated list of keywords.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

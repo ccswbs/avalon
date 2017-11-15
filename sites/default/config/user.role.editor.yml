@@ -1,0 +1,36 @@
+uuid: 65ffccef-e3f1-4971-8950-064e47382c88
+langcode: en
+status: true
+dependencies: {  }
+id: editor
+label: editor
+weight: 10
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access content'
+  - 'access content overview'
+  - 'access toolbar'
+  - 'administer nodes'
+  - 'administer redirects'
+  - 'bypass node access'
+  - 'create url aliases'
+  - 'edit any banner content'
+  - 'edit any course_outline content'
+  - 'edit any event content'
+  - 'edit any faq content'
+  - 'edit any feature content'
+  - 'edit any news content'
+  - 'edit any page content'
+  - 'edit any profile content'
+  - 'edit any service content'
+  - 'edit any social content'
+  - 'edit any webform content'
+  - 'edit field_service_private'
+  - 'revert revisions'
+  - 'ug_permit node access'
+  - 'use text format filtered_html'
+  - 'view field_service_private'
+  - 'view own unpublished content'
+  - 'view revisions'
+  - 'view the administration theme'

@@ -1,0 +1,19 @@
+uuid: 83c3eac2-bb4b-4ac3-9ea4-69bace90b2df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_banner_headline
+    - node.type.banner
+id: node.banner.field_banner_headline
+field_name: field_banner_headline
+entity_type: node
+bundle: banner
+label: Headline
+description: "Enter a headline to display with your banner.<br>\r\nHeadlines must be <strong>60</strong> characters or less."
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

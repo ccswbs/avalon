@@ -1,0 +1,21 @@
+uuid: 5203f8fe-5b51-4a1c-b094-83011a671ddb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_service_keywords
+    - node.type.service
+id: node.service.field_service_keywords
+field_name: field_service_keywords
+entity_type: node
+bundle: service
+label: Keywords
+description: 'Enter a comma separated list of keywords.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

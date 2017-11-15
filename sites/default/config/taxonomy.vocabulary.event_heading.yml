@@ -1,0 +1,9 @@
+uuid: cedf53d3-4594-4045-898a-7f438f5fe114
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event heading'
+vid: event_heading
+description: ''
+hierarchy: 0
+weight: 0

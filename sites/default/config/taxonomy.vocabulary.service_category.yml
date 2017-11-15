@@ -1,0 +1,9 @@
+uuid: fc2a6af8-4223-4b91-a4e4-d8f52f7a6ade
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service category'
+vid: service_category
+description: ''
+hierarchy: 0
+weight: 0

@@ -1,0 +1,22 @@
+uuid: 4e330a37-f846-47ba-9d76-9cf90e374ca4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_body
+    - node.type.course_outline
+  module:
+    - text
+id: node.course_outline.field_course_body
+field_name: field_course_body
+entity_type: node
+bundle: course_outline
+label: Details
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

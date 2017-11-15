@@ -1,0 +1,30 @@
+uuid: fdd8127b-533b-45aa-b586-87b909b1b956
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.faq.field_faq_answer
+    - field.field.node.faq.field_faq_category
+    - field.field.node.faq.field_tags
+    - node.type.faq
+  module:
+    - text
+    - user
+id: node.faq.default
+targetEntityType: node
+bundle: faq
+mode: default
+content:
+  field_faq_answer:
+    label: hidden
+    weight: 0
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_faq_category: true
+  field_tags: true

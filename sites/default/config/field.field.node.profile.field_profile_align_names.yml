@@ -1,0 +1,23 @@
+uuid: 8c596519-0844-4e2e-8fa0-5676e3db9be5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_align_names
+    - node.type.profile
+id: node.profile.field_profile_align_names
+field_name: field_profile_align_names
+entity_type: node
+bundle: profile
+label: 'Align names'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

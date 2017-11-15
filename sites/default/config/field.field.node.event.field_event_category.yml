@@ -1,0 +1,21 @@
+uuid: 37fde7c6-8895-44d8-804e-07d50c05fd4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_category
+    - node.type.event
+id: node.event.field_event_category
+field_name: field_event_category
+entity_type: node
+bundle: event
+label: Category
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

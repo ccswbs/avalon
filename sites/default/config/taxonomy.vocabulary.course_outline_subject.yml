@@ -1,0 +1,9 @@
+uuid: fe3b9781-ad35-47d1-9e09-41e66e18b1a9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course outline subject'
+vid: course_outline_subject
+description: ''
+hierarchy: 0
+weight: 0

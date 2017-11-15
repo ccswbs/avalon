@@ -1,0 +1,21 @@
+uuid: 883a30a3-4c03-4d96-9744-ae75095363b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tags
+    - node.type.banner
+id: node.banner.field_tags
+field_name: field_tags
+entity_type: node
+bundle: banner
+label: Keywords
+description: 'Enter a comma separated list of keywords.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

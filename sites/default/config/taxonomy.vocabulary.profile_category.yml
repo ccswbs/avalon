@@ -1,0 +1,9 @@
+uuid: 628260c7-b5ce-446c-ad55-64cf9b228fcd
+langcode: en
+status: true
+dependencies: {  }
+name: 'Profile category'
+vid: profile_category
+description: ''
+hierarchy: 0
+weight: 0

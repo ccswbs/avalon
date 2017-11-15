@@ -1,0 +1,21 @@
+uuid: f0379ece-27ab-4d51-95a4-c7ac75cd2d12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_department
+    - node.type.course_outline
+id: node.course_outline.field_course_department
+field_name: field_course_department
+entity_type: node
+bundle: course_outline
+label: 'Academic department'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings: {  }
+field_type: entity_reference

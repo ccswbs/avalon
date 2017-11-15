@@ -1,0 +1,9 @@
+uuid: 67c21dbc-fdea-46d8-b249-baa74adfe9db
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course outline academic department'
+vid: course_outline_academic_departme
+description: ''
+hierarchy: 0
+weight: 0
