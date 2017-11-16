@@ -53,12 +53,18 @@
           "Drupal\\Core\\Composer\\Composer::ensureHtaccess"
         ],
         "post-package-install": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
-        "post-package-update": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup"
+        "post-package-update": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
+        "test": "behat --config=private/test/behat/config.yml"
     },
     "repositories": [
         {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
-    ]
+    ],
+    "require-dev": {
+        "behat/behat": "^3.4",
+        "behat/mink-extension": "^2.2",
+        "behat/mink-goutte-driver": "^1.2"
+    }
 }
