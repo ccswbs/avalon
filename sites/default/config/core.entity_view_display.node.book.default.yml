@@ -1,0 +1,39 @@
+uuid: f89372de-52dc-4f42-88f9-78b1bbc83a5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.book.body
+    - field.field.node.book.field_book_attachments
+    - field.field.node.book.field_book_category
+    - field.field.node.book.field_tags
+    - node.type.book
+  module:
+    - file
+    - text
+    - user
+id: node.book.default
+targetEntityType: node
+bundle: book
+mode: default
+content:
+  body:
+    label: hidden
+    weight: 0
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_book_attachments:
+    label: above
+    weight: 1
+    type: file_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_book_category: true
+  field_tags: true

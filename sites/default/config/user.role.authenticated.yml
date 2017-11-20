@@ -13,4 +13,5 @@ permissions:
   - 'access content'
   - 'access news feeds'
   - 'access print'
+  - 'access printer-friendly version'
   - 'search content'

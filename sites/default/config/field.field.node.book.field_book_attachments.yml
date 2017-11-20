@@ -1,0 +1,27 @@
+uuid: ae8b1b49-f2d0-4201-ab42-9521d386ab07
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_book_attachments
+    - node.type.book
+  module:
+    - file
+id: node.book.field_book_attachments
+field_name: field_book_attachments
+entity_type: node
+bundle: book
+label: 'File attachments'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  description_field: true
+  file_directory: ''
+  file_extensions: 'txt pdf doc docx rtf png gif jpg jpeg zip xls xlsx ppt pptx csv'
+  max_filesize: ''
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

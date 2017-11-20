@@ -16,6 +16,7 @@ permissions:
   - 'bypass node access'
   - 'create url aliases'
   - 'edit any banner content'
+  - 'edit any book content'
   - 'edit any course_outline content'
   - 'edit any event content'
   - 'edit any faq content'
