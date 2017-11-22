@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites name="default">
+  <testsuite name="Book migration" tests="1" skipped="0" failures="1" errors="0">
+    <testcase name="Book page content" status="failed">
+      <failure message="Then I should see &quot;Quia Singularis Typicus&quot;: The text &quot;Quia Singularis Typicus&quot; was not found anywhere in the text of the current page. (Behat\Mink\Exception\ResponseTextException)"></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Breadcrumbs migration" tests="3" skipped="0" failures="2" errors="0">
+    <testcase name="Page 2 in menu has proper breadcrumb" status="passed"></testcase>
+    <testcase name="News in menu has proper breadcrumb" status="failed">
+      <failure message="And I should see &quot;U of G Eco-Friendly Flowerpots Blossom in the U.S., Canada&quot;: The text &quot;U of G Eco-Friendly Flowerpots Blossom in the U.S., Canada&quot; was not found anywhere in the text of the current page. (Behat\Mink\Exception\ResponseTextException)"></failure>
+    </testcase>
+    <testcase name="Event in menu has proper breadcrumb" status="failed">
+      <failure message="And the response should contain &quot;&lt;a href=\&quot;/evemts\&quot;&gt;Events&lt;/a&gt;&quot;: The string &quot;&lt;a href=&quot;/evemts&quot;&gt;Events&lt;/a&gt;&quot; was not found anywhere in the HTML response of the current page. (Behat\Mink\Exception\ExpectationException)"></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Date migration" tests="1" skipped="0" failures="1" errors="0">
+    <testcase name="Date" status="failed">
+      <failure message="Then I should see &quot;Monday&quot;: The text &quot;Monday&quot; was not found anywhere in the text of the current page. (Behat\Mink\Exception\ResponseTextException)"></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="FAQ migration" tests="2" skipped="0" failures="0" errors="0">
+    <testcase name="Basic FAQ sample content" status="passed"></testcase>
+    <testcase name="FAQ sample content with markup" status="passed"></testcase>
+  </testsuite>
+  <testsuite name="Field collection migration" tests="1" skipped="0" failures="1" errors="0">
+    <testcase name="Event heading" status="failed">
+      <failure message="Then I should see &quot;clathihuhacr&quot;: The text &quot;clathihuhacr&quot; was not found anywhere in the text of the current page. (Behat\Mink\Exception\ResponseTextException)"></failure>
+    </testcase>
+  </testsuite>
+  <testsuite name="Menu migration" tests="1" skipped="0" failures="0" errors="0">
+    <testcase name="Home page" status="passed"></testcase>
+  </testsuite>
+  <testsuite name="News migration" tests="1" skipped="0" failures="0" errors="0">
+    <testcase name="News article" status="passed"></testcase>
+  </testsuite>
+  <testsuite name="Node migration" tests="1" skipped="0" failures="0" errors="0">
+    <testcase name="Page 2" status="passed"></testcase>
+  </testsuite>
+</testsuites>
