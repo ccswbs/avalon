@@ -1,5 +1,5 @@
 name: University of Guelph
-type: module
+type: profile
 description: 'University of Guelph install profile'
 core: 8.x
 

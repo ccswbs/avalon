@@ -16,7 +16,7 @@ sleep 10 # give site a chance to wake up
 terminus connection:set $SITE.$ENV sftp </dev/null
 
 # Re-install target site
-terminus remote:drush $SITE.$ENV -- site-install -y minimal --config-dir=sites/default/config </dev/null
+terminus remote:drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/config </dev/null
 
 # Run migration
 terminus remote:drush $SITE.$ENV -- migrate-import --all </dev/null
