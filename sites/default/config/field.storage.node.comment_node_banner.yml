@@ -1,18 +1,17 @@
-uuid: eb1936a1-7d0f-48dc-ab64-6b3fee438eae
+uuid: f7d6bef1-7605-4057-9ef9-43f6ca593863
 langcode: en
 status: true
 dependencies:
   module:
+    - comment
     - node
-id: node.field_news_author
-field_name: field_news_author
+id: node.comment_node_banner
+field_name: comment_node_banner
 entity_type: node
-type: string
+type: comment
 settings:
-  max_length: 80
-  is_ascii: false
-  case_sensitive: false
-module: core
+  comment_type: comment_node_banner
+module: comment
 locked: false
 cardinality: 1
 translatable: true

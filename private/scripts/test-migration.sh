@@ -3,5 +3,5 @@
 # test-migration.sh - Test migration
 #
 
-composer test
+composer test -- $* || true
 
