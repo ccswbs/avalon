@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.course_outline.comment_node_course_outline
     - field.field.node.course_outline.field_course_acad_level
     - field.field.node.course_outline.field_course_attachments
     - field.field.node.course_outline.field_course_body
@@ -73,7 +72,6 @@ content:
     weight: 100
     region: content
 hidden:
-  comment_node_course_outline: true
   field_course_acad_level: true
   field_course_attachments: true
   field_course_body: true

@@ -26,11 +26,4 @@ content:
     third_party_settings: {  }
     label: hidden
 hidden:
-  ldap_user_current_dn: true
-  ldap_user_last_checked: true
-  ldap_user_ldap_exclude: true
-  ldap_user_prov_entries: true
-  ldap_user_puid: true
-  ldap_user_puid_property: true
-  ldap_user_puid_sid: true
   member_for: true

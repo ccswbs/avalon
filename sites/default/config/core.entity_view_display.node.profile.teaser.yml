@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.profile.comment_node_profile
     - field.field.node.profile.field_profile_address
     - field.field.node.profile.field_profile_align_names
     - field.field.node.profile.field_profile_attachments
@@ -49,7 +48,6 @@ content:
     weight: 100
     region: content
 hidden:
-  comment_node_profile: true
   field_profile_address: true
   field_profile_align_names: true
   field_profile_attachments: true

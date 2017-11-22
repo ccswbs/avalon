@@ -1,4 +1,4 @@
-uuid: 5c269a44-0908-4d8b-883a-3d7a972595ce
+uuid: 63ca4b9e-c41f-402b-9079-76ede0e05738
 langcode: en
 status: true
 dependencies: {  }
@@ -15,15 +15,14 @@ source:
 process:
   vid:
     -
+      plugin: machine_name
+      source: name
+    -
       plugin: make_unique_entity_field
-      source: machine_name
       entity_type: taxonomy_vocabulary
       field: vid
       length: 32
       migrated: true
-    -
-      plugin: forum_vocabulary
-      machine_name: forums
   label: name
   name: name
   description: description

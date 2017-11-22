@@ -1,9 +1,0 @@
-uuid: 03b8f8e7-49b6-4621-b150-024547b87b77
-langcode: en
-status: true
-dependencies: {  }
-name: 'Profile section labels'
-vid: profile_field_headings
-description: ''
-hierarchy: 0
-weight: 0

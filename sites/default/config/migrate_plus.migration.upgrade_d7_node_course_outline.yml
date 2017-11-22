@@ -1,4 +1,4 @@
-uuid: 6f16624b-e1a4-4498-a571-9ce3be85b6f9
+uuid: 6a952e6d-dace-460a-a276-36f46f789319
 langcode: en
 status: true
 dependencies: {  }
@@ -63,7 +63,7 @@ process:
     plugin: get
     source: field_course_instructor
   field_course_instructor_url:
-    plugin: field_link
+    plugin: d6_field_link
     source: field_course_instructor_url
   field_course_level:
     plugin: iterator
@@ -87,7 +87,7 @@ process:
     process:
       target_id: tid
   field_course_website:
-    plugin: field_link
+    plugin: d6_field_link
     source: field_course_website
   field_tags:
     plugin: iterator

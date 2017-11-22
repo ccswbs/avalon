@@ -1,8 +1,0 @@
-uuid: 845310cf-cc6b-4d9c-8b66-6aa34370330b
-langcode: en
-status: true
-dependencies: {  }
-id: comment_node_feature
-label: 'Feature comment'
-target_entity_type_id: node
-description: null
