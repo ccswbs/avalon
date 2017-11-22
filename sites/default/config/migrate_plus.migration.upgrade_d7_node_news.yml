@@ -1,4 +1,4 @@
-uuid: 6166c145-37bc-490a-affb-fd9a9a53c59d
+uuid: 500d4606-a3b5-4829-9d26-fb2c588268a8
 langcode: en
 status: true
 dependencies: {  }
@@ -54,7 +54,7 @@ process:
       width: width
       height: height
   field_news_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_news_link
   field_news_tags:
     plugin: iterator

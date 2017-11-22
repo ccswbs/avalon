@@ -1,0 +1,14 @@
+uuid: 71671618-5501-4eff-9948-a9c9328e300e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Filtered HTML'
+format: filtered_html
+weight: -10
+filters:
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
