@@ -1,4 +1,4 @@
-uuid: 8c3658b3-6dcb-4cb4-a25a-2df2a506490f
+uuid: 95bb8b3f-ab79-4477-9912-5f33c4aca6d3
 langcode: en
 status: true
 dependencies: {  }
@@ -68,7 +68,7 @@ process:
     plugin: get
     source: field_event_image_caption
   field_event_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_event_link
   field_event_location:
     plugin: get
@@ -84,7 +84,8 @@ destination:
   default_bundle: event
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq

@@ -1,4 +1,4 @@
-uuid: 8127e1ab-e326-4d8a-8afa-d61987a9e332
+uuid: 9bdc7b61-2090-42c1-9b34-888e0121cf12
 langcode: en
 status: true
 dependencies: {  }
@@ -52,7 +52,7 @@ process:
       width: width
       height: height
   field_banner_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_banner_link
   field_banner_text:
     plugin: get

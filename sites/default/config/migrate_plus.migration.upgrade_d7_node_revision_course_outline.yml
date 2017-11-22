@@ -1,4 +1,4 @@
-uuid: e2c5d280-e469-46b9-8080-cb7e65684192
+uuid: 731c3c75-0587-4008-bd75-e0e9aec236bc
 langcode: en
 status: true
 dependencies: {  }
@@ -63,7 +63,7 @@ process:
     plugin: get
     source: field_course_instructor
   field_course_instructor_url:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_course_instructor_url
   field_course_level:
     plugin: iterator
@@ -87,7 +87,7 @@ process:
     process:
       target_id: tid
   field_course_website:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_course_website
   field_tags:
     plugin: iterator
@@ -99,7 +99,8 @@ destination:
   default_bundle: course_outline
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq

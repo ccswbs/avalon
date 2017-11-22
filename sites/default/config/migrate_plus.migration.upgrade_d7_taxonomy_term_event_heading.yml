@@ -1,4 +1,4 @@
-uuid: 65da77ab-d91d-4bba-b5e7-2a0402ee5ee3
+uuid: d86114fa-c136-47e0-8fd1-8760ee970745
 langcode: en
 status: true
 dependencies: {  }
@@ -35,6 +35,7 @@ process:
     plugin: default_value
     default_value: 0
     source: '@parent_id'
+  forum_container: is_container
   changed: timestamp
   field_glyphicon:
     plugin: get
