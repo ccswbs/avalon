@@ -1,4 +1,4 @@
-uuid: e22b9adf-0cfa-4314-991c-d6f48ba19881
+uuid: 7ed17cc0-7468-4279-9eeb-9adc2864d0e6
 langcode: en
 status: true
 dependencies: {  }
@@ -114,7 +114,7 @@ process:
     process:
       target_id: tid
   field_profile_website:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_profile_website
   field_tags:
     plugin: iterator

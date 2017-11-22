@@ -1,4 +1,4 @@
-uuid: 8fbd89cc-56f0-46ce-bd4c-5943de3ee8a5
+uuid: cec71045-76d1-4b8f-be0f-ba05977d178a
 langcode: en
 status: true
 dependencies: {  }
@@ -36,7 +36,8 @@ destination:
   default_bundle: webform
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq
