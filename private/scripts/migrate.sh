@@ -12,7 +12,7 @@ sleep 10 # give site a chance to wake up
 terminus connection:set ug-avalon.dev sftp
 
 # Re-install target site
-terminus remote:drush ug-avalon.dev -- site-install minimal --config-dir=sites/default/config
+terminus remote:drush ug-avalon.dev -- site-install -y minimal --config-dir=sites/default/config
 
 # Run migration
 terminus remote:drush ug-avalon.dev -- migrate-import --all </dev/null
