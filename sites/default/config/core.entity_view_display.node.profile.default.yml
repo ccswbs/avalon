@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment_node_profile.default
+    - field.field.node.profile.comment_node_profile
     - field.field.node.profile.field_profile_address
     - field.field.node.profile.field_profile_align_names
     - field.field.node.profile.field_profile_attachments
@@ -27,6 +29,7 @@ dependencies:
     - field.field.node.profile.field_tags
     - node.type.profile
   module:
+    - comment
     - link
     - text
     - user
@@ -35,6 +38,15 @@ targetEntityType: node
 bundle: profile
 mode: default
 content:
+  comment_node_profile:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
   field_profile_email:
     label: inline
     weight: 6

@@ -1,0 +1,17 @@
+uuid: f7cf00f9-8eb7-4e0c-8d1a-3889685585d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node_search
+label: null
+path: node
+weight: 0
+plugin: node_search
+configuration:
+  rankings:
+    promote: 0
+    recent: 1
+    relevance: 2
+    sticky: 0

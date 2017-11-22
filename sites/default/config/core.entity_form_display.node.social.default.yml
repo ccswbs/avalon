@@ -3,12 +3,14 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.social.comment_node_social
     - field.field.node.social.field_social_category
     - field.field.node.social.field_social_link
     - field.field.node.social.field_social_network
     - field.field.node.social.field_tags
     - node.type.social
   module:
+    - comment
     - link
     - path
 id: node.social.default
@@ -16,6 +18,12 @@ targetEntityType: node
 bundle: social
 mode: default
 content:
+  comment_node_social:
+    type: comment_default
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10
