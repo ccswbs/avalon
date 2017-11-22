@@ -10,3 +10,14 @@ default:
       base_url: http://dev-ug-avalon.pantheonsite.io/
       goutte: ~
 
+brharp:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+  extensions:
+    Behat\MinkExtension:
+      # Supplied by env variable.
+      base_url: http://brharp-ug-avalon.pantheonsite.io/
+      goutte: ~
+

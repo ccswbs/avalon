@@ -1,4 +1,4 @@
-uuid: 5d11f860-f77b-479c-8992-dfad199aebde
+uuid: 40926131-918e-4b3f-8cf0-edb992137598
 langcode: en
 status: true
 dependencies: {  }
@@ -68,7 +68,7 @@ process:
     plugin: get
     source: field_event_image_caption
   field_event_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_event_link
   field_event_location:
     plugin: get

@@ -1,4 +1,4 @@
-uuid: 86192d39-6a77-4386-b36e-9c4ad42e9726
+uuid: b996402d-dcb6-414b-8756-0f7abf1ed654
 langcode: en
 status: true
 dependencies: {  }
@@ -46,7 +46,7 @@ process:
       width: width
       height: height
   field_feature_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_feature_link
   field_feature_text:
     plugin: get

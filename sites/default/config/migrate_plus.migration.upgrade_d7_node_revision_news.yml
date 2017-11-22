@@ -1,4 +1,4 @@
-uuid: 37164684-32dc-480c-a0d9-45a6f56efd7c
+uuid: d982447e-f35d-4787-b188-406d43bf50cf
 langcode: en
 status: true
 dependencies: {  }
@@ -54,7 +54,7 @@ process:
       width: width
       height: height
   field_news_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_news_link
   field_news_tags:
     plugin: iterator
@@ -74,7 +74,8 @@ destination:
   default_bundle: news
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq

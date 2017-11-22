@@ -1,4 +1,4 @@
-uuid: 7fd7396a-c7be-4322-8556-e6c80ec1a6f4
+uuid: 095417eb-1691-40b7-a552-d2e984aad7d0
 langcode: en
 status: true
 dependencies: {  }
@@ -37,7 +37,7 @@ process:
     process:
       target_id: tid
   field_social_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_social_link
   field_social_network:
     plugin: get
@@ -52,7 +52,8 @@ destination:
   default_bundle: social
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq
