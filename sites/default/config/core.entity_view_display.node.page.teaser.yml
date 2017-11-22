@@ -5,7 +5,6 @@ dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.page.body
-    - field.field.node.page.comment_node_page
     - field.field.node.page.field_page_attachments
     - field.field.node.page.field_page_body
     - field.field.node.page.field_page_category
@@ -41,7 +40,6 @@ content:
     weight: 101
     region: content
 hidden:
-  comment_node_page: true
   field_page_attachments: true
   field_page_category: true
   field_tags: true

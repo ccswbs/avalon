@@ -3,15 +3,12 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_social.default
-    - field.field.node.social.comment_node_social
     - field.field.node.social.field_social_category
     - field.field.node.social.field_social_link
     - field.field.node.social.field_social_network
     - field.field.node.social.field_tags
     - node.type.social
   module:
-    - comment
     - link
     - options
     - user
@@ -20,15 +17,6 @@ targetEntityType: node
 bundle: social
 mode: default
 content:
-  comment_node_social:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
   field_social_category:
     label: above
     weight: 2

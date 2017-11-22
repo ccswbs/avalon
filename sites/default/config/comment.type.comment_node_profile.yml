@@ -1,8 +1,0 @@
-uuid: 40da559c-f3b5-4714-ae5b-3590d23adbba
-langcode: en
-status: true
-dependencies: {  }
-id: comment_node_profile
-label: 'Profile comment'
-target_entity_type_id: node
-description: null

@@ -4,7 +4,6 @@ status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
-    - field.field.node.service.comment_node_service
     - field.field.node.service.field_service_audience
     - field.field.node.service.field_service_category
     - field.field.node.service.field_service_description
@@ -32,7 +31,6 @@ content:
     weight: 100
     region: content
 hidden:
-  comment_node_service: true
   field_service_audience: true
   field_service_category: true
   field_service_keywords: true

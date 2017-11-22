@@ -1,8 +1,0 @@
-uuid: cce0faa6-ed77-4240-b005-88bf96b7fef6
-langcode: en
-status: true
-dependencies: {  }
-id: comment_node_course_outline
-label: 'Course outline comment'
-target_entity_type_id: node
-description: null

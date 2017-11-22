@@ -3,14 +3,11 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_faq.default
-    - field.field.node.faq.comment_node_faq
     - field.field.node.faq.field_faq_answer
     - field.field.node.faq.field_faq_category
     - field.field.node.faq.field_tags
     - node.type.faq
   module:
-    - comment
     - text
     - user
 id: node.faq.default
@@ -18,15 +15,6 @@ targetEntityType: node
 bundle: faq
 mode: default
 content:
-  comment_node_faq:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
   field_faq_answer:
     label: hidden
     weight: 0

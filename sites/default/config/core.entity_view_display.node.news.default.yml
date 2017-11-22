@@ -3,9 +3,9 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_news.default
-    - field.field.node.news.comment_node_news
+    - field.field.node.news.body
     - field.field.node.news.field_news_attachment
+    - field.field.node.news.field_news_author
     - field.field.node.news.field_news_body
     - field.field.node.news.field_news_caption
     - field.field.node.news.field_news_category
@@ -17,7 +17,6 @@ dependencies:
     - field.field.node.news.field_tags
     - node.type.news
   module:
-    - comment
     - file
     - image
     - link
@@ -28,13 +27,11 @@ targetEntityType: node
 bundle: news
 mode: default
 content:
-  comment_node_news:
+  body:
     label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
+    type: text_default
+    weight: 101
+    settings: {  }
     third_party_settings: {  }
     region: content
   field_news_attachment:
@@ -43,6 +40,14 @@ content:
     type: file_default
     settings: {  }
     third_party_settings: {  }
+    region: content
+  field_news_author:
+    weight: 103
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
     region: content
   field_news_body:
     label: hidden

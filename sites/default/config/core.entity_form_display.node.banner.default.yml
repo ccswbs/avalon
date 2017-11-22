@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.banner.comment_node_banner
     - field.field.node.banner.field_banner_alttext
     - field.field.node.banner.field_banner_category
     - field.field.node.banner.field_banner_headline
@@ -15,7 +14,6 @@ dependencies:
     - image.style.thumbnail
     - node.type.banner
   module:
-    - comment
     - image
     - link
     - path
@@ -24,12 +22,6 @@ targetEntityType: node
 bundle: banner
 mode: default
 content:
-  comment_node_banner:
-    type: comment_default
-    weight: 20
-    settings: {  }
-    third_party_settings: {  }
-    region: content
   created:
     type: datetime_timestamp
     weight: 10

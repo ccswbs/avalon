@@ -1,4 +1,4 @@
-uuid: 5a50fb4d-bb1d-4a19-afd5-a6b93749238f
+uuid: 8ca30972-9007-49c0-905d-8cabed5ca0fe
 langcode: en
 status: true
 dependencies: {  }
@@ -37,7 +37,7 @@ process:
     process:
       target_id: tid
   field_social_link:
-    plugin: field_link
+    plugin: d6_field_link
     source: field_social_link
   field_social_network:
     plugin: get

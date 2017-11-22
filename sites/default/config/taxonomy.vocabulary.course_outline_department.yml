@@ -1,9 +1,0 @@
-uuid: 5a815431-7955-48e1-a30d-0399fc8f32c5
-langcode: en
-status: true
-dependencies: {  }
-name: 'Course outline academic department'
-vid: course_outline_department
-description: ''
-hierarchy: 0
-weight: 0

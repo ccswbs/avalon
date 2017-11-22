@@ -1,9 +1,0 @@
-uuid: 0266d8b7-cea9-4ba2-bedc-af70ec2036dc
-langcode: en
-status: true
-dependencies: {  }
-name: 'Area of research'
-vid: profile_research
-description: ''
-hierarchy: 0
-weight: 0

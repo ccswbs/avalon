@@ -1,8 +1,0 @@
-uuid: d4350218-9d9d-4a83-8513-204b8584b7f8
-langcode: en
-status: true
-dependencies: {  }
-id: comment_node_service
-label: 'Service comment'
-target_entity_type_id: node
-description: null

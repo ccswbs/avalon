@@ -1,11 +1,10 @@
-uuid: 5f2a4b3b-3703-4584-baee-081de62786fc
+uuid: a075ef1d-613a-4d28-9868-369b00e968c7
 langcode: en
 status: true
 dependencies:
   config:
     - core.entity_view_mode.node.teaser
     - field.field.node.book.body
-    - field.field.node.book.comment_node_book
     - field.field.node.book.field_book_attachments
     - field.field.node.book.field_book_category
     - field.field.node.book.field_tags
@@ -30,7 +29,6 @@ content:
     weight: 100
     region: content
 hidden:
-  comment_node_book: true
   field_book_attachments: true
   field_book_category: true
   field_tags: true
