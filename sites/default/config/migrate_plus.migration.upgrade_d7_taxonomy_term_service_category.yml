@@ -1,4 +1,4 @@
-uuid: edacc175-200e-4f49-a7fd-b63e0fd77323
+uuid: b9826078-bbe2-4ab6-969d-8eb16577193a
 langcode: en
 status: true
 dependencies: {  }
@@ -35,6 +35,7 @@ process:
     plugin: default_value
     default_value: 0
     source: '@parent_id'
+  forum_container: is_container
   changed: timestamp
   field_service_icon:
     plugin: get

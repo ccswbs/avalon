@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment_node_banner.default
+    - field.field.node.banner.comment_node_banner
     - field.field.node.banner.field_banner_alttext
     - field.field.node.banner.field_banner_category
     - field.field.node.banner.field_banner_headline
@@ -13,6 +15,7 @@ dependencies:
     - field.field.node.banner.field_tags
     - node.type.banner
   module:
+    - comment
     - image
     - link
     - options
@@ -22,6 +25,15 @@ targetEntityType: node
 bundle: banner
 mode: default
 content:
+  comment_node_banner:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
   field_banner_alttext:
     label: above
     weight: 6

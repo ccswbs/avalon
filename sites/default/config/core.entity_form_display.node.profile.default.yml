@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.profile.comment_node_profile
     - field.field.node.profile.field_profile_address
     - field.field.node.profile.field_profile_align_names
     - field.field.node.profile.field_profile_attachments
@@ -28,6 +29,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.profile
   module:
+    - comment
     - file
     - image
     - link
@@ -38,6 +40,12 @@ targetEntityType: node
 bundle: profile
 mode: default
 content:
+  comment_node_profile:
+    type: comment_default
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10

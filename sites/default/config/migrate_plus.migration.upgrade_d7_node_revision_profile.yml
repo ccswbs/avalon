@@ -1,4 +1,4 @@
-uuid: 34867a49-3902-434d-a927-8a6c677c010b
+uuid: 0a0e0c1a-da6a-470d-939a-20ee1c9d15e1
 langcode: en
 status: true
 dependencies: {  }
@@ -114,7 +114,7 @@ process:
     process:
       target_id: tid
   field_profile_website:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_profile_website
   field_tags:
     plugin: iterator
@@ -126,7 +126,8 @@ destination:
   default_bundle: profile
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq

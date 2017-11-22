@@ -1,14 +1,17 @@
-uuid: 726fc12a-c136-4373-ac3d-848f1162ff85
+uuid: f89372de-52dc-4f42-88f9-78b1bbc83a5c
 langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment_node_book.default
     - field.field.node.book.body
+    - field.field.node.book.comment_node_book
     - field.field.node.book.field_book_attachments
     - field.field.node.book.field_book_category
     - field.field.node.book.field_tags
     - node.type.book
   module:
+    - comment
     - file
     - text
     - user
@@ -22,6 +25,15 @@ content:
     weight: 0
     type: text_default
     settings: {  }
+    third_party_settings: {  }
+    region: content
+  comment_node_book:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
     third_party_settings: {  }
     region: content
   field_book_attachments:

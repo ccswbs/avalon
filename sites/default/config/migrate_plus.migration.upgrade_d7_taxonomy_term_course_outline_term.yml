@@ -1,4 +1,4 @@
-uuid: 3dbf4813-e83d-42c0-8887-bb529b276df8
+uuid: fafaccef-1371-4f6a-b1c2-fad5ca5ed50f
 langcode: en
 status: true
 dependencies: {  }
@@ -35,6 +35,7 @@ process:
     plugin: default_value
     default_value: 0
     source: '@parent_id'
+  forum_container: is_container
   changed: timestamp
 destination:
   plugin: 'entity:taxonomy_term'

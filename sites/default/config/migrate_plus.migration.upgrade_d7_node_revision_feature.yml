@@ -1,4 +1,4 @@
-uuid: 65ff461b-0cc3-4bdc-a5b5-65210e386328
+uuid: 1c40f5a7-a3ca-4ef4-98cb-0f30c4a64bee
 langcode: en
 status: true
 dependencies: {  }
@@ -46,7 +46,7 @@ process:
       width: width
       height: height
   field_feature_link:
-    plugin: d6_field_link
+    plugin: field_link
     source: field_feature_link
   field_feature_text:
     plugin: get
@@ -61,7 +61,8 @@ destination:
   default_bundle: feature
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq

@@ -3,6 +3,7 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.feature.comment_node_feature
     - field.field.node.feature.field_feature_category
     - field.field.node.feature.field_feature_image
     - field.field.node.feature.field_feature_link
@@ -11,6 +12,7 @@ dependencies:
     - image.style.thumbnail
     - node.type.feature
   module:
+    - comment
     - image
     - link
     - path
@@ -20,6 +22,12 @@ targetEntityType: node
 bundle: feature
 mode: default
 content:
+  comment_node_feature:
+    type: comment_default
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10

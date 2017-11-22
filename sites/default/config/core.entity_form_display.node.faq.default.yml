@@ -3,11 +3,13 @@ langcode: en
 status: true
 dependencies:
   config:
+    - field.field.node.faq.comment_node_faq
     - field.field.node.faq.field_faq_answer
     - field.field.node.faq.field_faq_category
     - field.field.node.faq.field_tags
     - node.type.faq
   module:
+    - comment
     - path
     - text
 id: node.faq.default
@@ -15,6 +17,12 @@ targetEntityType: node
 bundle: faq
 mode: default
 content:
+  comment_node_faq:
+    type: comment_default
+    weight: 20
+    settings: {  }
+    third_party_settings: {  }
+    region: content
   created:
     type: datetime_timestamp
     weight: 10

@@ -1,4 +1,4 @@
-uuid: da55dc49-b7b5-44c4-ba13-20bb339d3868
+uuid: 0078d8f4-42e9-4bc4-97a5-2dd43ec5f197
 langcode: en
 status: true
 dependencies: {  }
@@ -9,7 +9,7 @@ cck_plugin_method: null
 migration_tags:
   - 'Drupal 7'
 migration_group: migrate_drupal_7
-label: Files
+label: 'Public files'
 source:
   plugin: d7_file
   scheme: public
