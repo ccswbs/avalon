@@ -15,49 +15,85 @@ settings:
     rows:
       -
         -
+          name: Source
+          items:
+            - Source
+        -
+          name: 'cut, copy, paste'
+          items:
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+            - RemoveFormat
+        -
+          name: Undo
+          items:
+            - Undo
+            - Redo
+        -
+          name: Media
+          items:
+            - DrupalImage
+            - Table
+            - HorizontalRule
+            - SpecialChar
+      -
+        -
           name: Formatting
           items:
             - Bold
             - Italic
-            - Strike
             - Superscript
             - Subscript
             - '-'
-            - RemoveFormat
-        -
-          name: Linking
-          items:
-            - DrupalLink
-            - DrupalUnlink
         -
           name: Lists
           items:
             - BulletedList
             - NumberedList
-        -
-          name: Media
-          items:
+            - '-'
+            - Outdent
+            - Indent
             - Blockquote
-            - DrupalImage
-            - Table
-            - HorizontalRule
         -
-          name: 'Block Formatting'
+          name: Justify
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+            - Anchor
+      -
+        -
+          name: Format
           items:
             - Format
         -
-          name: Tools
+          name: Styles
           items:
+            - Styles
+        -
+          name: 'More Tools'
+          items:
+            - Maximize
             - ShowBlocks
-            - Source
   plugins:
     stylescombo:
       styles: ''
+    language:
+      language_list: un
 image_upload:
   status: true
   scheme: public
   directory: inline-images
   max_size: ''
   max_dimensions:
-    width: 0
-    height: 0
+    width: null
+    height: null
