@@ -10,7 +10,6 @@ dependencies:
     - field.field.node.news.field_news_caption
     - field.field.node.news.field_news_category
     - field.field.node.news.field_news_image
-    - field.field.node.news.field_news_image_caption
     - field.field.node.news.field_news_link
     - field.field.node.news.field_news_tags
     - field.field.node.news.field_news_writer
@@ -33,7 +32,6 @@ hidden:
   field_news_caption: true
   field_news_category: true
   field_news_image: true
-  field_news_image_caption: true
   field_news_link: true
   field_news_tags: true
   field_news_writer: true
