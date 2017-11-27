@@ -1,4 +1,4 @@
-uuid: bc88fb25-fa99-48cf-9518-006ff8b0d5d6
+uuid: 02ed9b17-cf24-4190-86e7-9d5bd1679e68
 langcode: en
 status: true
 dependencies:
@@ -7,14 +7,12 @@ dependencies:
   module:
     - image
     - user
-_core:
-  default_config_hash: Iiq0AttdhgbebJwabSFwQQ1ORn64GoGz0xSZ_eyCJ8A
 id: user.user.user_picture
 field_name: user_picture
 entity_type: user
 bundle: user
-label: Picture
-description: 'Your virtual face or picture.'
+label: user_picture
+description: ''
 required: false
 translatable: true
 default_value: {  }
