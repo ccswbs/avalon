@@ -1,11 +1,10 @@
-uuid: be7f2cf5-4d6e-4eee-a2f9-d0d48b32d53e
+uuid: 48820182-1e4e-4707-8db5-ff88448e070b
 langcode: en
 status: true
 dependencies:
   config:
     - field.storage.node.field_service_audience
     - node.type.service
-    - taxonomy.vocabulary.service_audience
 id: node.service.field_service_audience
 field_name: field_service_audience
 entity_type: node
@@ -18,12 +17,5 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
-  handler_settings:
-    target_bundles:
-      service_audience: service_audience
-    sort:
-      field: name
-      direction: asc
-    auto_create: false
-    auto_create_bundle: ''
+  handler_settings: {  }
 field_type: entity_reference

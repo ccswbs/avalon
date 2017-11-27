@@ -1,9 +1,0 @@
-uuid: 60f8690b-3d46-48bf-9f62-a259f87401a2
-langcode: en
-status: true
-dependencies: {  }
-name: 'Profile section labels'
-vid: profile_section_labels
-description: ''
-hierarchy: 0
-weight: 0
