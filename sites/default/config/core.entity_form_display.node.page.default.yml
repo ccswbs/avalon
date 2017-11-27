@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - field.field.node.page.body
     - field.field.node.page.comment_node_page
     - field.field.node.page.field_page_attachments
     - field.field.node.page.field_page_body
@@ -22,15 +21,6 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  body:
-    type: text_textarea_with_summary
-    weight: 7
-    region: content
-    settings:
-      rows: 9
-      summary_rows: 3
-      placeholder: ''
-    third_party_settings: {  }
   comment_node_page:
     type: comment_default
     weight: 20
