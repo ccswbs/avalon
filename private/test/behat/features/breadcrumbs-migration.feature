@@ -17,7 +17,6 @@ Feature: Breadcrumbs migration
 		And the response should contain "<nav class=\"breadcrumb\""
 		And the response should contain "<a href=\"/\">Home</a>"
 		And the response should contain "<a href=\"/news\">News</a>"
-		And the response should contain "<a href=\"/news-category/test-news-category\">Test News Category</a>"
 
 	Scenario: Event in menu has proper breadcrumb
 		Given I am on "events/2014/07/euismod-exputo"
@@ -26,4 +25,3 @@ Feature: Breadcrumbs migration
 		And the response should contain "<nav class=\"breadcrumb\""
 		And the response should contain "<a href=\"/\">Home</a>"
 		And the response should contain "<a href=\"/evemts\">Events</a>"
-		And the response should contain "<a href=\"/event-category/bith\">bith</a>"
