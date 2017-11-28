@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment_node_service.default
+    - field.field.node.service.comment_node_service
     - field.field.node.service.field_service_audience
     - field.field.node.service.field_service_category
     - field.field.node.service.field_service_description
@@ -11,6 +13,7 @@ dependencies:
     - field.field.node.service.field_service_related
     - node.type.service
   module:
+    - comment
     - text
     - user
 id: node.service.default
@@ -18,6 +21,15 @@ targetEntityType: node
 bundle: service
 mode: default
 content:
+  comment_node_service:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
   field_service_description:
     label: above
     weight: 0

@@ -1,4 +1,4 @@
-uuid: b268844f-31ed-408a-88b1-33cd566a9210
+uuid: 2fc96810-bca0-4e5a-9e74-2ec7e02d84ab
 langcode: en
 status: true
 dependencies: {  }
@@ -49,7 +49,8 @@ destination:
   default_bundle: faq
 migration_dependencies:
   required:
-    70: upgrade_d7_node_banner
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
     71: upgrade_d7_node_course_outline
     72: upgrade_d7_node_event
     73: upgrade_d7_node_faq

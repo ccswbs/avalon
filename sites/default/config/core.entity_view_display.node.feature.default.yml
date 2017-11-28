@@ -3,6 +3,8 @@ langcode: en
 status: true
 dependencies:
   config:
+    - core.entity_view_display.comment.comment_node_feature.default
+    - field.field.node.feature.comment_node_feature
     - field.field.node.feature.field_feature_category
     - field.field.node.feature.field_feature_image
     - field.field.node.feature.field_feature_link
@@ -10,6 +12,7 @@ dependencies:
     - field.field.node.feature.field_tags
     - node.type.feature
   module:
+    - comment
     - image
     - link
     - text
@@ -19,6 +22,15 @@ targetEntityType: node
 bundle: feature
 mode: default
 content:
+  comment_node_feature:
+    label: hidden
+    type: comment_default
+    weight: 20
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
   field_feature_category:
     label: above
     weight: 4
