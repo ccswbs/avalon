@@ -1,0 +1,24 @@
+uuid: f514ae2f-9693-4282-84eb-1bfb03c9df5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.menu-test-block-menu
+  module:
+    - system
+  theme:
+    - bartik
+id: ug_cornerstone_menu_menu_test_block_menu
+theme: bartik
+region: content
+weight: 0
+provider: null
+plugin: 'system_menu_block:menu-test-block-menu'
+settings:
+  id: 'system_menu_block:menu-test-block-menu'
+  label: ''
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }
