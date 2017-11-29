@@ -1,0 +1,8 @@
+uuid: 75f378d2-6726-4e68-90a4-ca0ee5886f2e
+langcode: en
+status: true
+dependencies: {  }
+id: menu-test-block-menu
+label: 'Test block menu'
+description: ''
+locked: false
