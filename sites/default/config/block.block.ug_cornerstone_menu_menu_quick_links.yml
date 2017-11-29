@@ -8,17 +8,17 @@ dependencies:
     - system
   theme:
     - bartik
-id: quicklinks
+id: ug_cornerstone_menu_menu_quick_links
 theme: bartik
-region: sidebar_first
+region: content
 weight: 0
 provider: null
 plugin: 'system_menu_block:menu-quick-links'
 settings:
   id: 'system_menu_block:menu-quick-links'
-  label: 'Quick Links'
+  label: ''
   provider: system
-  label_display: visible
+  label_display: '0'
   level: 1
   depth: 0
 visibility: {  }
