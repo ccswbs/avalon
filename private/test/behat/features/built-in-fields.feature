@@ -8,5 +8,6 @@ Feature: Built-in Fields
     		Then I should see "You are not authorized to access this page."
 
 	Scenario: Check for built-in fields
-		When I go to "page-2"
-		Then I should see "Submitted by wbsadmin on Wed, 11/08/2017 - 09:57"
+		When I go to "news/2017/11/u-g-eco-friendly-flowerpots-blossom-us-canada"
+		Then I should see "Submitted by wbsadmin on Thu, 11/09/2017 - 10:53"
+
