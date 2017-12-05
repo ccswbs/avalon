@@ -1,0 +1,8 @@
+uuid: a55a58ba-a532-48e9-8395-de1375d87068
+langcode: en
+status: true
+dependencies: {  }
+id: rss_feed_date_format
+label: 'RSS Feed Date Format'
+locked: false
+pattern: 'D, d M Y H:i:s T'
