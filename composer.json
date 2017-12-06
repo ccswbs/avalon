@@ -55,7 +55,7 @@
         ],
         "post-package-install": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
         "post-package-update": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
-        "test": "behat --config=private/test/behat/config.yml --name=login",
+        "test": "behat --config=private/test/behat/config.yml",
         "test-dwood": "behat --config=private/test/behat/config-dwood.yml --profile=dwood --suite=date_features --colors"
     },
     "repositories": [
