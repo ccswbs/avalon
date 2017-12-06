@@ -4,20 +4,26 @@ default:
     default:
       contexts:
         - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
   extensions:
     Behat\MinkExtension:
       # Supplied by env variable.
       base_url: http://dev-ug-avalon.pantheonsite.io/
       goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
 
 brharp:
   suites:
     default:
       contexts:
         - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
   extensions:
     Behat\MinkExtension:
       # Supplied by env variable.
       base_url: http://brharp-ug-avalon.pantheonsite.io/
       goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
 

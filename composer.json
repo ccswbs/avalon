@@ -5,7 +5,8 @@
     "license": "GPL-2.0+",
     "require": {
         "composer/installers": "^1.0.24",
-        "wikimedia/composer-merge-plugin": "^1.4"
+        "wikimedia/composer-merge-plugin": "^1.4",
+        "drupal/drupal-driver": "dev-master"
     },
     "replace": {
         "drupal/core": "^8.4"
@@ -66,6 +67,8 @@
     "require-dev": {
         "behat/behat": "^3.4",
         "behat/mink-extension": "^2.2",
-        "behat/mink-goutte-driver": "^1.2"
+        "behat/mink-goutte-driver": "^1.2",
+        "drush-ops/behat-drush-endpoint": "*",
+        "drupal/drupal-extension": "~3.0"
     }
 }
