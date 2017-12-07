@@ -56,8 +56,8 @@ content:
     weight: 0
     type: datetime_default
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: long
     third_party_settings: {  }
     region: content
   field_event_image:
@@ -99,6 +99,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_event_category: true
   field_tags: true

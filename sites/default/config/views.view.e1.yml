@@ -1016,7 +1016,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: events
+      path: events/archive
       display_description: ''
       sorts:
         field_event_date_value:
