@@ -1,0 +1,70 @@
+#!/bin/bash
+#
+# Workflow automation script for Avalon
+#
+
+#
+# Safe mode
+#
+set -euo pipefail
+
+
+#
+# Environment
+#
+BUILD_REASON=${BUILD_REASON:-Manual}
+BUILD_BUILDID=${BUILD_BUILDID:-0}
+SITE=${SITE:-ug-avalon}
+BUID=${SYSTEM_PULLREQUEST_PULLREQUESTID:-$BUILD_BUILDID}
+RESULTS=${COMMON_TESTRESULTSDIRECTORY:-TestResults}
+BRANCH=${BUILD_SOURCEBRANCHNAME:-iss715}
+MULTIDEV="build${BUILD_BUILDID}"
+
+
+#
+# Select environment from branch name
+#
+if [ "$BRANCH" = "master" ]; then
+  ENV="dev"
+else
+  ENV="$BRANCH"
+fi
+
+
+#
+# Set up git remotes.
+#
+REMOTE=$(terminus connection:info $SITE.$ENV --field git_url </dev/null)
+ORIGIN="https://${PAT:-undefined}@ccswds.visualstudio.com/_git/Avalon"
+
+
+case $BUILD_REASON in
+*CI)
+git push $REMOTE +refs/remotes/origin/$BRANCH:refs/heads/$BRANCH
+export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$ENV'-'$SITE'.pantheonsite.io"} }}'
+vendor/bin/behat --config=private/test/behat/config-ci.yml --format junit --out ${RESULTS} || true
+;;
+PullRequest|Schedule)
+terminus multidev:create $SITE.$ENV $MULTIDEV </dev/null
+terminus env:wake hjckrrh.dev </dev/null
+terminus drush $SITE.$MULTIDEV -- migrate-rollback --all </dev/null
+terminus drush $SITE.$MULTIDEV -- migrate-import --all </dev/null
+check $MULTIDEV
+terminus multidev:delete -y --delete-branch $SITE.$MULTIDEV </dev/null
+;;
+Manual)
+terminus connection:set $SITE.$ENV sftp </dev/null
+terminus drush $SITE.$ENV -- config-export -y </dev/null && sleep 5
+terminus env:commit $SITE.$ENV --force --message "Build #$BUID" </dev/null
+terminus connection:set $SITE.$ENV git </dev/null
+git config --global user.email "$BUILD_REQUESTEDFOREMAIL"
+git config --global user.name "$BUILD_REQUESTEDFOR"
+git checkout $BRANCH
+git pull $ORIGIN $BRANCH
+export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$ENV'-'$SITE'.pantheonsite.io"} }}'
+vendor/bin/behat --config=private/test/behat/config-ci.yml --format junit --out ${RESULTS} || true
+git pull $REMOTE $BRANCH
+git push $ORIGIN HEAD
+;;
+esac
+
