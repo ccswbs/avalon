@@ -27,6 +27,6 @@ Feature: UG News
 
 	Scenario: News feed (filtered)
 		Given I am on "news/feed/31"
-		Then the response should contain "Cui"
-		Then the response should not contain "Autem Quibus"
+		Then the response should contain "Autem Quibus"
+		Then the response should not contain "Cui"
 
