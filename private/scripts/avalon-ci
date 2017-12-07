@@ -23,12 +23,16 @@ git push $REMOTE $MULTIDEV
 # Create an environment
 terminus multidev:create $SITE.$ENV $MULTIDEV </dev/null
 
+# Wake up source site
+terminus env:wake hjckrrh.dev </dev/null
+
+# Roll back any prior migrations
+terminus drush $SITE.$MULTIDEV -- migrate-rollback --all </dev/null
+
 # Import config
 terminus drush $SITE.$MULTIDEV -- config-import -y </dev/null
 
 # Run a full migration
-terminus env:wake hjckrrh.dev </dev/null
-terminus drush $SITE.$MULTIDEV -- migrate-rollback --all </dev/null
 terminus drush $SITE.$MULTIDEV -- migrate-import --all </dev/null
 
 # Run tests
