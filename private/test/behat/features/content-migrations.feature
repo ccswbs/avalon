@@ -11,6 +11,7 @@ Feature: Content migration
 		Given I am on "book-page/quia-singularis-typicus"
 		Then print current URL
 		Then I should see "Quia Singularis Typicus"
+		Then I should see "Abigo aliquam humo lobortis macto"
 
 	Scenario: Featured content item
 		Given I am on "content/feature/illum-turpis"
