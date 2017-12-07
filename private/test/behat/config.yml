@@ -27,3 +27,31 @@ brharp:
     Drupal\DrupalExtension:
       blackbox: ~
 
+dwood:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+  extensions:
+    Behat\MinkExtension:
+      # Supplied by env variable.
+      base_url: http://dw-ug-avalon.pantheonsite.io/
+      goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+
+hjckrrh:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+  extensions:
+    Behat\MinkExtension:
+      # Supplied by env variable.
+      base_url: http://dev-hjckrrh.pantheonsite.io/
+      goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+
