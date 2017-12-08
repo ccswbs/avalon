@@ -6,7 +6,8 @@
     "require": {
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
-        "drupal/drupal-driver": "dev-master"
+        "drupal/drupal-driver": "dev-master",
+        "drupal/easy_breadcrumb": "^1.6"
     },
     "replace": {
         "drupal/core": "^8.4"
