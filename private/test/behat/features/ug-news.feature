@@ -4,6 +4,7 @@ Feature: UG News
 	I need views to list news articles
 
 	Scenario: News teaser block
+		Given I am on "/"
 		Then I should see "News"
 		Then I should see "Cui"
 		Then I should see "Autem Quibus"
