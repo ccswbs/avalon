@@ -13,8 +13,9 @@ Feature: Breadcrumbs migration
 	Scenario: News in menu has proper breadcrumb
 		Given I am on "news/2017/11/u-g-eco-friendly-flowerpots-blossom-us-canada"
 		Then print current URL
-		And I should see "U of G Eco-Friendly Flowerpots Blossom in the U.S., Canada"
-		And the response should contain "<nav class=\"breadcrumb\""
+		And I should see "U of G Eco-Friendly Flowerpots Blossom in U.S., Canada"
+		#And the response should contain "<nav class=\"breadcrumb\""
+		And I should see "Home" in the "breadcrumb" region
 		And the response should contain "<a href=\"/\">Home</a>"
 		And the response should contain "<a href=\"/news\">News</a>"
 

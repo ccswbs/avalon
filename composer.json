@@ -6,7 +6,6 @@
     "require": {
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
-        "drupal/drupal-driver": "dev-master",
         "drupal/easy_breadcrumb": "^1.6"
     },
     "replace": {
@@ -16,7 +15,8 @@
     "prefer-stable": true,
     "config": {
         "preferred-install": "dist",
-        "autoloader-suffix": "Drupal8"
+        "autoloader-suffix": "Drupal8",
+        "bin-dir": "vendor/bin/"
     },
     "extra": {
         "_readme": [
@@ -69,7 +69,7 @@
         "behat/behat": "^3.4",
         "behat/mink-extension": "^2.2",
         "behat/mink-goutte-driver": "^1.2",
-        "drush-ops/behat-drush-endpoint": "*",
-        "drupal/drupal-extension": "~3.0"
+        "drupal/drupal-extension": "~3.0",
+        "guzzlehttp/guzzle": "^6.0@dev"
     }
 }
