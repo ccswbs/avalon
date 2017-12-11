@@ -11,7 +11,7 @@ default:
   extensions:
     Behat\MinkExtension:
       # Supplied by env variable.
-      base_url: http://breadcrumbs-ug-avalon.pantheonsite.io/
+      base_url: http://dev-ug-avalon.pantheonsite.io/
       goutte: ~
       selenium2: ~
     Drupal\DrupalExtension:
