@@ -9,6 +9,7 @@ dependencies:
     - field.field.node.event.field_event_body
     - field.field.node.event.field_event_category
     - field.field.node.event.field_event_date
+    - field.field.node.event.field_event_datetime_range
     - field.field.node.event.field_event_image
     - field.field.node.event.field_event_image_caption
     - field.field.node.event.field_event_link
@@ -17,7 +18,7 @@ dependencies:
     - node.type.event
   module:
     - comment
-    - datetime
+    - datetime_range
     - file
     - image
     - link
@@ -31,7 +32,7 @@ content:
   comment_node_event:
     label: hidden
     type: comment_default
-    weight: 20
+    weight: 7
     settings:
       view_mode: default
       pager_id: 0
@@ -39,7 +40,7 @@ content:
     region: content
   field_event_attachments:
     label: above
-    weight: 7
+    weight: 6
     type: file_default
     settings: {  }
     third_party_settings: {  }
@@ -51,14 +52,15 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_event_date:
-    label: inline
+  field_event_datetime_range:
     weight: 0
-    type: datetime_default
+    label: above
     settings:
-      format_type: medium
       timezone_override: ''
+      format_type: long
+      separator: '-'
     third_party_settings: {  }
+    type: daterange_default
     region: content
   field_event_image:
     label: hidden
@@ -79,7 +81,7 @@ content:
     region: content
   field_event_link:
     label: above
-    weight: 6
+    weight: 5
     type: link
     settings:
       trim_length: 80
@@ -97,8 +99,11 @@ content:
     third_party_settings: {  }
     region: content
   links:
-    weight: 100
+    weight: 8
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_event_category: true
+  field_event_date: true
   field_tags: true
