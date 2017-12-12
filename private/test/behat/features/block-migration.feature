@@ -11,9 +11,5 @@ Feature: Block migration
 		Then I should see "test service"
 		Then I should see "Powered by Drupal"
 		
-		When I go to "node/2"
-		Then print current URL
-		Then I should see "block with an image"
-		Then the response should contain "src=\"/sites/default/files/Chrysanthemum.jpg\""
 
 
