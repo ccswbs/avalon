@@ -11,8 +11,8 @@ id: node.event.field_event_date
 field_name: field_event_date
 entity_type: node
 bundle: event
-label: Date
-description: ''
+label: 'Date (start date only)'
+description: "This exists temporarily to allow views to sort by date.  See Datetime Range issue: https://www.drupal.org/project/drupal/issues/2786577 \r\nThis field is disabled in the display.\r\nEventually this field will be removed from event content type."
 required: true
 translatable: false
 default_value: {  }
