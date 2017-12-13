@@ -56,7 +56,7 @@
         ],
         "post-package-install": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
         "post-package-update": "Drupal\\Core\\Composer\\Composer::vendorTestCodeCleanup",
-        "test": "behat --config=private/test/behat/config.yml",
+        "test": "behat --config=private/test/behat/config.yml --colors",
         "test-c": "behat --config=private/test/behat/config.yml --colors"
     },
     "repositories": [
