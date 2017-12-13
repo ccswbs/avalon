@@ -16,16 +16,20 @@ $settings['container_yamls'][] = __DIR__ . '/services.yml';
  */
 include __DIR__ . "/settings.pantheon.php";
 
-$databases['legacy']['default'] = array(
-  'database' => 'pantheon',
-  'username' => 'pantheon',
-  'password' => 'e484a51f1e2e46c3814454a3297083e8',
-  'prefix' => '',
-  'host' => 'dbserver.dev.50639f51-3c21-4ae8-a4da-50c3ea433508.drush.in',
-  'port' => '19837',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
-  'driver' => 'mysql',
-);
+$secrets_file = $_SERVER['HOME'] . '/files/private/secrets.json';
+if (file_exists($secrets_file)) {
+  $secrets = json_decode(file_get_contents($secrets_file), 1);
+  $databases['legacy']['default'] = array(
+    'database' => $secrets['legacy_database'],
+    'username' => $secrets['legacy_username'],
+    'password' => $secrets['legacy_password'],
+    'prefix' => '',
+    'host' => $secrets['legacy_host'],
+    'port' => $secrets['legacy_port'],
+    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
+    'driver' => 'mysql',
+  );
+}
 
 /**
  * If there is a local settings file, then include it
@@ -34,5 +38,4 @@ $local_settings = __DIR__ . "/settings.local.php";
 if (file_exists($local_settings)) {
   include $local_settings;
 }
-$settings['install_profile'] = 'minimal';
 

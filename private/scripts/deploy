@@ -1,0 +1,53 @@
+#!/bin/bash
+
+# Utilities
+PATH=$PATH:/opt/terminus/vendor/bin
+
+# Environment
+SITE=${SITE:-ug-avalon}
+ENV=${ENV:-live}
+LEGACY_SITE=${LEGACY_SITE:-hjckrrh}
+LEGACY_ENV=${LEGACY_ENV:-dev}
+LEGACY_DATABASE=${LEGACY_DATABASE:-}
+LEGACY_USERNAME=${LEGACY_USERNAME:-}
+LEGACY_PASSWORD=${LEGACY_PASSWORD:-}
+LEGACY_HOST=${LEGACY_HOST:-}
+LEGACY_PORT=${LEGACY_PORT:-}
+TERMINUS_PLUGINS_DIR=~/.terminus/plugins
+TERMINUS_SECRETS_PLUGIN_HOME=$TERMINUS_PLUGINS_DIR/terminus-secrets-plugin
+
+if [ -n "$LEGACY_SITE" -a -n "$LEGACY_ENV" ]
+  then
+    LEGACY_DATABASE=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_database)
+    LEGACY_USERNAME=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_username)
+    LEGACY_PASSWORD=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_password)
+    LEGACY_HOST=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_host)
+    LEGACY_PORT=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_port)
+  fi
+
+# Create Terminus plugins dir
+if [ ! -d $TERMINUS_PLUGINS_DIR ]
+  then
+    mkdir -p $TERMINUS_PLUGINS_DIR
+  fi
+
+# Install Terminus secrets plugin
+if [ ! -d $TERMINUS_SECRETS_PLUGIN_HOME ]
+  then
+    composer create-project -d $TERMINUS_PLUGINS_DIR pantheon-systems/terminus-secrets-plugin:~1
+  fi
+
+# Create empty secrets file
+SECRETS=$(mktemp -u)
+SFTP_USER=$(terminus connection:info $SITE.$ENV --field=sftp_username)
+SFTP_HOST=$(terminus connection:info $SITE.$ENV --field=sftp_host)
+rsync -rlIvz --ipv4 --exclude=.git -e 'ssh -p 2222' $SFTP_USER@$SFTP_HOST:files/private/secrets.json
+rm -f $SECRETS
+
+# Update secrets file
+terminus secrets:set $SITE.$ENV legacy_database $LEGACY_DATABASE
+terminus secrets:set $SITE.$ENV legacy_username $LEGACY_USERNAME
+terminus secrets:set $SITE.$ENV legacy_password $LEGACY_PASSWORD
+terminus secrets:set $SITE.$ENV legacy_host $LEGACY_HOST
+terminus secrets:set $SITE.$ENV legacy_port $LEGACY_PORT
+
