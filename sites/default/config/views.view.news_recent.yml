@@ -151,7 +151,7 @@ display:
           expose:
             label: ''
           granularity: second
-      title: News
+      title: 'Recent news'
       header: {  }
       footer: {  }
       empty: {  }
