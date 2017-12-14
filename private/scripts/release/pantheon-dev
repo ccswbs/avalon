@@ -1,0 +1,34 @@
+#!/bin/bash
+
+# Safe mode
+set -xeuo pipefail
+
+# Utilities
+PATH=$PATH:/opt/terminus/vendor/bin
+
+# Environment
+SITE=${SITE:-ug-avalon}
+ENV=${ENV:-dev}
+TEMP=${TEMP:-/tmp}
+UPSTREAM_URL=ssh://ccswds@vs-ssh.visualstudio.com:22/_ssh/Avalon
+
+# Copy live database to release environment
+
+# Export configuration and commit
+
+# Merge release environment with master
+
+# Clone site repository
+cd $TEMP
+rm -rf $SITE
+GIT_URL=$(terminus connection:info $SITE.$ENV --field=git_url)
+git clone $GIT_URL $SITE
+
+# Merge release tag/commit
+cd $SITE
+git pull $UPSTREAM_URL $BUILD_SOURCEVERSION
+git push origin HEAD
+
+# Import config
+terminus drush $SITE.$ENV -- config-import
+
