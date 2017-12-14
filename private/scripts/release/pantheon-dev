@@ -30,5 +30,5 @@ git pull $UPSTREAM_URL $BUILD_SOURCEVERSION
 git push origin HEAD
 
 # Import config
-terminus drush $SITE.$ENV -- config-import
+terminus drush $SITE.$ENV -- config-import </dev/null
 

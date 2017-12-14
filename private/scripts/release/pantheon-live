@@ -11,5 +11,5 @@ SITE=${SITE:-ug-avalon}
 ENV=${ENV:-live}
 
 # Deploy to Pantheon live environment
-terminus env:deploy $SITE.$ENV --updatedb
+terminus env:deploy $SITE.$ENV --updatedb </dev/null
 

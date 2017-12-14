@@ -11,5 +11,5 @@ SITE=${SITE:-ug-avalon}
 ENV=${ENV:-test}
 
 # Deploy to Pantheon test environment
-terminus env:deploy $SITE.$ENV --sync-content
+terminus env:deploy $SITE.$ENV --sync-content </dev/null
 
