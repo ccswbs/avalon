@@ -1,0 +1,15 @@
+#!/bin/bash
+
+# Safe mode
+set -xeuo pipefail
+
+# Utilities
+PATH=$PATH:/opt/terminus/vendor/bin
+
+# Environment
+SITE=${SITE:-ug-avalon}
+ENV=${ENV:-test}
+
+# Deploy to Pantheon test environment
+terminus env:deploy $SITE.$ENV --sync-content </dev/null
+
