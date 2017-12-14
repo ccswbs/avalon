@@ -50,7 +50,11 @@ process:
     plugin: iterator
     source: field_event_date
     process:
-      value: value
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
       end_value: value2
   field_event_date:
     plugin: iterator
