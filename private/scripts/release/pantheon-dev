@@ -10,7 +10,7 @@ PATH=$PATH:/opt/terminus/vendor/bin
 SITE=${SITE:-ug-avalon}
 ENV=${ENV:-dev}
 TEMP=${TEMP:-/tmp}
-UPSTREAM_URL=ssh://ccswds@vs-ssh.visualstudio.com:22/_ssh/Avalon
+UPSTREAM_URL=https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon
 
 # Copy live database to release environment
 
