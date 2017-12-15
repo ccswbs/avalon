@@ -33,7 +33,7 @@ terminus drush $SITE.$MULTIDEV -- migrate-rollback --all </dev/null
 terminus drush $SITE.$MULTIDEV -- config-import -y </dev/null
 
 # Run a full migration
-terminus drush $SITE.$MULTIDEV -- migrate-import --all </dev/null
+terminus drush $SITE.$MULTIDEV -- migrate-import --all </dev/null || true
 
 # Run tests
 export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$MULTIDEV'-'$SITE'.pantheonsite.io"} }}'
