@@ -29,6 +29,9 @@ cd $SITE
 git pull $UPSTREAM_URL $BUILD_SOURCEVERSION
 git push origin HEAD
 
+# Wait for Pantheon to sync code changes
+sleep 15
+
 # Import config
 terminus drush $SITE.$ENV -- config-import </dev/null
 
