@@ -12,11 +12,11 @@ ENV=${ENV:-dev}
 TEMP=${TEMP:-/tmp}
 UPSTREAM_URL=https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon
 
-# Copy live database to release environment
+# TODO: Copy live database to release environment
 
-# Export configuration and commit
+# TODO: Export configuration and commit
 
-# Merge release environment with master
+# TODO: Merge release environment with master
 
 # Clone site repository
 cd $TEMP
