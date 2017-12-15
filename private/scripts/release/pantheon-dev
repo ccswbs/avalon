@@ -39,4 +39,4 @@ terminus drush $SITE.$ENV -- migrate-rollback --all </dev/null
 terminus drush $SITE.$ENV -- config-import -y </dev/null
 
 # Migrate content
-terminus drush $SITE.$ENV -- migrate-import --all </dev/null
+terminus drush $SITE.$ENV -- migrate-import --all </dev/null || true
