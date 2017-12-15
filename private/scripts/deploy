@@ -39,9 +39,10 @@ if [ ! -d $TERMINUS_SECRETS_PLUGIN_HOME ]
 
 # Create empty secrets file
 SECRETS=$(mktemp -u)
+touch $SECRETS
 SFTP_USER=$(terminus connection:info $SITE.$ENV --field=sftp_username)
 SFTP_HOST=$(terminus connection:info $SITE.$ENV --field=sftp_host)
-rsync -rlIvz --ipv4 --exclude=.git -e 'ssh -p 2222' $SFTP_USER@$SFTP_HOST:files/private/secrets.json
+rsync -rlIvz --ipv4 --exclude=.git -e 'ssh -p 2222' $SECRETS $SFTP_USER@$SFTP_HOST:files/private/secrets.json
 rm -f $SECRETS
 
 # Update secrets file
