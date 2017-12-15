@@ -9,7 +9,7 @@ Feature: events
 		Then I should see "<title>"
 		Then I should see "<day>, <month> <day num>, <year>"
 		Then I should see "<starttime>"
-		# no <endtime> yet - need to account datetime range migration incompatibility
+		Then I should see "<endtime>"
 		Then I should see "<location>"
 	
 		Examples:
