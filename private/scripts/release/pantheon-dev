@@ -32,6 +32,11 @@ git push origin HEAD
 # Wait for Pantheon to sync code changes
 sleep 15
 
-# Import config
-terminus drush $SITE.$ENV -- config-import </dev/null
+# Rollback previous migration
+terminus drush $SITE.$ENV -- migrate-rollback --all </dev/null
 
+# Import config
+terminus drush $SITE.$ENV -- config-import -y </dev/null
+
+# Migrate content
+terminus drush $SITE.$ENV -- migrate-import --all </dev/null
