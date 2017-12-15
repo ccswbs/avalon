@@ -40,3 +40,5 @@ terminus drush $SITE.$ENV -- config-import -y </dev/null
 
 # Migrate content
 terminus drush $SITE.$ENV -- migrate-import --all </dev/null || true
+terminus drush $SITE.$ENV -- migrate-import --update --all </dev/null || true
+
