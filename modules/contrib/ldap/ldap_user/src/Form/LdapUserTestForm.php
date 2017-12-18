@@ -6,7 +6,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\FormBase;
 use Drupal\ldap_user\Helper\ExternalAuthenticationHelper;
 use Drupal\ldap_user\Helper\LdapConfiguration;
-use Drupal\ldap_user\LdapUserAttributesInterface;
+use Drupal\ldap_servers\LdapUserAttributesInterface;
 use Drupal\ldap_user\Processor\DrupalUserProcessor;
 use Drupal\ldap_user\Processor\LdapUserProcessor;
 
@@ -80,15 +80,6 @@ class LdapUserTestForm extends FormBase implements LdapUserAttributesInterface {
     ];
 
     return $form;
-  }
-
-  /**
-   * {@inheritdoc}
-   */
-  public function validateForm(array &$form, FormStateInterface $form_state) {
-    if (count(array_filter($form_state->getValue(['action']))) > 1) {
-      $form_state->setErrorByName('action', $this->t('Only one action may be selected for "Execute Action" testing mode.'));
-    }
   }
 
   /**
