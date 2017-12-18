@@ -8,14 +8,7 @@
 use Drupal\Core\Url;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Core\Utility\UpdateException;
-use Drupal\ldap_user\LdapUserAttributesInterface;
-
-/**
- * Implements hook_install().
- */
-function ldap_user_install() {
-  \Drupal::service('router.builder')->rebuild();
-}
+use Drupal\ldap_servers\LdapUserAttributesInterface;
 
 /**
  * Convert ldap_user_identities table to authmap.
@@ -104,9 +97,11 @@ function ldap_user_update_8304() {
   $config_factory = \Drupal::configFactory();
   $config = $config_factory->getEditable('ldap_user.settings');
   $data = $config->get('ldap_user_conf');
-  $config->clear('ldap_user_conf');
-  $config->setData($data);
-  $config->save(TRUE);
+  if ($data) {
+    $config->clear('ldap_user_conf');
+    $config->setData($data);
+    $config->save(TRUE);
+  }
 }
 
 /**

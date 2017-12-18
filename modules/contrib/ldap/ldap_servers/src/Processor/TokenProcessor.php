@@ -5,6 +5,7 @@ namespace Drupal\ldap_servers\Processor;
 use Drupal\Component\Utility\SafeMarkup;
 use Drupal\Component\Utility\Unicode;
 use Drupal\ldap_servers\Helper\ConversionHelper;
+use Drupal\ldap_servers\Helper\CredentialsStorage;
 use Drupal\ldap_servers\Helper\MassageAttributes;
 use Drupal\user\UserInterface;
 
@@ -17,31 +18,6 @@ class TokenProcessor {
   const SUFFIX = ']';
   const DELIMITER = ':';
   const MODIFIER_DELIMITER = ';';
-
-  private static $userPassword = NULL;
-
-  /**
-   * Store passwords temporarily.
-   *
-   * Store user entered password during page load and protect unencrypted user
-   * password from other modules.
-   *
-   * @param string $action
-   *   Get/set action.
-   * @param string $value
-   *   A user entered password.
-   *
-   * @return string|null
-   *   Returns the password on get, otherwise nothing.
-   */
-  public static function passwordStorage($action, $value = NULL) {
-    if ($action == 'set') {
-      self::$userPassword = $value;
-    }
-    else {
-      return self::$userPassword;
-    }
-  }
 
   /**
    * Create tokens.
@@ -246,14 +222,20 @@ class TokenProcessor {
    *     [cn] = jdoe
    *     [cn:0] = jdoe
    *     [cn:last] => jdoe
+   *     [cn:reverse:0] = jdoe
    *     [ou] = campus accounts
    *     [ou:0] = campus accounts
    *     [ou:last] = toledo campus
+   *     [ou:reverse:0] = toledo campus
+   *     [ou:reverse:1] = campus accounts
    *     [dc] = ad
    *     [dc:0] = ad
    *     [dc:1] = myuniversity
    *     [dc:2] = edu
    *     [dc:last] = edu
+   *     [dc:reverse:0] = edu
+   *     [dc:reverse:1] = myuniversity
+   *     [dc:reverse:2] = ad
    *   From other attributes:
    *     [mail] = jdoe@myuniversity.edu
    *     [mail:0] = jdoe@myuniversity.edu
@@ -267,7 +249,7 @@ class TokenProcessor {
    */
   public function tokenizeEntry(array $ldap_entry, $token_keys = 'all', $pre = self::PREFIX, $post = self::SUFFIX) {
 
-    $detailed_watchdog_log = \Drupal::config('ldap_help.settings')->get('watchdog_detail');
+    $detailLog = \Drupal::service('ldap.detail_log');
     $tokens = [];
     $log_variables = [];
     $massager = new MassageAttributes();
@@ -276,9 +258,10 @@ class TokenProcessor {
       $log_variables['%calling_function'] = $backtrace[1]['function'];
     }
     if (!is_array($ldap_entry)) {
-      if ($detailed_watchdog_log) {
-        \Drupal::logger('ldap_servers')->debug('Skipped tokenization of LDAP entry because no LDAP entry provided when called from %calling_function.', $log_variables);
-      }
+      $detailLog->log(
+        'Skipped tokenization of LDAP entry because no LDAP entry provided when called from %calling_function.',
+        $log_variables
+      );
       // Empty array.
       return $tokens;
     }
@@ -302,10 +285,10 @@ class TokenProcessor {
         $attr_value = SafeMarkup::checkPlain($attr_value);
       }
       catch (\Exception $e) {
-        if ($detailed_watchdog_log) {
-          $log_variables['%attr_name'] = $attr_name;
-          \Drupal::logger('ldap_servers')->debug('Skipped tokenization of attribute %attr_name because the value would not pass check_plain function.', $log_variables);
-        }
+        $detailLog->log(
+          'Skipped tokenization of attribute %attr_name because the value would not pass check_plain function.',
+          $log_variables
+        );
         // don't tokenize data that can't pass check_plain.
         continue;
       }
@@ -319,6 +302,15 @@ class TokenProcessor {
 
       $parts_last_value[$attr_name] = $attr_value;
       $parts_count[$attr_name]++;
+    }
+
+    // Add DN parts in reverse order to reflect the hierarchy for CN, OU, DC.
+    foreach ($parts_count as $attr_name => $count) {
+      $part = $massager->processAttributeName($attr_name);
+      for ($i = 0; $i < $count; $i++) {
+        $reversePosition = $count - $i - 1;
+        $tokens[$pre . $part . self::DELIMITER . 'reverse' . self::DELIMITER . $reversePosition . $post] = $tokens[$pre . $part . self::DELIMITER . $i . $post];
+      }
     }
 
     foreach ($parts_count as $attr_name => $count) {
@@ -469,12 +461,11 @@ class TokenProcessor {
 
             case 'user':
             case 'user-only':
-              $pwd = self::passwordStorage('get');
-              $value = ($pwd) ? $pwd : NULL;
+              $pwd = CredentialsStorage::getPassword();
               break;
 
             case 'user-random':
-              $pwd = self::passwordStorage('get');
+              $pwd = CredentialsStorage::getPassword();
               $value = ($pwd) ? $pwd : user_password();
               break;
 
