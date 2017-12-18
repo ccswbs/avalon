@@ -6,7 +6,8 @@
     "require": {
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
-        "drupal/easy_breadcrumb": "^1.6"
+        "drupal/easy_breadcrumb": "^1.6",
+        "drupal/ldap": "3.0-beta3"
     },
     "replace": {
         "drupal/core": "^8.4"
