@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: author
 label: author
-weight: 9
+weight: -3
 is_admin: null
 permissions:
   - 'access content'

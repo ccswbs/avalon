@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: editor
 label: editor
-weight: 10
+weight: -2
 is_admin: null
 permissions:
   - 'access administration pages'
