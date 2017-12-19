@@ -1,0 +1,9 @@
+uuid: 874be758-ebf7-4d9a-ad68-af60eac55802
+langcode: en
+status: true
+dependencies: {  }
+name: 'Aggregation Categories'
+vid: aggregation_category
+description: 'Used to group feed aggregation types'
+hierarchy: 0
+weight: 0
