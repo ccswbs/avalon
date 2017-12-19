@@ -11,7 +11,7 @@ dependencies:
 id: ug_cornerstone_menu_menu_test_block_menu
 theme: bartik
 region: content
-weight: 0
+weight: -4
 provider: null
 plugin: 'system_menu_block:menu-test-block-menu'
 settings:
