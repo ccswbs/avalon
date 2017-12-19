@@ -1,0 +1,16 @@
+ldap_sso.login_controller:
+  path: '/user/login/sso'
+  defaults:
+    _controller: '\Drupal\ldap_sso\Controller\LoginController::login'
+    _title: 'User Login'
+  requirements:
+    _custom_access: '\Drupal\ldap_sso\Controller\LoginController::access'
+  options:
+   no_cache: TRUE
+ldap_sso.admin_form:
+ path: /admin/config/people/ldap/sso
+ defaults:
+   _title: SSO
+   _form: \Drupal\ldap_sso\Form\LdapSsoAdminForm
+ requirements:
+   _permission: 'administer site configuration'

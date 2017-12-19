@@ -5,7 +5,6 @@ namespace Drupal\ldap_servers\Entity;
 use Drupal\Component\Utility\Unicode;
 use Drupal\Core\Config\Entity\ConfigEntityBase;
 use Drupal\ldap_servers\Helper\ConversionHelper;
-use Drupal\ldap_servers\Helper\CredentialsStorage;
 use Drupal\ldap_servers\LdapProtocolInterface;
 use Drupal\ldap_servers\Helper\MassageAttributes;
 use Drupal\ldap_servers\ServerInterface;
@@ -29,7 +28,7 @@ use Drupal\user\Entity\User;
  *     }
  *   },
  *   config_prefix = "server",
- *   admin_permission = "administer ldap",
+ *   admin_permission = "administer site configuration",
  *   entity_keys = {
  *     "id" = "id",
  *     "label" = "label",
@@ -59,6 +58,13 @@ class Server extends ConfigEntityBase implements ServerInterface, LdapProtocolIn
 
   private $searchPageStart = 0;
   private $searchPageEnd = NULL;
+
+  /**
+   * Error methods and properties.
+   *
+   * @var bool
+   */
+  public $detailedWatchdogLog = FALSE;
 
   /**
    * Returns the formatted label of the bind method.
@@ -95,168 +101,104 @@ class Server extends ConfigEntityBase implements ServerInterface, LdapProtocolIn
    *   LDAP_SUCCESS or the relevant error.
    */
   public function connect() {
-    if (!function_exists('ldap_connect')) {
-      \Drupal::logger('ldap_servers')
-        ->error('PHP LDAP extension not found, aborting.');
-      return self::LDAP_NOT_SUPPORTED;
-    }
+    $port = (self::get('port'));
+    $address = (self::get('address'));
 
-    $connection = ldap_connect(self::get('address'), self::get('port'));
+    $con = ldap_connect($address, $port);
 
-    if (!$connection) {
+    if (!$con) {
       \Drupal::logger('user')->notice(
         'LDAP Connect failure to @address on port @port.',
-        ['@address' => self::get('address'), '@port' => self::get('port')]
+        ['@address' => $address, '@port' => $port]
       );
       return self::LDAP_CONNECT_ERROR;
     }
 
-    ldap_set_option($connection, LDAP_OPT_PROTOCOL_VERSION, 3);
-    ldap_set_option($connection, LDAP_OPT_REFERRALS, 0);
-    ldap_set_option($connection, LDAP_OPT_NETWORK_TIMEOUT, self::get('timeout'));
+    ldap_set_option($con, LDAP_OPT_PROTOCOL_VERSION, 3);
+    ldap_set_option($con, LDAP_OPT_REFERRALS, 0);
 
     // Use TLS if we are configured and able to.
     if (self::get('tls')) {
-      ldap_get_option($connection, LDAP_OPT_PROTOCOL_VERSION, $protocolVersion);
-      if ($protocolVersion == -1) {
-        \Drupal::logger('ldap_servers')
-          ->notice('Could not get LDAP protocol version.');
+      ldap_get_option($con, LDAP_OPT_PROTOCOL_VERSION, $vers);
+      if ($vers == -1) {
+        \Drupal::logger('user')->notice('Could not get LDAP protocol version.');
         return self::LDAP_PROTOCOL_ERROR;
       }
-      if ($protocolVersion != 3) {
-        \Drupal::logger('ldap_servers')
-          ->notice('Could not start TLS, only supported by LDAP v3.');
+      if ($vers != 3) {
+        \Drupal::logger('user')->notice('Could not start TLS, only supported by LDAP v3.');
         return self::LDAP_CONNECT_ERROR;
       }
       elseif (!function_exists('ldap_start_tls')) {
-        \Drupal::logger('ldap_servers')
-          ->notice('Could not start TLS. It does not seem to be supported by this PHP setup.');
+        \Drupal::logger('user')->notice('Could not start TLS. It does not seem to be supported by this PHP setup.');
         return self::LDAP_CONNECT_ERROR;
       }
-      elseif (!ldap_start_tls($connection)) {
-        \Drupal::logger('ldap_servers')
-          ->notice('Could not start TLS. (Error @errno: @error).',
-            [
-              '@errno' => ldap_errno($connection),
-              '@error' => ldap_error($connection),
-            ]
-          );
+      elseif (!ldap_start_tls($con)) {
+        \Drupal::logger('user')->notice('Could not start TLS. (Error @errno: @error).', ['@errno' => ldap_errno($con), '@error' => ldap_error($con)]);
         return self::LDAP_CONNECT_ERROR;
       }
     }
 
     // Store the resulting resource.
-    $this->connection = $connection;
+    $this->connection = $con;
     return self::LDAP_SUCCESS;
   }
 
   /**
    * Bind (authenticate) against an active LDAP database.
    *
+   * @param string $userdn
+   *   The DN to bind against. If NULL, we use $this->binddn.
+   * @param string $pass
+   *   The password search base. If NULL, we use $this->bindpw.
+   * @param bool $anon_bind
+   *   Whether to bind anonymously.
+   *
    * @return int
    *   Result of bind in form of LDAP_SUCCESS or relevant error.
    */
-  public function bind() {
-
+  public function bind($userdn = NULL, $pass = NULL, $anon_bind = NULL) {
     // Ensure that we have an active server connection.
     if (!$this->connection) {
-      \Drupal::logger('ldap_servers')->error("LDAP bind failure. Not connected to LDAP server.");
+      \Drupal::logger('ldap_servers')->notice("LDAP bind failure for user %user. Not connected to LDAP server.", ['%user' => $userdn]);
       return self::LDAP_CONNECT_ERROR;
     }
 
-    // Explicitly check for valid binding due to some upgrade issues.
-    $validMethods = ['service_account', 'user', 'anon', 'anon_user'];
-    if (!in_array($this->get('bind_method'), $validMethods)) {
-      \Drupal::logger('ldap_servers')->error("Bind method missing.");
-      return self::LDAP_CONNECT_ERROR;
-    }
-
-    if ($this->get('bind_method') == 'anon') {
+    if ($anon_bind === FALSE && $userdn === NULL && $pass === NULL && $this->get('bind_method') == 'anon') {
       $anon_bind = TRUE;
     }
-    elseif ($this->get('bind_method') == 'anon_user') {
-      if (CredentialsStorage::validateCredentials()) {
-        $anon_bind = FALSE;
+    if ($anon_bind === TRUE) {
+      if (@!ldap_bind($this->connection)) {
+        if ($this->detailedWatchdogLog) {
+          \Drupal::logger('ldap_servers')->notice("LDAP anonymous bind error. Error %error", ['%error' => $this->formattedError($this->ldapErrorNumber())]);
+        }
+        return ldap_errno($this->connection);
       }
-      else {
-        $anon_bind = TRUE;
+    }
+    else {
+      $userdn = ($userdn != NULL) ? $userdn : $this->get('binddn');
+      $pass = ($pass != NULL) ? $pass : $this->get('bindpw');
+
+      if (Unicode::strlen($pass) == 0 || Unicode::strlen($userdn) == 0) {
+        \Drupal::logger('ldap_servers')
+          ->notice("LDAP bind failure for user userdn=%userdn, pass=%pass.", [
+            '%userdn' => $userdn,
+            '%pass' => $pass,
+          ]);
+        return self::LDAP_LOCAL_ERROR;
+      }
+      if (@!ldap_bind($this->connection, $userdn, $pass)) {
+        if ($this->detailedWatchdogLog) {
+          \Drupal::logger('ldap_servers')
+            ->notice("LDAP bind failure for user %user. Error %errno: %error", [
+              '%user' => $userdn,
+              '%errno' => ldap_errno($this->connection),
+              '%error' => ldap_error($this->connection),
+            ]);
+        }
+        return ldap_errno($this->connection);
       }
     }
-    else {
-      $anon_bind = FALSE;
-    }
-
-    if ($anon_bind) {
-      $response = $this->anonymousBind();
-    }
-    else {
-      $response = $this->nonAnonymousBind();
-    }
-    return $response;
-  }
-
-  /**
-   * Bind to server anonymously.
-   *
-   * @return int
-   *   Returns the binding response code from LDAP.
-   */
-  private function anonymousBind() {
-    if (@!ldap_bind($this->connection)) {
-      \Drupal::service('ldap.detail_log')->log(
-        "LDAP anonymous bind error. Error %error",
-        ['%error' => $this->formattedError($this->ldapErrorNumber())]
-      );
-      $response = ldap_errno($this->connection);
-    }
-    else {
-      $response = self::LDAP_SUCCESS;
-    }
-    return $response;
-  }
-
-  /**
-   * Bind to server with credentials.
-   *
-   * This uses either service account credentials or stored credentials if it
-   * has been toggled through CredentialsStorage::testCredentials(true).
-   *
-   * @return int
-   *   Returns the binding response code from LDAP.
-   */
-  private function nonAnonymousBind() {
-    // Default credentials form service account.
-    $userDn = $this->get('binddn');
-    $password = $this->get('bindpw');
-
-    // Runtime credentials for user binding and password checking.
-    if (CredentialsStorage::validateCredentials()) {
-      $userDn = CredentialsStorage::getUserDn();
-      $password = CredentialsStorage::getPassword();
-    }
-
-    if (Unicode::strlen($password) == 0 || Unicode::strlen($userDn) == 0) {
-      \Drupal::logger('ldap_servers')
-        ->notice("LDAP bind failure due to missing credentials for user userdn=%userdn, pass=%pass.", [
-          '%userdn' => $userDn,
-          '%pass' => $password,
-        ]);
-      $response = self::LDAP_LOCAL_ERROR;
-    }
-    if (@!ldap_bind($this->connection, $userDn, $password)) {
-      \Drupal::service('ldap.detail_log')->log(
-        "LDAP bind failure for user %user. Error %errno: %error", [
-          '%user' => $userDn,
-          '%errno' => ldap_errno($this->connection),
-          '%error' => ldap_error($this->connection),
-        ]
-      );
-      $response = ldap_errno($this->connection);
-    }
-    else {
-      $response = self::LDAP_SUCCESS;
-    }
-    return $response;
+    return self::LDAP_SUCCESS;
   }
 
   /**
@@ -358,8 +300,10 @@ class Server extends ConfigEntityBase implements ServerInterface, LdapProtocolIn
    */
   public function createLdapEntry(array $attributes, $dn = NULL) {
 
-    $this->connectAndBindIfNotAlready();
-
+    if (!$this->connection) {
+      $this->connect();
+      $this->bind();
+    }
     if (isset($attributes['dn'])) {
       $dn = $attributes['dn'];
       unset($attributes['dn']);
@@ -397,8 +341,10 @@ class Server extends ConfigEntityBase implements ServerInterface, LdapProtocolIn
    *   Result of ldap_delete() call.
    */
   public function deleteLdapEntry($dn) {
-    $this->connectAndBindIfNotAlready();
-
+    if (!$this->connection) {
+      $this->connect();
+      $this->bind();
+    }
     $result = @ldap_delete($this->connection, $dn);
 
     if (!$result) {
@@ -670,23 +616,27 @@ class Server extends ConfigEntityBase implements ServerInterface, LdapProtocolIn
       }
     }
 
-    \Drupal::service('ldap.detail_log')->log(
-    "LDAP search call with base_dn '%base_dn'. Filter is '%filter' with attributes '%attributes'. Only attributes %attrs_only, size limit %size_limit, time limit %time_limit, dereference %deref, scope %scope.", [
-      '%base_dn' => $base_dn,
-      '%filter' => $filter,
-      '%attributes' => is_array($attributes) ? implode(',', $attributes) : 'none',
-      '%attrs_only' => $attrsonly,
-      '%size_limit' => $sizelimit,
-      '%time_limit' => $timelimit,
-      '%deref' => $deref ? $deref : 'null',
-      '%scope' => $scope ? $scope : 'null',
+    if (\Drupal::config('ldap_help.settings')->get('watchdog_detail')) {
+      \Drupal::logger('ldap_servers')->notice("LDAP search call with base_dn '%base_dn'. Filter is '%filter' with attributes '%attributes'. Only attributes %attrs_only, size limit %size_limit, time limit %time_limit, dereference %deref, scope %scope.", [
+        '%base_dn' => $base_dn,
+        '%filter' => $filter,
+        '%attributes' => is_array($attributes) ? implode(',', $attributes) : 'none',
+        '%attrs_only' => $attrsonly,
+        '%size_limit' => $sizelimit,
+        '%time_limit' => $timelimit,
+        '%deref' => $deref ? $deref : 'null',
+        '%scope' => $scope ? $scope : 'null',
 
-    ]
-    );
+      ]
+      );
+    }
 
     // When checking multiple servers, there's a chance we might not be
     // connected yet.
-    $this->connectAndBindIfNotAlready();
+    if (!$this->connection) {
+      $this->connect();
+      $this->bind();
+    }
 
     $ldap_query_params = [
       'connection' => $this->connection,
@@ -942,7 +892,8 @@ class Server extends ConfigEntityBase implements ServerInterface, LdapProtocolIn
       ->condition('ldap_user_puid_sid', $this->id(), '=')
       ->condition('ldap_user_puid', $puid, '=')
       ->condition('ldap_user_puid_property', $this->get('unique_persistent_attr'), '=')
-      ->accessCheck(FALSE);
+    // Run the query as user 1.
+      ->addMetaData('account', \Drupal::entityManager()->getStorage('user')->load(1));
 
     $result = $query->execute();
 

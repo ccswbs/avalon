@@ -3,26 +3,22 @@
 namespace Drupal\ldap_user\Form;
 
 use Drupal\Core\Config\Config;
-use Drupal\Core\DependencyInjection\ContainerInjectionInterface;
 use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Form\ConfigFormBase;
 use Drupal\Core\Config\ConfigFactoryInterface;
+
 use Drupal\Core\Url;
 use Drupal\ldap_query\Controller\QueryController;
 use Drupal\ldap_servers\Processor\TokenProcessor;
-use Drupal\ldap_servers\ServerFactory;
 use Drupal\ldap_user\Helper\LdapConfiguration;
-use Drupal\ldap_servers\LdapUserAttributesInterface;
+use Drupal\ldap_user\LdapUserAttributesInterface;
 use Drupal\ldap_user\Helper\SemaphoreStorage;
 use Drupal\ldap_user\Helper\SyncMappingHelper;
-use Symfony\Component\DependencyInjection\ContainerInterface;
 
 /**
  * Provides the form to configure user configuration and field mapping.
  */
-class LdapUserAdminForm extends ConfigFormBase implements LdapUserAttributesInterface, ContainerInjectionInterface {
-
-  protected $serverFactory;
+class LdapUserAdminForm extends ConfigFormBase implements LdapUserAttributesInterface {
 
   protected $drupalAcctProvisionServerOptions;
 
@@ -31,11 +27,11 @@ class LdapUserAdminForm extends ConfigFormBase implements LdapUserAttributesInte
   /**
    * {@inheritdoc}
    */
-  public function __construct(ConfigFactoryInterface $config_factory, ServerFactory $server_factory) {
+  public function __construct(ConfigFactoryInterface $config_factory) {
     parent::__construct($config_factory);
 
-    $this->serverFactory = $server_factory;
-    $ldap_servers = $this->serverFactory->getEnabledServers();
+    $factory = \Drupal::service('ldap.servers');
+    $ldap_servers = $factory->getEnabledServers();
     if ($ldap_servers) {
       foreach ($ldap_servers as $sid => $ldap_server) {
         /** @var \Drupal\ldap_servers\Entity\Server $ldap_server */
@@ -46,16 +42,6 @@ class LdapUserAdminForm extends ConfigFormBase implements LdapUserAttributesInte
     }
     $this->drupalAcctProvisionServerOptions['none'] = $this->t('None');
     $this->ldapEntryProvisionServerOptions['none'] = $this->t('None');
-  }
-
-  /**
-   * Factory for dependency injection.
-   */
-  public static function create(ContainerInterface $container) {
-    return new static (
-      $container->get('config.factory'),
-      $container->get('ldap.servers')
-    );
   }
 
   /**
@@ -574,8 +560,9 @@ class LdapUserAdminForm extends ConfigFormBase implements LdapUserAttributesInte
    */
   private function checkPuidForOrphans($orphanCheck, $serverId) {
     if ($orphanCheck != 'ldap_user_orphan_do_not_check') {
+      $factory = \Drupal::service('ldap.servers');
       /** @var \Drupal\ldap_servers\Entity\Server $server */
-      $server = $this->serverFactory->getServerById($serverId);
+      $server = $factory->getServerById($serverId);
       if (empty($server->get('unique_persistent_attr'))) {
         return FALSE;
       }

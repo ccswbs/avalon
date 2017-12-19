@@ -5372,9 +5372,138 @@
         }
     },
     {
+        "name": "drupal/ldap_sso",
+        "version": "1.0.0-beta6",
+        "version_normalized": "1.0.0.0-beta6",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/ldap_sso",
+            "reference": "8.x-1.0-beta6"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/ldap_sso-8.x-1.0-beta6.zip",
+            "reference": "8.x-1.0-beta6",
+            "shasum": "0cdf4fb2fec2f03678f2fdef004286823fd404f1"
+        },
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/ldap_authentication": "*",
+            "drupal/ldap_servers": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-1.x": "1.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-1.0-beta6",
+                "datestamp": "1503843244",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Project has not opted into security advisory coverage!"
+                }
+            }
+        },
+        "installation-source": "dist",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "grahl",
+                "homepage": "https://www.drupal.org/user/146040"
+            },
+            {
+                "name": "hotspoons",
+                "homepage": "https://www.drupal.org/user/343807"
+            }
+        ],
+        "description": "Single-Sign-On (SSO) for Lightweight Directory Access Protocol (LDAP)",
+        "homepage": "https://www.drupal.org/project/ldap_sso",
+        "support": {
+            "source": "http://cgit.drupalcode.org/ldap_sso"
+        }
+    },
+    {
+        "name": "drupal/ldap",
+        "version": "3.0.0-beta3",
+        "version_normalized": "3.0.0.0-beta3",
+        "source": {
+            "type": "git",
+            "url": "https://git.drupal.org/project/ldap",
+            "reference": "8.x-3.0-beta3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://ftp.drupal.org/files/projects/ldap-8.x-3.0-beta3.zip",
+            "reference": "8.x-3.0-beta3",
+            "shasum": "0ffbcf564c95deb911e06d184b2bb59443378f64"
+        },
+        "require": {
+            "drupal/core": "~8.0"
+        },
+        "require-dev": {
+            "drupal/authorization": "*",
+            "drupal/externalauth": "*",
+            "drupal/ldap_servers": "*",
+            "drupal/ldap_user": "*"
+        },
+        "type": "drupal-module",
+        "extra": {
+            "branch-alias": {
+                "dev-3.x": "3.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-3.0-beta3",
+                "datestamp": "1503842943",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "installation-source": "source",
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "dgtlmoon",
+                "homepage": "https://www.drupal.org/user/25027"
+            },
+            {
+                "name": "grahl",
+                "homepage": "https://www.drupal.org/user/146040"
+            },
+            {
+                "name": "johnbarclay",
+                "homepage": "https://www.drupal.org/user/225037"
+            },
+            {
+                "name": "larowlan",
+                "homepage": "https://www.drupal.org/user/395439"
+            },
+            {
+                "name": "queenvictoria",
+                "homepage": "https://www.drupal.org/user/856454"
+            },
+            {
+                "name": "welly",
+                "homepage": "https://www.drupal.org/user/354705"
+            }
+        ],
+        "homepage": "https://www.drupal.org/project/ldap",
+        "support": {
+            "source": "http://cgit.drupalcode.org/ldap"
+        }
+    },
+    {
         "name": "drupal/ldap_servers",
-        "version": "dev-3.x",
-        "version_normalized": "dev-3.x",
+        "version": "3.0.0-beta3",
+        "version_normalized": "3.0.0.0-beta3",
         "require": {
             "drupal/core": "~8.0",
             "drupal/ldap": "self.version"
@@ -5385,11 +5514,11 @@
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.0-beta3+28-dev",
-                "datestamp": "1512318485",
+                "version": "8.x-3.0-beta3",
+                "datestamp": "1503842943",
                 "security-coverage": {
                     "status": "not-covered",
-                    "message": "Dev releases are not covered by Drupal security advisories."
+                    "message": "Beta releases are not covered by Drupal security advisories."
                 }
             }
         },
@@ -5430,41 +5559,29 @@
         }
     },
     {
-        "name": "drupal/ldap",
-        "version": "dev-3.x",
-        "version_normalized": "dev-3.x",
-        "source": {
-            "type": "git",
-            "url": "https://git.drupal.org/project/ldap",
-            "reference": "432c4e7fadd3a3bed69b4cdad7212098f7370924"
-        },
+        "name": "drupal/ldap_user",
+        "version": "3.0.0-beta3",
+        "version_normalized": "3.0.0.0-beta3",
         "require": {
-            "drupal/authorization": "1.x-dev",
             "drupal/core": "~8.0",
-            "drupal/externalauth": "^1.0",
+            "drupal/externalauth": "*",
+            "drupal/ldap": "self.version",
             "drupal/ldap_servers": "*"
         },
-        "require-dev": {
-            "drupal/authorization": "*",
-            "drupal/externalauth": "*",
-            "drupal/ldap_servers": "*",
-            "drupal/ldap_user": "*"
-        },
-        "type": "drupal-module",
+        "type": "metapackage",
         "extra": {
             "branch-alias": {
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.0-beta3+28-dev",
-                "datestamp": "1512318485",
+                "version": "8.x-3.0-beta3",
+                "datestamp": "1503842943",
                 "security-coverage": {
                     "status": "not-covered",
-                    "message": "Dev releases are not covered by Drupal security advisories."
+                    "message": "Beta releases are not covered by Drupal security advisories."
                 }
             }
         },
-        "installation-source": "source",
         "notification-url": "https://packages.drupal.org/8/downloads",
         "license": [
             "GPL-2.0+"
@@ -5495,7 +5612,68 @@
                 "homepage": "https://www.drupal.org/user/354705"
             }
         ],
-        "description": "Lightweight Directory Access Protocol (LDAP)",
+        "description": "Module for LDAP identified users.  User may be associated via LDAP authentication, LDAP authorization, or from account provisioning.  Configures syncing of LDAP entries to Drupal user properties, fields and the opposite direction.",
+        "homepage": "https://www.drupal.org/project/ldap",
+        "support": {
+            "source": "http://cgit.drupalcode.org/ldap"
+        }
+    },
+    {
+        "name": "drupal/ldap_authentication",
+        "version": "3.0.0-beta3",
+        "version_normalized": "3.0.0.0-beta3",
+        "require": {
+            "drupal/core": "~8.0",
+            "drupal/externalauth": "*",
+            "drupal/ldap": "self.version",
+            "drupal/ldap_servers": "*",
+            "drupal/ldap_user": "*"
+        },
+        "type": "metapackage",
+        "extra": {
+            "branch-alias": {
+                "dev-3.x": "3.x-dev"
+            },
+            "drupal": {
+                "version": "8.x-3.0-beta3",
+                "datestamp": "1503842943",
+                "security-coverage": {
+                    "status": "not-covered",
+                    "message": "Beta releases are not covered by Drupal security advisories."
+                }
+            }
+        },
+        "notification-url": "https://packages.drupal.org/8/downloads",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "authors": [
+            {
+                "name": "dgtlmoon",
+                "homepage": "https://www.drupal.org/user/25027"
+            },
+            {
+                "name": "grahl",
+                "homepage": "https://www.drupal.org/user/146040"
+            },
+            {
+                "name": "johnbarclay",
+                "homepage": "https://www.drupal.org/user/225037"
+            },
+            {
+                "name": "larowlan",
+                "homepage": "https://www.drupal.org/user/395439"
+            },
+            {
+                "name": "queenvictoria",
+                "homepage": "https://www.drupal.org/user/856454"
+            },
+            {
+                "name": "welly",
+                "homepage": "https://www.drupal.org/user/354705"
+            }
+        ],
+        "description": "Implements LDAP authentication",
         "homepage": "https://www.drupal.org/project/ldap",
         "support": {
             "source": "http://cgit.drupalcode.org/ldap"

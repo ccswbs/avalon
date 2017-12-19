@@ -16,7 +16,6 @@ class ExternalAuthenticationHelperTests extends UnitTestCase {
    */
   public function testUserExclusion() {
 
-    // @TODO 2914053.
     /* Disallow user 1 */
     $account = $this->prophesize('\Drupal\user\Entity\User');
     $account->id()->willReturn(1);
