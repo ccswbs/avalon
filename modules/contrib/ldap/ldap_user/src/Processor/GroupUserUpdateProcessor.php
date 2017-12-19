@@ -17,21 +17,13 @@ class GroupUserUpdateProcessor {
   private $queryController;
 
   /**
-   * LDAP details logger.
-   *
-   * @var \Drupal\ldap_servers\Logger\LdapDetailLog
-   */
-  protected $detailLog;
-
-  /**
    * Constructor for update process.
    *
    * @param string $id
    *   LDAP QueryEntity ID.
    */
   public function __construct($id) {
-    // TODO: Inject services.
-    $this->detailLog = \Drupal::service('ldap.detail_log');
+    $this->detailedWatchdog = \Drupal::config('ldap_help.settings')->get('watchdog_detail');
     $this->config = \Drupal::config('ldap_user.settings');
     $this->ldapDrupalUserProcessor = new DrupalUserProcessor();
     $this->ldapServerFactory = new ServerFactory();
@@ -118,23 +110,22 @@ class GroupUserUpdateProcessor {
             $drupalAccount = User::load(ExternalAuthenticationHelper::getUidFromIdentifierMap($username));
             $this->ldapDrupalUserProcessor->drupalUserLogsIn($drupalAccount);
             $this->updateAuthorizations($drupalAccount);
-            $this->detailLog->log(
-              'Periodic update: @name updated',
-              ['@name' => $username],
-              'ldap_user'
-            );
+            if ($this->detailedWatchdog) {
+              \Drupal::logger('ldap_user')
+                ->notice('Periodic update: @name updated',
+                  ['@name' => $username]
+                );
+            }
           }
           else {
-            $drupalAccount = $this->ldapDrupalUserProcessor
-              ->provisionDrupalAccount(['name' => $username, 'status' => TRUE]);
-            if ($drupalAccount) {
-              $this->ldapDrupalUserProcessor->drupalUserLogsIn($drupalAccount);
-              $this->updateAuthorizations($drupalAccount);
-              $this->detailLog->log(
-                'Periodic update: @name created',
-                ['@name' => $username],
-                'ldap_user'
-              );
+            $drupalAccount = $this->ldapDrupalUserProcessor->provisionDrupalAccount(['name' => $username, 'status' => TRUE]);
+            $this->ldapDrupalUserProcessor->drupalUserLogsIn($drupalAccount);
+            $this->updateAuthorizations($drupalAccount);
+            if ($this->detailedWatchdog) {
+              \Drupal::logger('ldap_user')
+                ->notice('Periodic update: @name created',
+                  ['@name' => $username]
+                );
             }
           }
         }

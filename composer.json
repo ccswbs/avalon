@@ -7,8 +7,12 @@
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
         "drupal/easy_breadcrumb": "^1.6",
-        "drupal/ldap": "3.x-dev",
-        "drupal/externalauth": "^1.0"
+        "drupal/ldap": "3.0-beta3",
+        "drupal/externalauth": "^1.0",
+        "drupal/ldap_sso": "1.0-beta6",
+        "drupal/ldap_authentication": "3.0-beta3",
+        "drupal/ldap_user": "3.0-beta3",
+        "drupal/ldap_servers": "3.0-beta3"
     },
     "replace": {
         "drupal/core": "^8.4"

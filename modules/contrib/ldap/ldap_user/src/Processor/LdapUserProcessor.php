@@ -7,7 +7,7 @@ use Drupal\ldap_servers\Entity\Server;
 use Drupal\ldap_servers\Processor\TokenProcessor;
 use Drupal\ldap_user\Exception\LdapBadParamsException;
 use Drupal\ldap_user\Helper\LdapConfiguration;
-use Drupal\ldap_servers\LdapUserAttributesInterface;
+use Drupal\ldap_user\LdapUserAttributesInterface;
 use Drupal\ldap_user\Helper\SyncMappingHelper;
 use Drupal\user\Entity\User;
 
@@ -16,26 +16,15 @@ use Drupal\user\Entity\User;
  */
 class LdapUserProcessor implements LdapUserAttributesInterface {
 
-  /**
-   * Configuration settings from ldap_user.
-   *
-   * @var \Drupal\Core\Config\Config
-   */
   private $config;
-
-  /**
-   * LDAP Details logger.
-   *
-   * @var \Drupal\ldap_servers\Logger\LdapDetailLog
-   */
-  private $detailLog;
+  private $detailedWatchdog = FALSE;
 
   /**
    * Constructor.
    */
   public function __construct() {
     $this->config = \Drupal::config('ldap_user.settings')->get();
-    $this->detailLog = \Drupal::service('ldap.detail_log');
+    $this->detailedWatchdog = \Drupal::config('ldap_help.settings')->get('watchdog_detail');
   }
 
   /**
@@ -53,7 +42,6 @@ class LdapUserProcessor implements LdapUserAttributesInterface {
    */
   public function syncToLdapEntry(User $account, array $ldapUser = [], $testQuery = FALSE) {
 
-    // @TODO 2914053.
     if (is_object($account) && $account->id() == 1) {
       // Do not provision or sync user 1.
       return FALSE;
@@ -272,7 +260,6 @@ class LdapUserProcessor implements LdapUserAttributesInterface {
       $account = user_load_by_name($account);
     }
 
-    // @TODO 2914053.
     if (is_object($account) && $account->id() == 1) {
       $result['status'] = 'fail';
       $result['error_description'] = 'can not provision Drupal user 1';
@@ -408,16 +395,16 @@ class LdapUserProcessor implements LdapUserAttributesInterface {
     ];
     if (isset($result['status'])) {
       if ($result['status'] == 'success') {
-        $this->detailLog->log(
-          'LDAP entry on server %sid created dn=%dn.  %description. username=%username, uid=%uid',
-          $tokens, 'ldap_user'
-        );
+        if ($this->detailedWatchdog) {
+          \Drupal::logger('ldap_user')
+            ->info('LDAP entry on server %sid created dn=%dn.  %description. username=%username, uid=%uid', $tokens);
+        }
       }
       elseif ($result['status'] == 'conflict') {
-        $this->detailLog->log(
-          'LDAP entry on server %sid not created because of existing LDAP entry. %description. username=%username, uid=%uid',
-          $tokens, 'ldap_user'
-        );
+        if ($this->detailedWatchdog) {
+          \Drupal::logger('ldap_user')
+            ->warning('LDAP entry on server %sid not created because of existing LDAP entry. %description. username=%username, uid=%uid', $tokens);
+        }
       }
       elseif ($result['status'] == 'fail') {
         \Drupal::logger('ldap_user')
