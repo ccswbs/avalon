@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: moderator
 label: moderator
-weight: 11
+weight: -1
 is_admin: null
 permissions:
   - 'access administration pages'

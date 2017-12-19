@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: site_manager
 label: 'site manager'
-weight: 13
+weight: 1
 is_admin: null
 permissions:
   - 'access administration pages'
