@@ -65,7 +65,7 @@ settings:
         -
           name: Links
           items:
-            - DrupalLink
+            - Linkit
             - DrupalUnlink
             - Anchor
       -
@@ -84,10 +84,12 @@ settings:
             - ShowBlocks
             - '-'
   plugins:
-    language:
-      language_list: un
     stylescombo:
       styles: ''
+    language:
+      language_list: un
+    linkit:
+      linkit_profile: ug_easylinks
 image_upload:
   status: true
   scheme: public

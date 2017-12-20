@@ -67,7 +67,7 @@ settings:
         -
           name: Linking
           items:
-            - DrupalLink
+            - Linkit
             - DrupalUnlink
             - Anchor
       -
@@ -89,6 +89,8 @@ settings:
       styles: ''
     language:
       language_list: un
+    linkit:
+      linkit_profile: ug_easylinks
 image_upload:
   status: true
   scheme: public

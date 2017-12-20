@@ -37,6 +37,7 @@ module:
   ldap_sso: 0
   ldap_user: 0
   link: 0
+  linkit: 0
   menu_ui: 0
   migrate: 0
   migrate_drupal: 0
