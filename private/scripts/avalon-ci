@@ -27,14 +27,14 @@ terminus multidev:create $SITE.$ENV $MULTIDEV </dev/null
 terminus env:wake hjckrrh.dev </dev/null
 
 # Roll back any prior migrations
-terminus drush $SITE.$MULTIDEV -- migrate-rollback --all </dev/null
+terminus drush $SITE.$MULTIDEV -- migrate-rollback --group=migrate_drupal_7 </dev/null
 
 # Import config
 terminus drush $SITE.$MULTIDEV -- config-import -y </dev/null
 
 # Run a full migration
-terminus drush $SITE.$MULTIDEV -- migrate-import --all </dev/null || true
-terminus drush $SITE.$MULTIDEV -- migrate-import --update --all </dev/null || true
+terminus drush $SITE.$MULTIDEV -- migrate-import --group=migrate_drupal_7 </dev/null || true
+terminus drush $SITE.$MULTIDEV -- migrate-import --update --group=migrate_drupal_7 </dev/null || true
 
 # Run tests
 export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$MULTIDEV'-'$SITE'.pantheonsite.io"} }}'
