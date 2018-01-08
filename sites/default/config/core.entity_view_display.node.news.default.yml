@@ -13,6 +13,7 @@ dependencies:
     - field.field.node.news.field_news_tags
     - field.field.node.news.field_news_writer
     - field.field.node.news.field_tags
+    - image.style.manual_crop
     - node.type.news
   module:
     - comment
@@ -61,7 +62,7 @@ content:
     weight: 1
     type: image
     settings:
-      image_style: ''
+      image_style: manual_crop
       image_link: ''
     third_party_settings: {  }
     region: content

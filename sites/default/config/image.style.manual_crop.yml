@@ -1,0 +1,15 @@
+uuid: 5f2a9d3d-f1a8-4846-afaa-c0931884c270
+langcode: en
+status: true
+dependencies:
+  module:
+    - crop
+name: manual_crop
+label: 'Manual crop'
+effects:
+  8f1d9a1e-4d51-4ec8-a84c-f8e16582e0bd:
+    uuid: 8f1d9a1e-4d51-4ec8-a84c-f8e16582e0bd
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: free_crop
