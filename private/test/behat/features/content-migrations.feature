@@ -58,7 +58,7 @@ Feature: Content migration
 		Then I should see "U of G Eco-Friendly Flowerpots Blossom in U.S., Canada"
 		Then I should see "Written by University of Guelph"
 		Then I should see "University of Guelph gryphon statue"
-		Then the response should contain "<img src=\"/sites/default/files/UofG-Math-Stats-Stock-Web-FullSize-034%20copy.jpg\" width=\"1140\" height=\"291\" alt=\"University of Guelph gryphon statue\" typeof=\"foaf:Image\" />"
+		Then the response should contain "UofG-Math-Stats-Stock-Web-FullSize-034%20copy.jpg"
 		Then I should see "Affordable, eco-friendly flowerpots "
 
 	Scenario: Service page
