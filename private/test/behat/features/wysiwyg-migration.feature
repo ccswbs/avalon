@@ -13,4 +13,4 @@ Feature: WYSIWYG settings
 		Given I am on "filtered-listing-page"
 		Then print current URL
 		Then the response should not contain "<div class=\"media-listing-page\">"
-		Then the response should not contain "<script>"
+		Then the response should not contain "<script>document.getElementById(\"demo\").innerHTML = \"Hello JavaScript!\";</script>"
