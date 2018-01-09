@@ -26,6 +26,7 @@ terminus connection:set $SITE.$MULTIDEV sftp </dev/null
 terminus drush $SITE.$MULTIDEV -- config-export -y </dev/null
 sleep 15
 terminus env:commit $SITE.$MULTIDEV --force </dev/null
+terminus connection:set $SITE.$MULTIDEV git </dev/null
 
 # Clone site repository
 cd $TEMP
