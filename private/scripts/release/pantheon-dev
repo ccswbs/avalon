@@ -3,56 +3,26 @@
 # Safe mode
 set -xeuo pipefail
 
-# Utilities
-#PATH=$PATH:/opt/terminus/vendor/bin
-
 # Environment
 SITE=${SITE:-ug-avalon}
 ENV=${ENV:-dev}
-MULTIDEV=${MULTIDEV:-rel}
 TEMP=${TEMP:-/tmp}
 UPSTREAM_URL=https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon
-RELEASE=${BUILD_SOURCEVERSION:-master}
-
-#configure git identity
-git config --global user.email "wsadmin@uoguelph.ca"
-git config --global user.name "WS Admin"
-
-# Copy live database to release environment
-terminus multidev:create $SITE.live $MULTIDEV </dev/null
-
-# Export configuration and commit
-terminus connection:set $SITE.$MULTIDEV sftp </dev/null
-terminus drush $SITE.$MULTIDEV -- config-export -y </dev/null
-sleep 15
-terminus env:commit $SITE.$MULTIDEV --force </dev/null
-terminus connection:set $SITE.$MULTIDEV git </dev/null
+RELEASE=${BUILD_SOURCEVERSION:-upstream/master}
 
 # Clone site repository
 cd $TEMP
 rm -rf $SITE
-GIT_URL=$(terminus connection:info $SITE.$MULTIDEV --field=git_url)
+GIT_URL=$(terminus connection:info $SITE.$ENV --field=git_url)
 git clone $GIT_URL $SITE
 
 # Merge release tag/commit
 cd $SITE
-git checkout $MULTIDEV
-git pull $UPSTREAM_URL $RELEASE
-git push origin HEAD
-
-# Merge release into dev environment
-terminus multidev:merge-to-dev $SITE.$MULTIDEV </dev/null
-
-# Delete release environment
-terminus multidev:delete -y --delete-branch $SITE.$MULTIDEV </dev/null
-
-# Rollback previous migration
-terminus drush $SITE.$ENV -- migrate-rollback --group=migrate_drupal_7 </dev/null || true
+git remote add upstream $UPSTREAM_URL
+git fetch upstream
+git rebase ${RELEASE}
+git push --force origin master
 
 # Import config
 terminus drush $SITE.$ENV -- config-import -y </dev/null
-
-# Migrate content
-terminus drush $SITE.$ENV -- migrate-import --group=migrate_drupal_7 </dev/null || true
-terminus drush $SITE.$ENV -- migrate-import --group=migrate_drupal_7 --update </dev/null || true
 

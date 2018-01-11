@@ -34,7 +34,7 @@ if [ ! -d $TERMINUS_PLUGINS_DIR ]
 # Install Terminus secrets plugin
 if [ ! -d $TERMINUS_SECRETS_PLUGIN_HOME ]
   then
-    composer create-project -d $TERMINUS_PLUGINS_DIR pantheon-systems/terminus-secrets-plugin:~1
+    php composer.phar create-project -d $TERMINUS_PLUGINS_DIR pantheon-systems/terminus-secrets-plugin:~1
   fi
 
 # Create empty secrets file

@@ -16,6 +16,7 @@ module:
   config: 0
   contact: 0
   contextual: 0
+  crop: 0
   datetime: 0
   datetime_range: 0
   dblog: 0
@@ -33,6 +34,7 @@ module:
   help: 0
   history: 0
   image: 0
+  image_widget_crop: 0
   ldap_authentication: 0
   ldap_authorization: 0
   ldap_help: 0

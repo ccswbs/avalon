@@ -17,7 +17,7 @@ dependencies:
   module:
     - comment
     - file
-    - image
+    - image_widget_crop
     - link
     - path
     - text
@@ -64,10 +64,16 @@ content:
     region: content
   field_news_image:
     weight: 3
-    type: image_image
+    type: image_widget_crop
     settings:
-      progress_indicator: throbber
+      show_default_crop: true
+      warn_multiple_usages: true
       preview_image_style: thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - free_crop
+      progress_indicator: throbber
+      show_crop_area: false
     third_party_settings: {  }
     region: content
   field_news_link:
