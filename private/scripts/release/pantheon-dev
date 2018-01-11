@@ -8,7 +8,7 @@ SITE=${SITE:-ug-avalon}
 ENV=${ENV:-dev}
 TEMP=${TEMP:-/tmp}
 UPSTREAM_URL=https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon
-RELEASE=${BUILD_SOURCEVERSION:-master}
+RELEASE=${BUILD_SOURCEVERSION:-upstream/master}
 
 # Clone site repository
 cd $TEMP
@@ -20,16 +20,9 @@ git clone $GIT_URL $SITE
 cd $SITE
 git remote add upstream $UPSTREAM_URL
 git fetch upstream
-git rebase upstream/master
-git push origin HEAD
-
-# Rollback previous migration
-terminus drush $SITE.$ENV -- migrate-rollback --group=migrate_drupal_7 </dev/null || true
+git rebase ${RELEASE}
+git push --force origin master
 
 # Import config
 terminus drush $SITE.$ENV -- config-import -y </dev/null
-
-# Migrate content
-terminus drush $SITE.$ENV -- migrate-import --group=migrate_drupal_7 </dev/null || true
-terminus drush $SITE.$ENV -- migrate-import --group=migrate_drupal_7 --update </dev/null || true
 
