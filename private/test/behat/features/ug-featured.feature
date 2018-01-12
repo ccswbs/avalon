@@ -22,7 +22,4 @@ Feature: UG Featured Items
 		Then I should not see "Illum Turpis"
 		Then I should not see "Camur Iustum Quibus Sed"
 
-		Given I am on "features/24"
-		Then I should not see "Laoreet Typicus"
-		Then I should see "Illum Turpis"
-		Then I should see "Lobortis"
+		
