@@ -8,7 +8,7 @@ Feature: UG News
 		Then I should see "News"
 		Then I should see "Cui"
 		Then I should see "Autem Quibus"
-		Then I should not see "Nisl"
+		Then I should not see "Persto Ratis"
 
 	Scenario: News listing view
 		Given I am on "news"
