@@ -16,7 +16,7 @@ LEGACY_PORT=${LEGACY_PORT:-}
 TERMINUS_PLUGINS_DIR=~/.terminus/plugins
 TERMINUS_SECRETS_PLUGIN_HOME=$TERMINUS_PLUGINS_DIR/terminus-secrets-plugin
 
-if [ -n "$LEGACY_SITE" -a -n "$LEGACY_ENV" ]
+if [ -z "$LEGACY_DATABASE" ]
   then
     LEGACY_DATABASE=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_database)
     LEGACY_USERNAME=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_username)
