@@ -11,7 +11,7 @@ _core:
 id: ug_cornerstone_system_powered_by
 theme: bartik
 region: content
-weight: -3
+weight: -5
 provider: null
 plugin: system_powered_by_block
 settings:
