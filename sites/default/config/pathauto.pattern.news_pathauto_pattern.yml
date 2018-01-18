@@ -1,0 +1,22 @@
+uuid: 20c449ea-e94e-4c96-8838-c557d5440ea7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: news_pathauto_pattern
+label: 'News Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: 'news/[node:created:custom:Y]/[node:created:custom:m]/[node:title]'
+selection_criteria:
+  a7e87c87-4bc5-4954-8ba5-a3ed68cb7bc2:
+    id: node_type
+    bundles:
+      news: news
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a7e87c87-4bc5-4954-8ba5-a3ed68cb7bc2
+selection_logic: and
+weight: -5
+relationships: {  }
