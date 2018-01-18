@@ -42,7 +42,7 @@ dwood:
   extensions:
     Behat\MinkExtension:
       # Supplied by env variable.
-      base_url: http://dw-ug-avalon.pantheonsite.io/
+      base_url: http://dw4-ug-avalon.pantheonsite.io/
       goutte: ~
     Drupal\DrupalExtension:
       blackbox: ~
