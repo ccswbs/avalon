@@ -1,0 +1,22 @@
+uuid: d2b7d660-657f-4c25-bb27-cfd71c7db823
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: event_pathauto_pattern
+label: 'Event Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: 'events/[node:field_event_datetime_range:start_date:custom:Y]/[node:field_event_datetime_range:start_date:custom:m]/[node:title]'
+selection_criteria:
+  49b440fb-0b9f-40c3-83e7-ba5482d87ad9:
+    id: node_type
+    bundles:
+      event: event
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 49b440fb-0b9f-40c3-83e7-ba5482d87ad9
+selection_logic: and
+weight: -8
+relationships: {  }
