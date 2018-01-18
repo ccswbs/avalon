@@ -1,20 +1,17 @@
-uuid: 2d02ff84-1bba-4d27-ab57-34b636b4e993
+uuid: 360be1ab-06d0-45c6-9e7e-b5b3358f97c8
 langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_mode.node.teaser
-    - node.type.faq
-    - taxonomy.vocabulary.faq_category
-    - taxonomy.vocabulary.tags
+    - node.type.event
   module:
+    - datetime
     - node
-    - taxonomy
     - user
-id: faq
-label: FAQ
+id: e5
+label: 'E5 - Browse events by date'
 module: views
-description: 'Browse Frequently Asked Questions'
+description: 'Allows users to find a list of events associated with a specific year and month.'
 tag: ''
 base_table: node_field_data
 base_field: nid
@@ -52,58 +49,54 @@ display:
           sort_asc_label: Asc
           sort_desc_label: Desc
       pager:
-        type: full
+        type: none
         options:
-          items_per_page: 50
+          items_per_page: 0
           offset: 0
-          id: 0
-          total_pages: null
-          tags:
-            previous: '‹ Previous'
-            next: 'Next ›'
-            first: '« First'
-            last: 'Last »'
-          expose:
-            items_per_page: false
-            items_per_page_label: 'Items per page'
-            items_per_page_options: '5, 10, 25, 50'
-            items_per_page_options_all: false
-            items_per_page_options_all_label: '- All -'
-            offset: false
-            offset_label: Offset
-          quantity: 9
       style:
         type: default
       row:
-        type: 'entity:node'
-        options:
-          view_mode: teaser
+        type: fields
       fields:
         title:
           id: title
           table: node_field_data
           field: title
-          entity_type: node
-          entity_field: title
-          label: ''
-          alter:
-            alter_text: false
-            make_link: false
-            absolute: false
-            trim: false
-            word_boundary: false
-            ellipsis: false
-            strip_tags: false
-            html: false
-          hide_empty: false
-          empty_zero: false
           settings:
             link_to_entity: true
           plugin_id: field
           relationship: none
           group_type: group
           admin_label: ''
+          label: ''
           exclude: false
+          alter:
+            alter_text: false
+            text: ''
+            make_link: false
+            path: ''
+            absolute: false
+            external: false
+            replace_spaces: false
+            path_case: none
+            trim_whitespace: false
+            alt: ''
+            rel: ''
+            link_class: ''
+            prefix: ''
+            suffix: ''
+            target: ''
+            nl2br: false
+            max_length: 0
+            word_boundary: true
+            ellipsis: true
+            more_link: false
+            more_link_text: ''
+            more_link_path: ''
+            strip_tags: false
+            trim: false
+            preserve_tags: ''
+            html: false
           element_type: ''
           element_class: ''
           element_label_type: ''
@@ -113,6 +106,8 @@ display:
           element_wrapper_class: ''
           element_default_classes: true
           empty: ''
+          hide_empty: false
+          empty_zero: false
           hide_alter_empty: true
           click_sort_column: value
           type: string
@@ -143,39 +138,41 @@ display:
           table: node_field_data
           field: type
           value:
-            faq: faq
+            event: event
           entity_type: node
           entity_field: type
           plugin_id: bundle
+          group: 1
       sorts:
-        title:
-          id: title
+        created:
+          id: created
           table: node_field_data
-          field: title
-          order: ASC
+          field: created
+          order: DESC
           entity_type: node
-          entity_field: title
-          plugin_id: standard
+          entity_field: created
+          plugin_id: date
           relationship: none
           group_type: group
           admin_label: ''
           exposed: false
           expose:
             label: ''
-      title: FAQ
+          granularity: second
+      title: 'Events Archive'
       header: {  }
       footer: {  }
       empty: {  }
       relationships: {  }
       arguments:
-        tid:
-          id: tid
-          table: taxonomy_index
-          field: tid
+        field_event_date_value_year_month:
+          id: field_event_date_value_year_month
+          table: node__field_event_date
+          field: field_event_date_value_year_month
           relationship: none
           group_type: group
           admin_label: ''
-          default_action: ignore
+          default_action: summary
           exception:
             value: all
             title_enable: false
@@ -187,74 +184,47 @@ display:
             argument: ''
           default_argument_skip_url: false
           summary_options:
-            base_path: ''
+            base_path: events/archive
             count: true
             items_per_page: 25
             override: false
           summary:
-            sort_order: asc
+            sort_order: desc
             number_of_records: 0
             format: default_summary
-          specify_validation: true
+          specify_validation: false
           validate:
-            type: 'entity:taxonomy_term'
+            type: none
             fail: 'not found'
-          validate_options:
-            bundles:
-              faq_category: faq_category
-              tags: tags
-            operation: view
-            multiple: 0
-            access: false
-          break_phrase: false
-          add_table: false
-          require_value: false
-          reduce_duplicates: false
-          plugin_id: taxonomy_index_tid
+          validate_options: {  }
+          plugin_id: datetime_year_month
       display_extenders: {  }
+      filter_groups:
+        operator: AND
+        groups:
+          1: AND
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
-  page_1:
-    display_plugin: page
-    id: page_1
-    display_title: Page
+  block_1:
+    display_plugin: block
+    id: block_1
+    display_title: Block
     position: 1
     display_options:
       display_extenders: {  }
-      path: faq
     cache_metadata:
       max-age: -1
       contexts:
         - 'languages:language_content'
         - 'languages:language_interface'
         - url
-        - url.query_args
-        - 'user.node_grants:view'
-        - user.permissions
-      tags: {  }
-  page_2:
-    display_plugin: page
-    id: page_2
-    display_title: 'Page 2'
-    position: 2
-    display_options:
-      display_extenders: {  }
-      path: faq/category
-    cache_metadata:
-      max-age: -1
-      contexts:
-        - 'languages:language_content'
-        - 'languages:language_interface'
-        - url
-        - url.query_args
         - 'user.node_grants:view'
         - user.permissions
       tags: {  }
