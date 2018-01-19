@@ -1,0 +1,48 @@
+uuid: 7b2998e2-7b46-4e25-8a07-c8a39da2ff8c
+langcode: en
+status: true
+dependencies: {  }
+id: ug_central_directory
+label: 'UG Central Directory'
+provider: ldap_provider
+provider_config:
+  status:
+    server: ug
+    only_ldap_authenticated: 0
+  filter_and_mappings:
+    use_first_attr_as_groupid: 0
+provider_mappings:
+  -
+    query: member
+    is_regex: 0
+  -
+    query: student
+    is_regex: 0
+  -
+    query: employee
+    is_regex: 0
+  -
+    query: staff
+    is_regex: 0
+  -
+    query: faculty
+    is_regex: 0
+consumer: authorization_drupal_roles
+consumer_config: {  }
+consumer_mappings:
+  -
+    role: member
+  -
+    role: student
+  -
+    role: employee
+  -
+    role: staff
+  -
+    role: faculty
+synchronization_modes:
+  user_logon: user_logon
+synchronization_actions:
+  revoke_provider_provisioned: revoke_provider_provisioned
+  regrant_provider_provisioned: regrant_provider_provisioned
+  create_consumers: create_consumers

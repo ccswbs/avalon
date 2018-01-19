@@ -46,6 +46,20 @@ process:
     source: field_event_category
     process:
       target_id: tid
+  field_event_datetime_range:
+    plugin: iterator
+    source: field_event_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+      end_value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value2
   field_event_date:
     plugin: iterator
     source: field_event_date

@@ -1,0 +1,45 @@
+#!/bin/bash
+#
+# Workflow automation script for Avalon
+#
+
+# Safe mode
+set -euo pipefail
+
+# Environment
+SITE=${SITE:-ug-avalon}
+ENV=${ENV:-dev}
+BUILD_BUILDID=${BUILD_BUILDID:-$$}
+RESULTS=${COMMON_TESTRESULTSDIRECTORY:-TestResults}
+MULTIDEV="build${BUILD_BUILDID}"
+REMOTE=$(terminus connection:info $SITE.$ENV --field git_url </dev/null)
+
+# Create a branch from current commit
+git checkout -b $MULTIDEV
+
+# Push branch to Pantheon
+git push $REMOTE $MULTIDEV
+
+# Create an environment
+terminus multidev:create $SITE.$ENV $MULTIDEV </dev/null
+
+# Wake up source site
+terminus env:wake hjckrrh.dev </dev/null
+
+# Roll back any prior migrations
+terminus drush $SITE.$MULTIDEV -- migrate-rollback --group=migrate_drupal_7 </dev/null
+
+# Import config
+terminus drush $SITE.$MULTIDEV -- config-import -y </dev/null
+
+# Run a full migration
+terminus drush $SITE.$MULTIDEV -- migrate-import --group=migrate_drupal_7 </dev/null || true
+terminus drush $SITE.$MULTIDEV -- migrate-import --update --group=migrate_drupal_7 </dev/null || true
+
+# Run tests
+export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$MULTIDEV'-'$SITE'.pantheonsite.io"} }}'
+vendor/bin/behat --config=private/test/behat/config-ci.yml --format junit --out ${RESULTS} || true
+
+# Delete multidev environment (and branch)
+terminus multidev:delete -y --delete-branch $SITE.$MULTIDEV </dev/null
+

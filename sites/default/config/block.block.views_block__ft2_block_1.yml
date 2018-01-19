@@ -1,0 +1,31 @@
+uuid: 0b8cdcf8-afac-4b99-90f3-819521e73e78
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.ft2
+  module:
+    - system
+    - views
+  theme:
+    - bartik
+id: views_block__ft2_block_1
+theme: bartik
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'views_block:ft2-block_1'
+settings:
+  id: 'views_block:ft2-block_1'
+  label: 'Test Features'
+  provider: views
+  label_display: visible
+  views_label: 'Test Features'
+  items_per_page: none
+  context_mapping: {  }
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: false
+    context_mapping: {  }

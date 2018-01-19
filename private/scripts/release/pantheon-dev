@@ -1,0 +1,28 @@
+#!/bin/bash
+
+# Safe mode
+set -xeuo pipefail
+
+# Environment
+SITE=${SITE:-ug-avalon}
+ENV=${ENV:-dev}
+TEMP=${TEMP:-/tmp}
+UPSTREAM_URL=https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon
+RELEASE=${BUILD_SOURCEVERSION:-upstream/master}
+
+# Clone site repository
+cd $TEMP
+rm -rf $SITE
+GIT_URL=$(terminus connection:info $SITE.$ENV --field=git_url)
+git clone $GIT_URL $SITE
+
+# Merge release tag/commit
+cd $SITE
+git remote add upstream $UPSTREAM_URL
+git fetch upstream
+git rebase ${RELEASE}
+git push --force origin master
+
+# Import config
+terminus drush $SITE.$ENV -- config-import -y </dev/null
+

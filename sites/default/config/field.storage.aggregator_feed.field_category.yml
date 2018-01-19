@@ -1,0 +1,20 @@
+uuid: 4e8214de-0f8a-43a4-a708-5d40e9fb0fb1
+langcode: en
+status: true
+dependencies:
+  module:
+    - aggregator
+    - taxonomy
+id: aggregator_feed.field_category
+field_name: field_category
+entity_type: aggregator_feed
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

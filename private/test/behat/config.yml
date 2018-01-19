@@ -3,21 +3,61 @@ default:
   suites:
     default:
       contexts:
-        - Behat\MinkExtension\Context\MinkContext
+        - FeatureContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+        - Drupal\DrupalExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\MessageContext
+        - Drupal\DrupalExtension\Context\DrushContext
   extensions:
     Behat\MinkExtension:
       # Supplied by env variable.
       base_url: http://dev-ug-avalon.pantheonsite.io/
       goutte: ~
+      selenium2: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+      region_map:
+        breadcrumb: ".region.region-breadcrumb"
 
 brharp:
   suites:
     default:
       contexts:
         - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
   extensions:
     Behat\MinkExtension:
       # Supplied by env variable.
       base_url: http://brharp-ug-avalon.pantheonsite.io/
       goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+
+dwood:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+  extensions:
+    Behat\MinkExtension:
+      # Supplied by env variable.
+      base_url: http://dw4-ug-avalon.pantheonsite.io/
+      goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
+
+hjckrrh:
+  suites:
+    default:
+      contexts:
+        - Behat\MinkExtension\Context\MinkContext
+        - Drupal\DrupalExtension\Context\DrupalContext
+  extensions:
+    Behat\MinkExtension:
+      # Supplied by env variable.
+      base_url: http://dev-hjckrrh.pantheonsite.io/
+      goutte: ~
+    Drupal\DrupalExtension:
+      blackbox: ~
 

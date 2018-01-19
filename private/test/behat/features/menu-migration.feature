@@ -4,6 +4,7 @@ Feature: Menu migration
 	I need to see menu links on the home page
 
 	Scenario: Home page
+		Given I am on "/"
 		Then print current URL
 		Then I should see "Main menu"
 		Then I should see "Page 2"

@@ -1,4 +1,4 @@
-##
+##default
 # migrate.sh
 #
 # Run D7 -> D8 migration.
@@ -19,10 +19,10 @@ terminus connection:set $SITE.$ENV sftp </dev/null
 terminus remote:drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/config </dev/null
 
 # Run migration
-terminus remote:drush $SITE.$ENV -- migrate-import --all </dev/null
+terminus remote:drush $SITE.$ENV -- migrate-import --group=migrate_drupal_7 </dev/null
 
 # Update migration (second pass)
-terminus remote:drush $SITE.$ENV -- migrate-import --update --all </dev/null
+terminus remote:drush $SITE.$ENV -- migrate-import --update --group=migrate_drupal_7 </dev/null
 
 # Flip target site back to git mode
 terminus connection:set $SITE.$ENV git </dev/null

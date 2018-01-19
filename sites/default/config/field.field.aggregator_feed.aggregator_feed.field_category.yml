@@ -1,0 +1,30 @@
+uuid: 2a1e3250-722b-4282-a792-0b7e81fe8fbc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.aggregator_feed.field_category
+    - taxonomy.vocabulary.aggregation_category
+  module:
+    - aggregator
+id: aggregator_feed.aggregator_feed.field_category
+field_name: field_category
+entity_type: aggregator_feed
+bundle: aggregator_feed
+label: 'Aggregation Category'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      aggregation_category: aggregation_category
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: aggregation_category
+field_type: entity_reference

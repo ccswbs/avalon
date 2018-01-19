@@ -1,0 +1,9 @@
+ssoRemoteUserStripDomainName: null
+ssoExcludedPaths: {  }
+ssoExcludedHosts: {  }
+seamlessLogin: null
+ldapImplementation: null
+cookieExpire: null
+langcode: en
+_core:
+  default_config_hash: 90pbw4mtGNDNLSdBIprOvOqpU2FqNBoTZsP2-FEwsF8

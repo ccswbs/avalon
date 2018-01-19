@@ -4,7 +4,7 @@ status: true
 dependencies: {  }
 id: publisher
 label: publisher
-weight: 12
+weight: 0
 is_admin: null
 permissions:
   - 'access administration pages'

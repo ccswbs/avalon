@@ -5,6 +5,7 @@ dependencies:
   config:
     - field.storage.node.field_course_acad_level
     - node.type.course_outline
+    - taxonomy.vocabulary.course_outline_academic_level
 id: node.course_outline.field_course_acad_level
 field_name: field_course_acad_level
 entity_type: node
@@ -17,5 +18,12 @@ default_value: {  }
 default_value_callback: ''
 settings:
   handler: 'default:taxonomy_term'
-  handler_settings: {  }
+  handler_settings:
+    target_bundles:
+      course_outline_academic_level: course_outline_academic_level
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
 field_type: entity_reference

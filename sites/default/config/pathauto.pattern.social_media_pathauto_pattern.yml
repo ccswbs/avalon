@@ -1,0 +1,22 @@
+uuid: 3cfa0b74-6c9d-49e3-9aed-29adda117603
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: social_media_pathauto_pattern
+label: 'Social Media Account Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: 'content/social/[node:title]'
+selection_criteria:
+  b824a589-341d-4578-a855-b196ea8426ab:
+    id: node_type
+    bundles:
+      social: social
+    negate: false
+    context_mapping:
+      node: node
+    uuid: b824a589-341d-4578-a855-b196ea8426ab
+selection_logic: and
+weight: -1
+relationships: {  }

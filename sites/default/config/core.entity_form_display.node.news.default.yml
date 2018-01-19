@@ -7,7 +7,6 @@ dependencies:
     - field.field.node.news.field_news_attachment
     - field.field.node.news.field_news_body
     - field.field.node.news.field_news_caption
-    - field.field.node.news.field_news_category
     - field.field.node.news.field_news_image
     - field.field.node.news.field_news_link
     - field.field.node.news.field_news_tags
@@ -18,7 +17,7 @@ dependencies:
   module:
     - comment
     - file
-    - image
+    - image_widget_crop
     - link
     - path
     - text
@@ -63,18 +62,18 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-  field_news_category:
-    weight: 8
-    settings: {  }
-    third_party_settings: {  }
-    type: options_select
-    region: content
   field_news_image:
     weight: 3
-    type: image_image
+    type: image_widget_crop
     settings:
-      progress_indicator: throbber
+      show_default_crop: true
+      warn_multiple_usages: true
       preview_image_style: thumbnail
+      crop_preview_image_style: crop_thumbnail
+      crop_list:
+        - free_crop
+      progress_indicator: throbber
+      show_crop_area: false
     third_party_settings: {  }
     region: content
   field_news_link:

@@ -1,0 +1,29 @@
+uuid: 72d5fc91-9a4a-41df-9bdf-0462ed4f3dd2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: ug_easylinks
+label: ug-easylinks
+description: 'easier linking'
+attributes: {  }
+matchers:
+  cee8fdba-c0aa-4085-a1a0-823a3b3ea0a8:
+    uuid: cee8fdba-c0aa-4085-a1a0-823a3b3ea0a8
+    id: 'entity:node'
+    weight: 0
+    settings:
+      result_description: ''
+      bundles:
+        book: book
+        course_outline: course_outline
+        event: event
+        faq: faq
+        news: news
+        page: page
+        profile: profile
+        service: service
+        webform: webform
+      group_by_bundle: true
+      include_unpublished: false

@@ -3,7 +3,6 @@ langcode: en
 status: true
 dependencies:
   config:
-    - core.entity_view_display.comment.comment_node_page.default
     - field.field.node.page.comment_node_page
     - field.field.node.page.field_page_attachments
     - field.field.node.page.field_page_body
@@ -11,7 +10,6 @@ dependencies:
     - field.field.node.page.field_tags
     - node.type.page
   module:
-    - comment
     - file
     - text
     - user
@@ -22,15 +20,6 @@ targetEntityType: node
 bundle: page
 mode: default
 content:
-  comment_node_page:
-    label: hidden
-    type: comment_default
-    weight: 20
-    settings:
-      view_mode: default
-      pager_id: 0
-    third_party_settings: {  }
-    region: content
   field_page_attachments:
     label: above
     weight: 1
@@ -45,16 +34,8 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
-  field_page_category:
-    label: above
-    weight: 2
-    type: entity_reference_label
-    settings:
-      link: true
-    third_party_settings: {  }
-    region: content
-  links:
-    weight: 101
-    region: content
 hidden:
+  comment_node_page: true
+  field_page_category: true
   field_tags: true
+  links: true

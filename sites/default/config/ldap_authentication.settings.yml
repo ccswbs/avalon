@@ -1,0 +1,23 @@
+sids:
+  ug: ug
+authenticationMode: 2
+loginUIUsernameTxt: 'Please enter your U of G central login ID.'
+loginUIPasswordTxt: 'Please enter your U of G central login password.'
+ldapUserHelpLinkUrl: 'http://www.uoguelph.ca/ccs/service/central-login-id-and-password'
+ldapUserHelpLinkText: 'Central Login ID Help'
+emailOption: 3
+emailUpdate: 1
+emailTemplateHandling: none
+emailTemplate: '@username@example.com'
+emailTemplateUsageResolveConflict: false
+emailTemplateUsageNeverUpdate: false
+emailTemplateUsagePromptUser: false
+emailTemplateUsageRedirectOnLogin: false
+emailTemplateUsagePromptRegex: '.*@example\\.com'
+passwordOption: 2
+allowOnlyIfTextInDn: {  }
+excludeIfTextInDn: {  }
+excludeIfNoAuthorizations: 0
+langcode: en
+_core:
+  default_config_hash: hSFOSjTAPcCBordJmChil6mui8q7uLwYfc5STlXL0yY

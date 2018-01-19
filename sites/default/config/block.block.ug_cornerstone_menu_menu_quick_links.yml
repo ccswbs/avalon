@@ -10,15 +10,15 @@ dependencies:
     - bartik
 id: ug_cornerstone_menu_menu_quick_links
 theme: bartik
-region: content
-weight: 0
+region: sidebar_first
+weight: -6
 provider: null
 plugin: 'system_menu_block:menu-quick-links'
 settings:
   id: 'system_menu_block:menu-quick-links'
-  label: ''
+  label: 'Quick Links'
   provider: system
-  label_display: '0'
+  label_display: visible
   level: 1
   depth: 0
 visibility: {  }

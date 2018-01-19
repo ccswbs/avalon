@@ -1,0 +1,35 @@
+uuid: 3b03e761-94ee-4378-b4d3-2dda986edd0d
+langcode: en
+status: true
+dependencies: {  }
+id: logout
+label: Logout
+events:
+  -
+    event_name: rules_user_logout
+description: ''
+tags:
+  - ''
+config_version: '3'
+expression:
+  id: rules_rule
+  uuid: 654fbdc8-957d-4cff-baef-d8ae9655b142
+  conditions:
+    id: rules_and
+    uuid: dfeb23c5-f9a1-4d20-94cf-bedfb0f7c518
+    conditions: {  }
+  actions:
+    id: rules_action_set
+    uuid: 64dc1261-54e2-43ff-a98d-6c12147cf1a2
+    actions:
+      -
+        id: rules_action
+        uuid: 93897db8-6840-4eb3-8040-23c910d23eb9
+        context_values:
+          url: 'https://apps.identity.uoguelph.ca/ssotools/uglogout.html'
+        context_mapping: {  }
+        context_processors:
+          url:
+            rules_tokens: {  }
+        provides_mapping: {  }
+        action_id: rules_page_redirect

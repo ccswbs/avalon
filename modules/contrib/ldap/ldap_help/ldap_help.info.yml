@@ -1,0 +1,7 @@
+name: 'LDAP Help'
+description: 'LDAP Help for configuration and reporting issues.'
+type: module
+core: 8.x
+package: 'Lightweight Directory Access Protocol'
+dependencies:
+  - ldap:ldap_servers
