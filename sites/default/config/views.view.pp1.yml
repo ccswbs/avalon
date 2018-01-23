@@ -32,7 +32,7 @@ display:
         options:
           perm: 'access content'
       cache:
-        type: tag
+        type: none
         options: {  }
       query:
         type: views_query
@@ -68,8 +68,8 @@ display:
             offset: false
             offset_label: Offset
           tags:
-            previous: 
-            next: 
+            previous: ‹‹
+            next: ››
       style:
         type: default
       row:
@@ -586,4 +586,3 @@ display:
         - user.permissions
       tags:
         - 'config:field.storage.node.field_profile_image'
-

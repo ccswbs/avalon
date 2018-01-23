@@ -11,7 +11,7 @@ dependencies:
 id: ug_cornerstone_menu_menu_quick_links
 theme: bartik
 region: sidebar_first
-weight: -6
+weight: -7
 provider: null
 plugin: 'system_menu_block:menu-quick-links'
 settings:
