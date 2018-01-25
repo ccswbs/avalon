@@ -86,6 +86,10 @@ class ComposerStaticInitDrupal8
             'GuzzleHttp\\' => 11,
             'Goutte\\' => 7,
         ),
+        'E' => 
+        array (
+            'Embed\\' => 6,
+        ),
         'D' => 
         array (
             'Drupal\\Driver\\' => 14,
@@ -102,6 +106,7 @@ class ComposerStaticInitDrupal8
         array (
             'Composer\\Semver\\' => 16,
             'Composer\\Installers\\' => 20,
+            'Composer\\CaBundle\\' => 18,
         ),
         'B' => 
         array (
@@ -285,6 +290,10 @@ class ComposerStaticInitDrupal8
         array (
             0 => __DIR__ . '/..' . '/fabpot/goutte/Goutte',
         ),
+        'Embed\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/embed/embed/src',
+        ),
         'Drupal\\Driver\\' => 
         array (
             0 => __DIR__ . '/../..' . '/drivers/lib/Drupal/Driver',
@@ -328,6 +337,10 @@ class ComposerStaticInitDrupal8
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+        'Composer\\CaBundle\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/composer/ca-bundle/src',
         ),
         'Behat\\Mink\\Driver\\' => 
         array (
