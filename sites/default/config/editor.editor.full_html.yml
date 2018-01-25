@@ -39,6 +39,7 @@ settings:
             - Table
             - HorizontalRule
             - SpecialChar
+            - twitter
       -
         -
           name: Formatting
