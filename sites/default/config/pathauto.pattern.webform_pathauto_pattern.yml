@@ -1,0 +1,22 @@
+uuid: 418f3983-f107-4090-bcd6-163cea2f0f18
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: webform_pathauto_pattern
+label: 'Webform Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: 'content/webform/[node:title]'
+selection_criteria:
+  c99d943e-01cf-4924-8165-f10e04643fc2:
+    id: node_type
+    bundles:
+      webform: webform
+    negate: false
+    context_mapping:
+      node: node
+    uuid: c99d943e-01cf-4924-8165-f10e04643fc2
+selection_logic: and
+weight: 0
+relationships: {  }

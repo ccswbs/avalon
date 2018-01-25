@@ -1,0 +1,14 @@
+uuid: a898509f-fa2e-4f2e-b9f9-c9b9668ac281
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: default_content_pathauto_pattern
+label: 'Default Content Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents:join-path]/[node:title]'
+selection_criteria: {  }
+selection_logic: and
+weight: 1
+relationships: {  }
