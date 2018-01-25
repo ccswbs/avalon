@@ -25,14 +25,15 @@ Feature: events
 
 	# Filter tests still need to be written - contextual filters are not yet part of the events listing view (E1)
 
-	#Scenario: Upcoming events listing view (filtered)
-	#	Given I am on ""
-	#	Then I should see "Page 2"
-	#	Then I should not see "Filtered Listing Page"
+	Scenario: Upcoming events listing view (filtered)
+		Given I am on "events/term/42"
+		Then I should see "Test Event No.1"
+		Then I should not see "Ibidem Illum Iustum"
 
-	#Scenario: Upcoming events feed
-	#	Given I am on "events/feed"
-	#	Then the response should contain "Page 2"
+	Scenario: Upcoming events feed (filtered)
+		Given I am on "events/term/42/feed"
+		Then the response should contain "Test Event No.1"
+		Then the response should not contain "Ibidem Illum Iustum"
 
 	#
 	# Event teaser block view
