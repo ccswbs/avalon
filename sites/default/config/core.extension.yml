@@ -24,6 +24,7 @@ module:
   devel_generate: 0
   dynamic_page_cache: 0
   editor: 0
+  embed: 0
   entity_reference_revisions: 0
   externalauth: 0
   facebook_pixel: 0
@@ -52,6 +53,7 @@ module:
   migrate_plus: 0
   migrate_tools: 0
   migrate_upgrade: 0
+  module_missing_message_fixer: 0
   node: 0
   options: 0
   page_cache: 0
@@ -70,6 +72,7 @@ module:
   tour: 0
   typed_data: 0
   update: 0
+  url_embed: 0
   user: 0
   views_ui: 0
   webform: 0
