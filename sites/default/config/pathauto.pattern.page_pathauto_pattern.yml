@@ -1,0 +1,22 @@
+uuid: de9b2347-cb4e-42b6-8911-a1cc1020521b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: page_pathauto_pattern
+label: 'Page Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: '[node:menu-link:parents:join-path]/[node:title]'
+selection_criteria:
+  af471060-0fc1-49ee-9d85-e8c438577765:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: node
+    uuid: af471060-0fc1-49ee-9d85-e8c438577765
+selection_logic: and
+weight: -4
+relationships: {  }

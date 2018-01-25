@@ -1,0 +1,22 @@
+uuid: a910f76f-3c8a-443c-877d-aa2c08ec6ab0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: feature_content_pathauto_pattern
+label: 'Feature Content Pathauto Pattern'
+type: 'canonical_entities:node'
+pattern: 'content/feature/[node:title]'
+selection_criteria:
+  ca202fba-5695-4cda-86ba-01e88ae06d3e:
+    id: node_type
+    bundles:
+      feature: feature
+    negate: false
+    context_mapping:
+      node: node
+    uuid: ca202fba-5695-4cda-86ba-01e88ae06d3e
+selection_logic: and
+weight: -6
+relationships: {  }

@@ -1,0 +1,30 @@
+uuid: 8900fce6-fbf5-4b29-b992-f8a4bcab0564
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+  theme:
+    - bartik
+id: blockwithanimage
+theme: bartik
+region: sidebar_second
+weight: -8
+provider: null
+plugin: 'block_content:be9e2936-c086-49bf-9858-cceeced7c433'
+settings:
+  id: 'block_content:be9e2936-c086-49bf-9858-cceeced7c433'
+  label: 'block with an image'
+  provider: block_content
+  label_display: visible
+  status: true
+  info: ''
+  view_mode: full
+visibility:
+  node_type:
+    id: node_type
+    bundles:
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
