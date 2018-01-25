@@ -236,7 +236,7 @@ display:
         type: some
       style:
         type: rss
-      path: pages/%/feed
+      path: pages/term/%/feed
       displays:
         default: default
         page_1: page_1
@@ -274,7 +274,7 @@ display:
     position: 1
     display_options:
       display_extenders: {  }
-      path: pages/%
+      path: pages/term/%
     cache_metadata:
       max-age: -1
       contexts:
