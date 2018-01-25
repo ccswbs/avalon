@@ -24,7 +24,6 @@ module:
   dynamic_page_cache: 0
   editor: 0
   embed: 0
-  entity: 0
   entity_reference_revisions: 0
   externalauth: 0
   facebook_pixel: 0
@@ -46,8 +45,6 @@ module:
   ldap_user: 0
   link: 0
   linkit: 0
-  media_entity: 0
-  media_entity_twitter: 0
   menu_ui: 0
   migrate: 0
   migrate_drupal: 0
