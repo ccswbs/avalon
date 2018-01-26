@@ -3,11 +3,11 @@ langcode: en
 status: true
 dependencies:
   content:
-    - 'file:file:823c7c87-dd8a-4fff-8a9d-b3215b4dbb38'
+    - 'file:file:53eac866-882f-4e75-9603-25acbc2b8fbe'
   module:
     - url_embed
 label: Twitter
 id: twitter
 type_id: url
 type_settings: {  }
-icon_uuid: 823c7c87-dd8a-4fff-8a9d-b3215b4dbb38
+icon_uuid: 53eac866-882f-4e75-9603-25acbc2b8fbe

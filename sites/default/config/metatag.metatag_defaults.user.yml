@@ -1,0 +1,17 @@
+uuid: 68ca32ae-cf09-4e4c-aad4-6ab7dea9efa8
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: e3453dXHFW5TM24d8Odhumgwd8hIZVPvQv98wnGM7Ro
+id: user
+label: User
+tags:
+  title: '[user:name] | [site:name]'
+  canonical_url: '[current-page:url:absolute]'
+  description: '[site:name]'
+  shortlink: '[current-page:url:unaliased]'
+  twitter_cards_type: summary
+  twitter_cards_title: '[user:name]'
+  twitter_cards_description: 'University of Guelph'
+  twitter_cards_page_url: '[current-page:url:absolute]'

@@ -1,0 +1,17 @@
+uuid: 4b1735ec-4903-43c0-a351-3d60cf3af8fa
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  title: '[site:name] | [current-page:pager]'
+  canonical_url: '[site:url]'
+  shortlink: '[site:url]'
+  generator: 'Drupal 8 (http://drupal.org)'
+  twitter_cards_site: '@uofg'
+  twitter_cards_type: summary
+  twitter_cards_title: '[site:name]'
+  twitter_cards_description: '[site:slogan]'
