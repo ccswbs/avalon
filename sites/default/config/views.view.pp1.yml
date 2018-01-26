@@ -11,8 +11,15 @@ uuid: 5f362391-1969-4503-8908-6640987e57ca langcode: en status: true dependencie
     - node
     - taxonomy
     - text
-    - user id: pp1 label: 'PP1 - People Profiles' module: views description: 'View for Profiles content type' 
-tag: '' base_table: node_field_data base_field: nid core: 8.x display:
+    - user
+id: pp1
+label: 'PP1 - People Profiles'
+module: views
+description: 'View for Profiles content type' 
+tag: ''
+base_table: node_field_data
+base_field: nid core: 8.x
+display:
   default:
     display_plugin: default
     id: default
