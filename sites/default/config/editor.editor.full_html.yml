@@ -39,6 +39,7 @@ settings:
             - Table
             - HorizontalRule
             - SpecialChar
+            - twitter
       -
         -
           name: Formatting
@@ -85,10 +86,10 @@ settings:
             - Maximize
             - ShowBlocks
   plugins:
-    stylescombo:
-      styles: ''
     language:
       language_list: un
+    stylescombo:
+      styles: ''
     linkit:
       linkit_profile: ug_easylinks
 image_upload:
