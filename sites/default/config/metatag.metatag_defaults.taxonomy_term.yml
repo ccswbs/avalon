@@ -1,0 +1,17 @@
+uuid: 01edf2b5-ed96-4043-ab29-d78dc3325486
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 92bXZdyYJ5xqukdfmGRr_CYcwm1vfuS8b8aJ7X_G7E0
+id: taxonomy_term
+label: 'Taxonomy term'
+tags:
+  title: '[term:name] | [current-page:pager][site:name]'
+  canonical_url: '[current-page:url:absolute]'
+  description: '[term:description]'
+  shortlink: '[current-page:url:unaliased]'
+  twitter_cards_site: '@uofg'
+  twitter_cards_title: '[term:name]'
+  twitter_cards_description: '[term:description]'
+  twitter_cards_page_url: '[current-page:url:absolute]'

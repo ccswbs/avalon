@@ -1,0 +1,17 @@
+uuid: 9db15f31-38aa-4fad-a8a7-ce645ac4b250
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: puBstSLDz8mbaWU357zaqQDBGMGsJzG0j-TQNQkjg20
+id: '404'
+label: '404 page not found'
+tags:
+  title: '[current-page:title] | [current-page:pager][site:name]'
+  canonical_url: '[site:url]'
+  shortlink: '[site:url]'
+  generator: 'Drupal 8 (http://drupal.org)'
+  twitter_cards_site: '@uofg'
+  twitter_cards_type: summary
+  twitter_cards_title: '[site:name]'
+  twitter_cards_description: 'University of Guelph'

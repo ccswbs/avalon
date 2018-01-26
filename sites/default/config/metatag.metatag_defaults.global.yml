@@ -1,0 +1,17 @@
+uuid: 3b5f6695-c64a-48de-973a-f3de6b552785
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: sL588ui1E_8-2c_UupwyYxcqX2OVyMFp3HTLbbFqvPc
+id: global
+label: Global
+tags:
+  title: '[current-page:title] | [site:name]'
+  canonical_url: '[current-page:url]'
+  shortlink: '[current-page:url:unaliased]'
+  twitter_cards_site: '@uofg'
+  twitter_cards_type: summary
+  twitter_cards_title: '[current-page:title]'
+  twitter_cards_description: 'University of Guelph'
+  twitter_cards_page_url: '[current-page:url:absolute]'
