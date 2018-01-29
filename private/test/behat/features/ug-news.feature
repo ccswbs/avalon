@@ -17,9 +17,9 @@ Feature: UG News
 		Then I should see "Nisl"
 
 	Scenario: News listing view (filtered)
-		Given I am on "news/category/31"
+		Given I am on "news/term/31"
+		Then I should see "News related to Test News Category"
 		Then I should see "Autem Quibus"
-		Then I should not see "Cui Title"
 
 	Scenario: News feed
 		Given I am on "news/feed"
