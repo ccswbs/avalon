@@ -7,22 +7,93 @@ set -xeuo pipefail
 SITE=${SITE:-ug-avalon}
 ENV=${ENV:-dev}
 TEMP=${TEMP:-/tmp}
-UPSTREAM_URL=https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon
+UPSTREAM_URL=${UPSTREAM_URL:-https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon}
+#UPSTREAM_URL=${UPSTREAM_URL:-ssh://ccswds@vs-ssh.visualstudio.com:22/_ssh/Avalon}
 RELEASE=${BUILD_SOURCEVERSION:-upstream/master}
+LEGACY_SITE=${LEGACY_SITE:-hjckrrh}
+LEGACY_ENV=${LEGACY_ENV:-dev}
+LEGACY_DATABASE=${LEGACY_DATABASE:-}
+LEGACY_USERNAME=${LEGACY_USERNAME:-}
+LEGACY_PASSWORD=${LEGACY_PASSWORD:-}
+LEGACY_HOST=${LEGACY_HOST:-}
+LEGACY_PORT=${LEGACY_PORT:-}
+TERMINUS_PLUGINS_DIR=~/.terminus/plugins
+TERMINUS_SECRETS_PLUGIN_HOME=$TERMINUS_PLUGINS_DIR/terminus-secrets-plugin
 
 # Clone site repository
 cd $TEMP
 rm -rf $SITE
-GIT_URL=$(terminus connection:info $SITE.$ENV --field=git_url)
+GIT_URL=$(terminus connection:info $SITE.$ENV --field=git_url </dev/null)
 git clone $GIT_URL $SITE
 
 # Merge release tag/commit
 cd $SITE
 git remote add upstream $UPSTREAM_URL
 git fetch upstream
-git rebase ${RELEASE}
+#git rebase ${RELEASE}
+git reset --hard ${RELEASE}
 git push --force origin master
 
+# Auto-discover legacy database connection details
+if [ -z "$LEGACY_DATABASE" ]
+  then
+    LEGACY_DATABASE=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_database </dev/null)
+    LEGACY_USERNAME=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_username </dev/null)
+    LEGACY_PASSWORD=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_password </dev/null)
+    LEGACY_HOST=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_host </dev/null)
+    LEGACY_PORT=$(terminus connection:info $LEGACY_SITE.$LEGACY_ENV --field=mysql_port </dev/null)
+  fi
+
+# Create Terminus plugins dir
+if [ ! -d $TERMINUS_PLUGINS_DIR ]
+  then
+    mkdir -p $TERMINUS_PLUGINS_DIR
+  fi
+
+# Install Terminus secrets plugin
+if [ ! -d $TERMINUS_SECRETS_PLUGIN_HOME ]
+  then
+    php composer.phar create-project -d $TERMINUS_PLUGINS_DIR pantheon-systems/terminus-secrets-plugin:~1
+  fi
+
+# Create empty secrets file
+SECRETS=$(mktemp -u)
+touch $SECRETS
+SFTP_USER=$(terminus connection:info $SITE.$ENV --field=sftp_username </dev/null)
+SFTP_HOST=$(terminus connection:info $SITE.$ENV --field=sftp_host </dev/null)
+rsync -rlIvz --ipv4 --exclude=.git -e 'ssh -p 2222' $SECRETS $SFTP_USER@$SFTP_HOST:files/private/secrets.json
+rm -f $SECRETS
+
+# Update secrets file
+terminus secrets:set $SITE.$ENV legacy_database $LEGACY_DATABASE </dev/null
+terminus secrets:set $SITE.$ENV legacy_username $LEGACY_USERNAME </dev/null
+terminus secrets:set $SITE.$ENV legacy_password $LEGACY_PASSWORD </dev/null
+terminus secrets:set $SITE.$ENV legacy_host $LEGACY_HOST </dev/null
+terminus secrets:set $SITE.$ENV legacy_port $LEGACY_PORT </dev/null
+
 # Import config
-terminus drush $SITE.$ENV -- config-import -y </dev/null
+#terminus drush $SITE.$ENV -- config-import -y </dev/null
+
+# Install Drupal
+terminus drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/config </dev/null
+
+# Wake up legacy site
+terminus env:wake $LEGACY_SITE.$LEGACY_ENV </dev/null
+sleep 10
+
+# Migrate
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_user </dev/null 
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_menu </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_banner </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_event </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_faq </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_news </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_page </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_profile </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_service </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_social </dev/null
+#terminus drush $SITE.$ENV -- migrate-import upgrade_d7_menu_links </dev/null
+
+# Clear caches
+terminus drush $SITE.$ENV -- cc all -y </dev/null
 
