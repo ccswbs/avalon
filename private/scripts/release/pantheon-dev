@@ -61,6 +61,7 @@ SECRETS=$(mktemp -u)
 touch $SECRETS
 SFTP_USER=$(terminus connection:info $SITE.$ENV --field=sftp_username </dev/null)
 SFTP_HOST=$(terminus connection:info $SITE.$ENV --field=sftp_host </dev/null)
+apt-get install -y rsync
 rsync -rlIvz --ipv4 --exclude=.git -e 'ssh -p 2222' $SECRETS $SFTP_USER@$SFTP_HOST:files/private/secrets.json
 rm -f $SECRETS
 
