@@ -35,6 +35,11 @@ Feature: events
 		Then the response should contain "Test Event No.1"
 		Then the response should not contain "Ibidem Illum Iustum"
 
+	Scenario: Archived events page (filtered)
+		Given I am on "events/archive/term/42"
+		Then the response should contain "Events related to rewokucluneh"
+		Then the response should contain "30 minute meating"
+
 	#
 	# Event teaser block view
 	# -----------------------
