@@ -88,6 +88,7 @@ terminus drush $SITE.$ENV -- migrate-import upgrade_d7_menu </dev/null
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_banner </dev/null
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_event </dev/null
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_faq </dev/null
+terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_feature </dev/null
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_news </dev/null
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_page </dev/null
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_node_profile </dev/null
