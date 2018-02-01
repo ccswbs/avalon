@@ -7,11 +7,6 @@ _core:
 id: taxonomy_term
 label: 'Taxonomy term'
 tags:
-  title: '[term:name] | [current-page:pager][site:name]'
-  canonical_url: '[current-page:url:absolute]'
+  canonical_url: '[term:url]'
   description: '[term:description]'
-  shortlink: '[current-page:url:unaliased]'
-  twitter_cards_site: '@uofg'
-  twitter_cards_title: '[term:name]'
-  twitter_cards_description: '[term:description]'
-  twitter_cards_page_url: '[current-page:url:absolute]'
+  title: '[term:name] | [site:name]'
