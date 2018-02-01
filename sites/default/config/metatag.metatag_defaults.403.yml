@@ -7,12 +7,5 @@ _core:
 id: '403'
 label: '403 access denied'
 tags:
-  title: '[current-page:title] | [current-page:pager][site:name]'
   canonical_url: '[site:url]'
   shortlink: '[site:url]'
-  generator: 'Drupal 8 (http://drupal.org)'
-  twitter_cards_site: '@uofg'
-  twitter_cards_type: summary
-  twitter_cards_title: '[site:name]'
-  twitter_cards_description: 'University of Guelph'
-  twitter_cards_page_url: '[site:url]'

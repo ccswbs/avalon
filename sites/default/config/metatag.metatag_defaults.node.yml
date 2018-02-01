@@ -7,12 +7,6 @@ _core:
 id: node
 label: Content
 tags:
-  title: '[node:title] | [current-page:pager][site:name]'
-  canonical_url: '[current-page:url:absolute]'
+  title: '[node:title] | [site:name]'
   description: '[node:summary]'
-  shortlink: '[current-page:url:unaliased]'
-  twitter_cards_site: '@uofg'
-  twitter_cards_type: summary
-  twitter_cards_title: '[node:title]'
-  twitter_cards_description: 'University of Guelph'
-  twitter_cards_page_url: '[current-page:url:absolute]'
+  canonical_url: '[node:url]'
