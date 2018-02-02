@@ -13,10 +13,6 @@ BUILD_BUILDID=${BUILD_BUILDID:-$$}
 RESULTS=${COMMON_TESTRESULTSDIRECTORY:-TestResults}
 MULTIDEV="build${BUILD_BUILDID}"
 REMOTE=$(terminus connection:info $SITE.$ENV --field git_url </dev/null)
-PATH=$PATH:$HOME/.composer/vendor/bin
-
-# Setup
-php composer.phar global require pantheon-systems/terminus
 
 # Create a branch from current commit
 git checkout -b $MULTIDEV
