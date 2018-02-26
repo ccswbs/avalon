@@ -14,7 +14,8 @@
         "drupal/ldap_user": "3.0-beta3",
         "drupal/ldap_servers": "3.0-beta3",
         "drupal/rules": "3.0-alpha3",
-        "embed/embed": "^3.3"
+        "embed/embed": "^3.3",
+        "drupal/media_entity": "^1.7"
     },
     "replace": {
         "drupal/core": "^8.4"
