@@ -16,7 +16,8 @@
         "drupal/rules": "3.0-alpha3",
         "embed/embed": "^3.3",
         "drupal/media_entity": "^1.7",
-        "drupal/media_entity_image": "^1.2"
+        "drupal/media_entity_image": "^1.2",
+        "drupal/entity_browser": "^1.4"
     },
     "replace": {
         "drupal/core": "^8.4"
