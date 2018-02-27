@@ -25,6 +25,7 @@ module:
   editor: 0
   embed: 0
   entity: 0
+  entity_browser: 0
   entity_reference_revisions: 0
   externalauth: 0
   field: 0

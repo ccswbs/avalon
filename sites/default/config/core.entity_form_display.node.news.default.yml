@@ -3,21 +3,21 @@ langcode: en
 status: true
 dependencies:
   config:
+    - entity_browser.browser.image_browser
     - field.field.node.news.comment_node_news
     - field.field.node.news.field_news_attachment
     - field.field.node.news.field_news_body
     - field.field.node.news.field_news_caption
-    - field.field.node.news.field_news_image
     - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_media
     - field.field.node.news.field_news_tags
     - field.field.node.news.field_news_writer
     - field.field.node.news.field_tags
-    - image.style.thumbnail
     - node.type.news
   module:
     - comment
+    - entity_browser
     - file
-    - image_widget_crop
     - link
     - path
     - text
@@ -28,25 +28,25 @@ mode: default
 content:
   comment_node_news:
     type: comment_default
-    weight: 20
+    weight: 15
     settings: {  }
     third_party_settings: {  }
     region: content
   created:
     type: datetime_timestamp
-    weight: 2
+    weight: 3
     region: content
     settings: {  }
     third_party_settings: {  }
   field_news_attachment:
-    weight: 6
+    weight: 12
     type: file_generic
     settings:
       progress_indicator: throbber
     third_party_settings: {  }
     region: content
   field_news_body:
-    weight: 5
+    weight: 10
     type: text_textarea_with_summary
     settings:
       rows: 9
@@ -55,6 +55,41 @@ content:
     third_party_settings: {  }
     region: content
   field_news_caption:
+    weight: 8
+    type: string_textfield
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_news_link:
+    weight: 14
+    type: link_default
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    region: content
+  field_news_media:
+    weight: 7
+    settings:
+      entity_browser: image_browser
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      open: false
+      field_widget_display_settings: {  }
+    third_party_settings: {  }
+    type: entity_browser_entity_reference
+    region: content
+  field_news_tags:
+    weight: 2
+    type: options_select
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_news_writer:
     weight: 4
     type: string_textfield
     settings:
@@ -62,44 +97,8 @@ content:
       placeholder: ''
     third_party_settings: {  }
     region: content
-  field_news_image:
-    weight: 3
-    type: image_widget_crop
-    settings:
-      show_default_crop: true
-      warn_multiple_usages: true
-      preview_image_style: thumbnail
-      crop_preview_image_style: crop_thumbnail
-      crop_list:
-        - free_crop
-      progress_indicator: throbber
-      show_crop_area: false
-    third_party_settings: {  }
-    region: content
-  field_news_link:
-    weight: 9
-    type: link_default
-    settings:
-      placeholder_url: ''
-      placeholder_title: ''
-    third_party_settings: {  }
-    region: content
-  field_news_tags:
-    weight: 1
-    type: options_select
-    settings: {  }
-    third_party_settings: {  }
-    region: content
-  field_news_writer:
-    weight: 2
-    type: string_textfield
-    settings:
-      size: 60
-      placeholder: ''
-    third_party_settings: {  }
-    region: content
   field_tags:
-    weight: 7
+    weight: 13
     type: entity_reference_autocomplete
     settings:
       match_operator: CONTAINS
@@ -109,7 +108,7 @@ content:
     region: content
   path:
     type: path
-    weight: 5
+    weight: 9
     region: content
     settings: {  }
     third_party_settings: {  }
@@ -117,21 +116,21 @@ content:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 3
+    weight: 5
     region: content
     third_party_settings: {  }
   status:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 6
+    weight: 11
     region: content
     third_party_settings: {  }
   sticky:
     type: boolean_checkbox
     settings:
       display_label: true
-    weight: 4
+    weight: 6
     region: content
     third_party_settings: {  }
   title:
