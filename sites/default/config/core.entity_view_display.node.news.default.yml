@@ -27,7 +27,7 @@ content:
   comment_node_news:
     label: hidden
     type: comment_default
-    weight: 20
+    weight: 5
     settings:
       view_mode: default
       pager_id: 0
@@ -56,12 +56,13 @@ content:
     third_party_settings: {  }
     region: content
   field_news_media:
-    weight: 21
-    label: above
+    weight: 1
+    label: hidden
     settings:
       link: true
+      view_mode: default
     third_party_settings: {  }
-    type: entity_reference_label
+    type: entity_reference_entity_view
     region: content
   field_news_writer:
     label: inline
