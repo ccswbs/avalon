@@ -7,6 +7,7 @@
 set -euo pipefail
 
 # Environment
+AGENT_ID=${AGENT_ID:-}
 SITE=${SITE:-ug-avalon}
 ENV=${ENV:-dev}
 BUILD_BUILDID=${BUILD_BUILDID:-$$}
@@ -15,7 +16,7 @@ MULTIDEV="build${BUILD_BUILDID}"
 REMOTE=$(terminus connection:info $SITE.$ENV --field git_url </dev/null)
 
 # Create a branch from current commit
-git checkout -b $MULTIDEV
+#git checkout -b $MULTIDEV
 
 # Push branch to Pantheon
 git push $REMOTE $MULTIDEV
@@ -38,7 +39,12 @@ terminus drush $SITE.$MULTIDEV -- migrate-import --update --group=migrate_drupal
 
 # Run tests
 export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$MULTIDEV'-'$SITE'.pantheonsite.io"} }}'
-vendor/bin/behat --config=private/test/behat/config-ci.yml --format junit --out ${RESULTS} || true
+if [ -n "$AGENT_ID" ]
+then
+  vendor/bin/behat --config=private/test/behat/config-ci.yml --format junit --out ${RESULTS} || true
+else
+  vendor/bin/behat --config=private/test/behat/config-ci.yml 
+fi
 
 # Delete multidev environment (and branch)
 terminus multidev:delete -y --delete-branch $SITE.$MULTIDEV </dev/null
