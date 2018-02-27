@@ -82,6 +82,9 @@ terminus drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/confi
 terminus env:wake $LEGACY_SITE.$LEGACY_ENV </dev/null
 sleep 10
 
+# Make sure it's in git mode
+terminus connection:set $LEGACY_SITE.$LEGACY_ENV git </dev/null
+
 # Migrate
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_user </dev/null 
 terminus drush $SITE.$ENV -- migrate-import upgrade_d7_menu </dev/null
