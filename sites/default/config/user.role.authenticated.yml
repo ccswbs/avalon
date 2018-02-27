@@ -16,3 +16,4 @@ permissions:
   - 'access printer-friendly version'
   - 'access toolbar'
   - 'search content'
+  - 'view media'
