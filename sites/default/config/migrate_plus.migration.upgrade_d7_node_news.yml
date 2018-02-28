@@ -44,15 +44,10 @@ process:
   field_news_caption:
     plugin: get
     source: field_news_caption
-  field_news_image:
-    plugin: iterator
-    source: field_news_image
-    process:
-      target_id: fid
-      alt: alt
-      title: title
-      width: width
-      height: height
+  field_news_media/target_id:
+    plugin: migration_lookup
+    migration: news_image
+    source: nid
   field_news_link:
     plugin: field_link
     source: field_news_link

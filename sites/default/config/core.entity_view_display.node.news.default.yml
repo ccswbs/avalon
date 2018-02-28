@@ -8,17 +8,15 @@ dependencies:
     - field.field.node.news.field_news_attachment
     - field.field.node.news.field_news_body
     - field.field.node.news.field_news_caption
-    - field.field.node.news.field_news_image
     - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_media
     - field.field.node.news.field_news_tags
     - field.field.node.news.field_news_writer
     - field.field.node.news.field_tags
-    - image.style.manual_crop
     - node.type.news
   module:
     - comment
     - file
-    - image
     - text
     - user
 id: node.news.default
@@ -29,7 +27,7 @@ content:
   comment_node_news:
     label: hidden
     type: comment_default
-    weight: 20
+    weight: 5
     settings:
       view_mode: default
       pager_id: 0
@@ -57,14 +55,14 @@ content:
       link_to_entity: false
     third_party_settings: {  }
     region: content
-  field_news_image:
-    label: hidden
+  field_news_media:
     weight: 1
-    type: image
+    label: hidden
     settings:
-      image_style: manual_crop
-      image_link: ''
+      link: true
+      view_mode: default
     third_party_settings: {  }
+    type: entity_reference_entity_view
     region: content
   field_news_writer:
     label: inline

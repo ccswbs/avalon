@@ -16,7 +16,6 @@ module:
   config: 0
   contact: 0
   contextual: 0
-  crop: 0
   ctools: 0
   datetime: 0
   datetime_range: 0
@@ -24,6 +23,9 @@ module:
   dynamic_page_cache: 0
   editor: 0
   embed: 0
+  entity: 0
+  entity_browser: 0
+  entity_browser_entity_form: 0
   entity_reference_revisions: 0
   externalauth: 0
   field: 0
@@ -35,7 +37,7 @@ module:
   help: 0
   history: 0
   image: 0
-  image_widget_crop: 0
+  inline_entity_form: 0
   ldap_authentication: 0
   ldap_authorization: 0
   ldap_help: 0
@@ -44,6 +46,8 @@ module:
   ldap_user: 0
   link: 0
   linkit: 0
+  media_entity: 0
+  media_entity_image: 0
   menu_ui: 0
   metatag: 0
   metatag_twitter_cards: 0
