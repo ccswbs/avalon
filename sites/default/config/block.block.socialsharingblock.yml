@@ -1,0 +1,20 @@
+uuid: fff94e5f-2b93-4306-b6ac-386433581a62
+langcode: en
+status: true
+dependencies:
+  module:
+    - social_media
+  theme:
+    - bartik
+id: socialsharingblock
+theme: bartik
+region: sidebar_second
+weight: 0
+provider: null
+plugin: social_sharing_block
+settings:
+  id: social_sharing_block
+  label: 'Social Sharing block'
+  provider: social_media
+  label_display: visible
+visibility: {  }
