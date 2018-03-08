@@ -1,15 +1,15 @@
-uuid: fff94e5f-2b93-4306-b6ac-386433581a62
+uuid: 52f54676-c4eb-4d16-85bc-a63a16eccae2
 langcode: en
 status: true
 dependencies:
   module:
     - social_media
   theme:
-    - bartik
+    - bootstrap
 id: socialsharingblock
-theme: bartik
+theme: bootstrap
 region: sidebar_second
-weight: 0
+weight: -8
 provider: null
 plugin: social_sharing_block
 settings:

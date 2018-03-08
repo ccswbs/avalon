@@ -1,0 +1,30 @@
+uuid: 35dcf99e-eb0f-45e5-b26f-5667befa13c2
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.news_recent
+  module:
+    - system
+    - views
+  theme:
+    - bootstrap
+id: views_block__news_recent_block_1_2
+theme: bootstrap
+region: sidebar_first
+weight: -5
+provider: null
+plugin: 'views_block:news_recent-block_1'
+settings:
+  id: 'views_block:news_recent-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /news
+    negate: true
+    context_mapping: {  }
