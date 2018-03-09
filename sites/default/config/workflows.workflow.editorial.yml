@@ -3,7 +3,18 @@ langcode: en
 status: true
 dependencies:
   config:
+    - node.type.banner
+    - node.type.book
+    - node.type.course_outline
+    - node.type.event
+    - node.type.faq
+    - node.type.feature
+    - node.type.news
     - node.type.page
+    - node.type.profile
+    - node.type.service
+    - node.type.social
+    - node.type.webform
   module:
     - content_moderation
 _core:
@@ -63,4 +74,15 @@ type_settings:
         - published
   entity_types:
     node:
+      - banner
+      - book
+      - course_outline
+      - event
+      - faq
+      - feature
+      - news
       - page
+      - profile
+      - service
+      - social
+      - webform
