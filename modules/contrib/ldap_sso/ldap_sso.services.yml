@@ -1,9 +1,0 @@
-services:
-  logger.channel.ldap_sso:
-    parent: logger.channel_base
-    arguments: ['ldap_sso']
-  ldap_sso.boot:
-    class: Drupal\ldap_sso\LdapSsoBootSubscriber
-    arguments: ['@logger.channel.ldap_sso', '@config.factory', '@path.current']
-    tags:
-      - { name: 'event_subscriber' }
