@@ -1,0 +1,127 @@
+/*************************
+ Layout Styles
+*************************/
+
+/*
+ * Toolbar - Latest salvo in the arms race that is top of the z-order:
+ * (Place Drupal toolbar at top of the z-order)
+ */
+//#toolbar { z-index: 1002; }
+/*---------------------
+   Main Container
+  ---------------------**/
+.main-container {
+  margin-bottom: 45px;
+}
+
+//.main-container .region-content>section{
+//  margin-bottom: 20px;
+//}
+//
+//.main-container .region-content>section:last-child {
+//  margin-bottom: 0;
+//}
+
+/*---------------------
+ Regions
+---------------------**/
+
+//aside {
+//  padding-top: 20px;
+//}
+//
+//@media all and (min-width:992px) {
+//  aside{
+//    padding-top: 0;
+//  }
+//}
+
+/*---------------------
+ Gutters
+---------------------**/
+
+//@media all and (min-width:992px) {
+//  .xs-gutter {
+//    padding-left: 5px;
+//    padding-right: 5px;
+//  }
+//}
+
+/*
+ * Bootstrap
+ *
+ * Some classes that are available in newer versions of bootstrap.
+ */
+//@media screen and (min-width: 768px) {
+  /* The visible-xs-* classes are in Bootstrap 3.2.0+ */
+
+  /* Needs to be visible to screen-readers (mimics sr-only class) */
+  //.visible-xs-inline{
+  //  /*display:none !important;*/
+  //  position: absolute;
+  //  width: 1px;
+  //  height: 1px;
+  //  padding: 0;
+  //  margin: -1px;
+  //  overflow: hidden;
+  //  clip: rect(0,0,0,0);
+  //  border: 0;
+  //}
+
+//}
+
+/*---------------------
+ Vertical Spacing
+---------------------**/
+
+/*--- Layout ---*/
+
+.path-frontpage .main-container .panel-panel.top,
+.path-frontpage .main-container .block-region-top {
+  margin-bottom: 30px;
+}
+
+/* Add spacing after panels and blocks (but not after last panel) */
+//.path-frontpage .main-container .panel-panel>div,
+//.not-front .main-container aside section.block,
+//.not-front .main-container .panel-panel.col-sm-4>div,
+//.not-front .main-container .panel-panel.col-sm-3>div,
+//.not-front .main-container .panel-panel.col-sm-2>div,
+//.not-front .main-container .panel-panel.col-sm-1>div,
+//.footer .panel-panel>div {
+//  margin-bottom: 40px;
+//}
+
+/* Remove margin-bottom from bottom of right panel always */
+//.path-frontpage .main-container .panel-panel.right>div:last-child,
+//.not-front .main-container .panel-panel.right>div:last-child,
+//.footer .panel-panel.right>div:last-child {
+//  margin-bottom: 0;
+//}
+
+//@media screen and (min-width: 768px) {
+  /* Remove margin-bottom from last front-page panel or block in aside */
+  //.path-frontpage .main-container .panel-panel>div:last-child,
+  //.not-front .main-container .panel-panel.col-sm-4>div:last-child,
+  //.not-front .main-container .panel-panel.col-sm-3>div:last-child,
+  //.not-front .main-container .panel-panel.col-sm-2>div:last-child,
+  //.not-front .main-container .panel-panel.col-sm-1>div:last-child,
+  //.not-front .main-container aside section:last-child,
+  //.footer .panel-panel>div:last-child {
+  //  margin-bottom: 0;
+  //}
+//}
+
+/* Remove margin-top above headings in panels */
+//.panel-panel h1.pane-title,
+//.panel-panel h2.pane-title,
+[class^="block-region-"] .block > h1,
+[class^="block-region-"] .block > h2,
+[class^="block-region-"] .block > h3 {
+  margin-top: 0;
+}
+
+/* Add margin-bottom (20px) after all panel panes */
+//.panel-panel .panel-pane {
+//  margin-bottom: 2em;
+//}

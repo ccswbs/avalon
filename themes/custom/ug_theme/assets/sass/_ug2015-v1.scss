@@ -1,0 +1,617 @@
+/***********************
+UG Theme v1.0
+Live Date: June 23, 2015
+***********************/
+
+/******************
+ Headers
+*****************/
+
+/*---------------------
+Page Header
+-----------------------**/
+
+/*--- Theming ---*/
+
+#page-header{
+	background: #45403A url("//www.uoguelph.ca/img/featurebg.jpg");
+	background-repeat: repeat-x;
+}
+
+/*---------------------
+Site Title
+-----------------------**/
+
+/*--- Theming ---*/
+#navbar.navbar-inverse .navbar-brand {
+	color: #F5F5F5;
+}
+
+#navbar.navbar-inverse a.navbar-brand:focus,
+#navbar.navbar-inverse a.navbar-brand:hover {
+	color: #999999;
+}
+
+/*---------------------
+Logo
+-----------------------**/
+
+#ug-header .navbar-brand {
+	width: inherit;
+	margin-left: 0;
+}
+
+/******************
+ Global Navigation
+*****************/
+
+/*--- Theming ---*/
+
+@media all and (min-width: 768px){
+	#globalnav.navbar-right {
+		margin-right:0;
+	}
+}
+
+/* [DISABLED - still buggy] - Fix display issues */
+/* Issue occurs past 768px width after opening toggle in narrow view */
+/*@media all and (min-width: 768px){
+	#ug-header .in .navbar-small>li>a,
+	#ug-header .collapsing .navbar-small>li>a {
+		font-size: .857em;
+		padding: 5px 10px;
+	}
+
+	#ug-header footer.navbar-default,
+	#ug-header nav.navbar div.in,
+	#ug-header nav.navbar div.collapsing,
+	#ug-header nav.navbar div.in form,
+	#ug-header nav.navbar div.collapsing form {
+		background: inherit;
+	}
+}*/
+
+/*---------------------
+Global Toggle
+-----------------------**/
+
+#ug-header .navbar-default .navbar-toggle .icon-bar {
+	background-color: #888888;
+}
+
+#ug-header .navbar-default .navbar-toggle:focus,
+#ug-header .navbar-default .navbar-toggle:hover {
+	background-color: #DDDDDD;
+}
+
+#ug-header .navbar-default .navbar-toggle:focus {
+	outline: thin dotted #FFFFFF;
+}
+
+/*---------------------
+Global - Menu Tabs (Level 1)
+---------------------**/
+
+/*--- Theming ---*/
+
+/* FOCUS/HOVER */
+#ug-header #globalnav li a:focus,
+#ug-header #globalnav li a:hover{
+	background: #000000;
+}
+
+/* OUTLINE on focus */
+#ug-header #globalnav li a:focus {
+	outline: thin dotted;
+}
+
+/* Set caret to white */
+#ug-navbar .navbar-nav .dropdown a .caret{
+	border-bottom-color: #FFFFFF;
+	border-top-color: #FFFFFF;
+}
+
+@media all and (min-width: 768px){
+
+	/* Menu Tabs CLOSED - FOCUS/HOVER styling (Wide) */
+	#globalnav>li>a:nth-child(1):focus:after,
+	#globalnav>li>a:nth-child(1):hover:after {
+		background: #B30100;
+		bottom: 4px;
+		content:"";
+		display: block;
+		height: 36px;
+		left: 0;
+		padding: 10px 15px;
+		position:absolute;
+		width: 100%;
+		z-index: -10;
+	}
+
+	/* Menu Tabs CLOSED - Override background styling so focus/hover styling on :after shows */
+	#ug-header #globalnav>li>a:focus,
+	#ug-header #globalnav>li>a:hover{
+		background: transparent;
+	}
+
+	/* Menu Tabs OPEN - Override background styling so grey colour shows */
+	#ug-header #globalnav>li.dropdown.open>a {
+		background: #45403A;
+	}
+
+	/* Menu Tabs OPEN - Remove red text-shadow glow */
+	#ug-header #globalnav li.dropdown.open a {
+		text-shadow: none !important;
+	}
+}
+
+/*---------------------
+Global - Dropdown Menus (Level 2)
+---------------------**/
+
+/*--- Theming ---*/
+
+/* Darken background (#45403A) to differentiate between open dropdown menu */
+#ug-header #globalnav li.dropdown.open ul.dropdown-menu {
+	background: #302C28;
+}
+
+/* FOCUS/HOVER */
+#ug-header .dropdown-menu>li>a:hover,
+#ug-header .dropdown-menu>li>a:focus {
+	background: #000000;
+}
+
+@media all and (min-width: 768px){
+	/* Revert background to #45403A on wide view */
+	#ug-header #globalnav li.dropdown.open ul.dropdown-menu {
+		background: #45403A;
+	}
+}
+
+/*--- Layout ---*/
+
+@media all and (min-width: 768px){
+	.navbar-right .dropdown-menu-left{
+		left:0;
+		right: auto;
+
+	}
+}
+
+/*---------------------
+Global - Small Widgets
+---------------------**/
+
+/*--- Theming ---*/
+
+#ug-header .navbar-small,
+#ug-header .navbar-small li {
+	padding: 0;
+}
+
+
+#ug-header .in .navbar-small>li>a,
+#ug-header .collapsing .navbar-small>li>a {
+	padding-left: 15px;
+	padding-right: 15px;
+}
+
+#ug-header .navbar-small li a:focus,
+#ug-header .navbar-small li a:hover {
+	background: #000000;
+}
+
+@media all and (min-width: 768px){
+
+	#ug-header .navbar-small {
+		font-size: .857em;
+	}
+
+	#ug-header .navbar-small li a:focus,
+	#ug-header .navbar-small li a:hover {
+		background: #990100;
+
+	}
+}
+
+/*---------------------
+Global Search
+---------------------**/
+
+#ug-header .navbar-form {
+	max-width: inherit;
+}
+
+@media all and (min-width: 768px){
+	#ug-header .navbar-form {
+		max-width: 239px;
+	}
+}
+
+/******************
+ Local Navigation
+*****************/
+
+/*--- Layout ---*/
+#navbar.navbar-inverse .container .navbar-collapse {
+	margin-right: 15px;
+}
+
+@media all and (min-width: 992px){
+	/* Right align the last two menu dropdown items */
+	#navbar.navbar-inverse .navbar-nav>li.dropdown:nth-last-child(-n+2)>ul{
+		right:0;
+		left:auto;
+	}
+}
+
+/*---------------------
+Local Menu Tabs - 1st Level
+---------------------**/
+
+/** Menu Tab - text colour */
+#navbar.navbar-inverse .navbar-nav>li>a {
+	color: #F5F5F5;
+}
+
+/* Menu Tab - caret colour */
+#navbar.navbar-inverse .navbar-nav>li>a .caret,
+#navbar.navbar-inverse .navbar-nav>li>a .caret {
+	border-top-color: #F5F5F5;
+	border-bottom-color: #F5F5F5;
+}
+
+/** Menu Tabs HOVER/FOCUS - background */
+#navbar.navbar-inverse .navbar-nav>li.dropdown.open>a,
+#navbar.navbar-inverse .navbar-nav>li.dropdown>a:focus,
+#navbar.navbar-inverse .navbar-nav>li.dropdown>a:hover,
+#navbar.navbar-inverse .navbar-nav>li>a:focus,
+#navbar.navbar-inverse .navbar-nav>li>a:hover {
+	background-color: #242424;
+}
+
+/** Menu Tab ACTIVE - background */
+#navbar.navbar-inverse .navbar-nav>li.active>a,
+#navbar.navbar-inverse .navbar-nav>li.active>a:focus,
+#navbar.navbar-inverse .navbar-nav>li.active>a:hover,
+#navbar.navbar-inverse .navbar-nav>li.leaf.active>a,
+#navbar.navbar-inverse .navbar-nav>li.leaf.active>a:focus,
+#navbar.navbar-inverse .navbar-nav>li.leaf.active>a:hover,
+#navbar.navbar-inverse .navbar-nav>li.dropdown.open.active>a,
+#navbar.navbar-inverse .navbar-nav>li.dropdown.open.active-trail>a,
+#navbar.navbar-inverse .navbar-nav>li.dropdown.active-trail>a,
+#navbar.navbar-inverse .navbar-nav>li.dropdown.active-trail>a:focus,
+#navbar.navbar-inverse .navbar-nav>li.dropdown.active-trail>a:hover {
+	background-color: #333333;
+}
+
+#navbar.navbar-inverse ul.menu.nav.navbar-nav.secondary{
+	float: none;
+}
+
+
+/*---------------------
+Local Menu Tabs - 2nd Level (Dropdown Menu)
+---------------------**/
+
+/*--- Theming ---*/
+
+/** Dropdown Menu - background **/
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu {
+	background-color: #181818;
+}
+
+/** Dropdown Menu Items - text colour **/
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu li a {
+	color: #F5F5F5;
+}
+
+/** Dropdown Menu Items HOVER/FOCUS - background **/
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>li>a:focus,
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>li>a:hover {
+	background: #242424; /*#2E2E2E;*/
+}
+
+/** Dropdown Menu Items ACTIVE - background **/
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a,
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a:focus,
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a:hover {
+	background: #242424;
+	/*color: #F5F5F5;*/
+}
+
+/** Active Dropdown Menu Item - force outline on focus **/
+#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a:focus {
+	outline: thin dotted;
+}
+
+@media all and (min-width: 768px){
+
+	/** Dropdown Menu - background **/
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu{
+		background-color: #FFFFFF;
+	}
+
+	/** Dropdown Menu - Wide/White **/
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu li a {
+		color: inherit;
+	}
+
+	/** Dropdown Menu Items - Wide/White - HOVER/FOCUS **/
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>li>a:focus,
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>li>a:hover {
+		background: #E4E4E4;
+		color: inherit;
+	}
+
+	/** Active Dropdown Menu Item - Wide/White **/
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a,
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a:focus,
+	#navbar.navbar-inverse .navbar-nav>li>.dropdown-menu>.active>a:hover {
+		background: #333333;
+		color: #FFFFFF;
+	}
+}
+
+/*---------------------
+Local Toggle
+-----------------------**/
+
+#navbar.navbar-inverse .navbar-toggle .glyphicon {
+	color: #FFFFFF;
+	width: 22px;
+}
+
+
+#navbar .navbar-header .navbar-toggle:focus {
+	outline: thin dotted #FFFFFF;
+}
+
+#navbar .navbar-header .navbar-toggle {
+	border-color: #444444;
+}
+
+/*--- Layout ---*/
+
+#navbar .navbar-header .navbar-toggle {
+	position: absolute;
+	top: 5px;
+	right: 15px;
+}
+
+/******************
+ Footers
+*****************/
+
+/*---------------------
+Footer - Local
+---------------------**/
+
+
+/*--- Layout ---*/
+
+#ug-footer-local .footer {
+	margin-top: 0;
+}
+
+/* [DISABLED] List styling in footer - use list-unstyled class instead */
+/*#ug-footer-local .footer ul {
+	padding-left: 0;
+}*/
+
+#ug-footer-local .footer ul:not(.menu) li {
+	margin-bottom: 10px;
+}
+
+#ug-footer-local .footer ul:not(.menu) li:first-child{
+	padding-top: 10px;
+}
+
+/*--- Theming ---*/
+
+#ug-footer-local {
+	background: #F5F5F5;
+	border-top: 1px solid #E5E5E5;
+}
+
+#ug-footer-local .footer {
+	border-top: 0;
+}
+
+/* Extend global footer across full width */
+#ug-footer-global {
+	background: #45403A;
+}
+
+/* [DISABLED] List styling in footer - use list-unstyled class instead */
+/*#ug-footer-local .footer ul:not(.menu) li {
+	list-style-type: none;
+}*/
+
+/* Menu styling in footer */
+#ug-footer-local .footer .nav>li {
+	border-bottom: 1px solid #E5E5E5;
+}
+
+#ug-footer-local .footer .nav>li>a:focus,
+#ug-footer-local .footer .nav>li>a:hover {
+	background: #FFFFFF;
+}
+
+
+/*---------------------
+Footer - Global
+---------------------**/
+
+/*--- Theming ---*/
+
+#ug-footer-global footer.navbar-inverse{
+	background: #45403A;
+	border: #000;
+}
+
+#ug-footer-global footer.navbar-inverse .navbar-nav>li>a {
+	color: #CCCCCC;
+}
+
+#ug-footer-global footer.navbar-inverse .navbar-nav>li>a:focus,
+#ug-footer-global footer.navbar-inverse .navbar-nav>li>a:hover {
+	color: #FFFFFF;
+}
+
+/******************
+ Sidebars
+*****************/
+
+/*---------------------
+Includes:
+
+- panels - 4 col or less on small/medium
+- blocks in asides
+---------------------**/
+
+/*--- Theming ---*/
+
+/* Main container sidebar elements have smaller font-size regardless of heading */
+.not-front .main-container .panel-panel.col-sm-4 .pane-title,
+.not-front .main-container .panel-panel.col-sm-3 .pane-title,
+.not-front .main-container .panel-panel.col-sm-2 .pane-title,
+.not-front .main-container .panel-panel.col-sm-1 .pane-title,
+.not-front .main-container aside .block-title {
+	font-size: 1.286em; /* 18px */
+	font-weight: 400;
+}
+
+.not-front .main-container .panel-panel.col-sm-4 p,
+.not-front .main-container .panel-panel.col-sm-3 p,
+.not-front .main-container .panel-panel.col-sm-2 p,
+.not-front .main-container .panel-panel.col-sm-1 p,
+.not-front .main-container aside p {
+	color: #333333;
+	font-size: 1em; /* 16px */
+	margin: 0 0 1.5em 0;
+}
+
+/**********************
+ Panel Regions
+**********************/
+
+/*---------------------
+Bottom
+---------------------**/
+
+/*--- Theming ---*/
+
+/* [DELETED] - Make bottom pane titles same font-size as sidebar pane-titles */
+
+
+/******************
+ Media
+*****************/
+
+/*---------------------
+Teaser Lists
+---------------------**/
+
+/*--- Theming ---*/
+.teaser-list .ug-media-heading {
+	font-size: 1em; /* 14px */
+	font-weight: 500;
+	line-height: 1.5em;
+}
+
+/*---------------------
+Detail pages
+---------------------**/
+
+/*
+*  - Middle (Bootstrap) section should contain main content
+*  - Temporary: For sites that are still using Left and Right, add styles to col-sm-8 as fallback
+*/
+
+/*--- Theming ---*/
+
+.detail-page .main-container .middle time,
+.detail-page .main-container .col-sm-8 time,
+.detail-page .main-container .middle p,
+.detail-page .main-container .col-sm-8 p,
+.detail-page .main-container .middle ul:not(.menu) li,
+.detail-page .main-container .col-sm-8 ul:not(.menu) li,
+.detail-page .main-container .middle ol:not(.menu) li,
+.detail-page .main-container .col-sm-8 ol:not(.menu) li,
+.detail-page .main-container .middle table,
+.detail-page .main-container .col-sm-8 table,
+.detail-page .main-container .middle dl,
+.detail-page .main-container .col-sm-8 dl {
+	color: #666666;
+	/*font-size: 1.143em;*/ /* 16px */
+	font-size: 16px;
+	line-height: 150%;
+}
+
+.detail-page .main-container .middle table p,
+.detail-page .main-container .col-sm-8 table p,
+.detail-page .main-container .middle table ul:not(.menu) li,
+.detail-page .main-container .col-sm-8 table ul:not(.menu) li,
+.detail-page .main-container .middle table ol:not(.menu) li,
+.detail-page .main-container .col-sm-8 table ol:not(.menu) li,
+.detail-page .main-container .middle dl p,
+.detail-page .main-container .col-sm-8 dl p,
+.detail-page .main-container .middle ol.breadcrumb li,
+.detail-page .main-container .col-sm-8 ol.breadcrumb li,
+.detail-page .main-container .middle ul.breadcrumb li,
+.detail-page .main-container .col-sm-8 ul.breadcrumb li {
+	font-size: inherit;
+}
+
+/*--- Layout ---*/
+
+.detail-page .main-container .middle p,
+.detail-page .main-container .col-sm-8 p {
+	margin: 0 0 1.5em 0;
+}
+
+/*--- condensed text fix for issue #451 ---*/
+.detail-page .main-container .middle p.media-condensed,
+.detail-page .main-container .col-sm-8 p.media-condensed {
+	margin: 0;
+}
+
+
+.detail-page .main-container .middle p:last-child,
+.detail-page .main-container .col-sm-8 p:last-child {
+	margin-bottom: 0;
+}
+
+.detail-page .main-container .middle li,
+.detail-page .main-container .col-sm-8 li {
+	margin: 0 0 .643em 0;
+}
+
+.detail-page .main-container .middle .menu li,
+.detail-page .main-container .col-sm-8 .menu li,
+.detail-page .main-container .middle ol.breadcrumb li,
+.detail-page .main-container .col-sm-8 ol.breadcrumb li,
+.detail-page .main-container .middle ul.breadcrumb li,
+.detail-page .main-container .col-sm-8 ul.breadcrumb li{
+	margin-bottom: 0;
+}
+
+/*---------------------
+Detail pages - Meta Data
+---------------------**/
+
+/*--- Layout ---*/
+.detail-page .main-container .middle .media-meta {
+	margin-bottom: 16px;
+}
+
+.detail-page .main-container .middle .media-meta p {
+	margin-bottom: 6px;
+}
+
+/*--- Theming ---*/
+.detail-page .main-container .middle .media-meta p {
+	color: #767676;
+}

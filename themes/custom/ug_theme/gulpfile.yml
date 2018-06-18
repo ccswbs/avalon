@@ -1,0 +1,6 @@
+# default config settings which can be overridden by local environment
+# You can just create local.gulpfile.yml and change browsersync proxy
+# to whatever your local dev proxy is.
+browsersync:
+  proxy: "http://drupal8vm.test"
+  notify: true

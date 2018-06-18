@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Theme override for system blocks.
+ *
+ * @ingroup templates
+ */
+#}
+{% extends "@bootstrap/block/block--system.html.twig" %}
+
+{% block content %}
+  <div class="col-sm-9">{{ parent() }}</div>
+{% endblock %}

@@ -1,0 +1,123 @@
+/*---------------------
+    Site Title
+    ---------------------**/
+.navbar-brand {
+	width: 75%;
+	font-size: 2.143em; /* 30px */
+	line-height: 1.1;
+
+	@media all and (min-width: $screen-sm) {
+		width: auto;
+	}
+}
+
+/*---------------------
+Site Slogan
+---------------------**/
+.navbar-header .lead {
+	/*--- Layout ---*/
+	float: left;
+	margin-left: 15px;
+	position: relative;
+	top: -5px;
+
+	@media all and (min-width: $screen-sm) {
+		clear: left;
+		margin: 0 0 10px 0;
+	}
+
+	/*--- Theming ---*/
+	font-size: 1.071em; /* 14px */
+	font-weight: 400;
+
+	.navbar-inverse & {
+		color: #999999;
+	}
+}
+
+/*---------------------
+    Navigation - Local
+    ---------------------**/
+/*--- Theming ---*/
+
+#navbar.navbar-inverse {
+	background: #000000;
+}
+
+#navbar.navbar-inverse .navbar-nav>li>a:focus{
+	outline: thin dotted;
+}
+
+/*--- Layout ---*/
+
+@media all and (min-width: 768px) {
+
+	#navbar .container .navbar-collapse {
+		padding-right: 0;
+	}
+
+	.flex-container {
+		display: -webkit-flex;
+		display: flex !important;
+		flex-wrap: wrap;
+		-webkit-flex-wrap: wrap;
+	}
+
+	.flex-bottom {
+		align-self: flex-end;
+		-webkit-align-self: flex-end;
+	}
+
+	.flex-right {
+		margin-left: auto;
+	}
+}
+
+/*---------------------
+Page Header
+---------------------**/
+
+/*--- Layout ---*/
+
+#page-header{
+	position: relative;
+	top: -20px;
+}
+
+
+/*---------------------
+ Breadcrumbs
+---------------------**/
+/*--- Theming ---*/
+.breadcrumb>.active {
+	color: #696969;
+}
+
+.breadcrumb li a:link {
+	border-bottom: 0;
+}
+
+.breadcrumb li a:focus,
+.breadcrumb li a:hover {
+	border-bottom: 1px solid;
+}
+
+/*--- Layout ---*/
+
+.search-and-breadcrumb {
+	margin-bottom: 20px;
+}
+
+@media all  and (min-width: 768px) {
+	.search-and-breadcrumb {
+		margin-bottom: 0;
+	}
+}
+
+/*---------------------
+ Navigation Tabs (Horizontal)
+---------------------**/
+
+.nav-tabs {
+	margin-bottom: 30px;
+}

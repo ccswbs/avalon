@@ -1,0 +1,23 @@
+name: UG theme
+type: theme
+description: A bootstrap base theme.
+package: Other
+core: 8.x
+libraries:
+  - ug_theme/global-styling
+
+base theme: bootstrap
+
+regions:
+  site_branding: 'Site branding'
+  navigation: Navigation
+  header: 'Top bar'
+  content_top: 'Content top'
+  highlighted: Highlighted
+  help: Help
+  content: Content
+  sidebar_first: Primary
+  secondary: Secondary
+  footer: Footer
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'

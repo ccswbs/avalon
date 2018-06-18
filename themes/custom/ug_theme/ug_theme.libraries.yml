@@ -1,0 +1,11 @@
+global-styling:
+  version: VERSION
+  css:
+    theme:
+      //fonts.googleapis.com/css?family=Lato:300,400,700: { type: external }
+      assets/css/styles.css: {}
+  js:
+    assets/bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js: { minified: true }
+  dependencies:
+    - core/jquery
+    - core/drupal

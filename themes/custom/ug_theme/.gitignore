@@ -1,0 +1,5 @@
+local.gulpfile.yml
+
+node_modules
+
+.DS_STORE

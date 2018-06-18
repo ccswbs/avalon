@@ -1,0 +1,8 @@
+<?php
+
+/**
+ * @file
+ * Functions to support theming in the workhorse theme.
+ *
+ * Please use Bootstrap base theme plugin for any preprocessor or form alter.
+ */
