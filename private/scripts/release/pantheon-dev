@@ -10,7 +10,7 @@ TEMP=${TEMP:-/tmp}
 UPSTREAM_URL=${UPSTREAM_URL:-https://oauth:$SYSTEM_ACCESSTOKEN@ccswds.visualstudio.com/_git/Avalon}
 #UPSTREAM_URL=${UPSTREAM_URL:-ssh://ccswds@vs-ssh.visualstudio.com:22/_ssh/Avalon}
 RELEASE=${BUILD_SOURCEVERSION:-upstream/master}
-LEGACY_SITE=${LEGACY_SITE:-hjckrrh}
+LEGACY_SITE=${LEGACY_SITE:-}
 LEGACY_ENV=${LEGACY_ENV:-dev}
 LEGACY_DATABASE=${LEGACY_DATABASE:-}
 LEGACY_USERNAME=${LEGACY_USERNAME:-}
@@ -33,6 +33,14 @@ git fetch upstream
 #git rebase ${RELEASE}
 git reset --hard ${RELEASE}
 git push --force origin master
+
+# Install Drupal
+terminus drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/config </dev/null
+
+if [ -z "$LEGACY_SITE" ]
+  then
+     exit 0;
+fi
 
 # Auto-discover legacy database connection details
 if [ -z "$LEGACY_DATABASE" ]
@@ -71,12 +79,6 @@ terminus secrets:set $SITE.$ENV legacy_username $LEGACY_USERNAME </dev/null
 terminus secrets:set $SITE.$ENV legacy_password $LEGACY_PASSWORD </dev/null
 terminus secrets:set $SITE.$ENV legacy_host $LEGACY_HOST </dev/null
 terminus secrets:set $SITE.$ENV legacy_port $LEGACY_PORT </dev/null
-
-# Import config
-#terminus drush $SITE.$ENV -- config-import -y </dev/null
-
-# Install Drupal
-terminus drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/config </dev/null
 
 # Wake up legacy site
 terminus env:wake $LEGACY_SITE.$LEGACY_ENV </dev/null
