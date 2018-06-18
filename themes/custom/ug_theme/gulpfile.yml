@@ -2,5 +2,5 @@
 # You can just create local.gulpfile.yml and change browsersync proxy
 # to whatever your local dev proxy is.
 browsersync:
-  proxy: "http://drupal8vm.test"
+  proxy: "http://avalon-local.test"
   notify: true
