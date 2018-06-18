@@ -15,7 +15,6 @@ use Symfony\Component\DependencyInjection\Argument\BoundArgument;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Definition;
 use Symfony\Component\DependencyInjection\Exception\InvalidArgumentException;
-use Symfony\Component\DependencyInjection\Exception\RuntimeException;
 use Symfony\Component\DependencyInjection\LazyProxy\ProxyHelper;
 use Symfony\Component\DependencyInjection\TypedReference;
 use Symfony\Component\DependencyInjection\Reference;
@@ -27,7 +26,6 @@ class ResolveBindingsPass extends AbstractRecursivePass
 {
     private $usedBindings = array();
     private $unusedBindings = array();
-    private $errorMessages = array();
 
     /**
      * {@inheritdoc}
@@ -38,19 +36,11 @@ class ResolveBindingsPass extends AbstractRecursivePass
             parent::process($container);
 
             foreach ($this->unusedBindings as list($key, $serviceId)) {
-                $message = sprintf('Unused binding "%s" in service "%s".', $key, $serviceId);
-                if ($this->errorMessages) {
-                    $message .= sprintf("\nCould be related to%s:", 1 < \count($this->errorMessages) ? ' one of' : '');
-                }
-                foreach ($this->errorMessages as $m) {
-                    $message .= "\n - ".$m;
-                }
-                throw new InvalidArgumentException($message);
+                throw new InvalidArgumentException(sprintf('Unused binding "%s" in service "%s".', $key, $serviceId));
             }
         } finally {
             $this->usedBindings = array();
             $this->unusedBindings = array();
-            $this->errorMessages = array();
         }
     }
 
@@ -59,7 +49,7 @@ class ResolveBindingsPass extends AbstractRecursivePass
      */
     protected function processValue($value, $isRoot = false)
     {
-        if ($value instanceof TypedReference && $value->getType() === $this->container->normalizeId($value)) {
+        if ($value instanceof TypedReference && $value->getType() === (string) $value) {
             // Already checked
             $bindings = $this->container->getDefinition($this->currentId)->getBindings();
 
@@ -98,15 +88,8 @@ class ResolveBindingsPass extends AbstractRecursivePass
 
         $calls = $value->getMethodCalls();
 
-        try {
-            if ($constructor = $this->getConstructor($value, false)) {
-                $calls[] = array($constructor, $value->getArguments());
-            }
-        } catch (RuntimeException $e) {
-            $this->errorMessages[] = $e->getMessage();
-            $this->container->getDefinition($this->currentId)->addError($e->getMessage());
-
-            return parent::processValue($value, $isRoot);
+        if ($constructor = $this->getConstructor($value, false)) {
+            $calls[] = array($constructor, $value->getArguments());
         }
 
         foreach ($calls as $i => $call) {
