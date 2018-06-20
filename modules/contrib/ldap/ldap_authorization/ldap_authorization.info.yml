@@ -1,9 +1,0 @@
-name: LDAP Authorization Provider
-type: module
-description: Provider to the Authorization API
-core: 8.x
-package: Lightweight Directory Access Protocol
-dependencies:
-  - ldap:ldap_servers
-  - ldap:ldap_user
-  - authorization:authorization

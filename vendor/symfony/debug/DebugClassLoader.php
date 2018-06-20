@@ -406,31 +406,4 @@ class DebugClassLoader
 
         return $ownInterfaces;
     }
-
-    /**
-     * `class_implements` includes interfaces from the parents so we have to manually exclude them.
-     *
-     * @param string       $class
-     * @param string|false $parent
-     *
-     * @return string[]
-     */
-    private function getOwnInterfaces($class, $parent)
-    {
-        $ownInterfaces = class_implements($class, false);
-
-        if ($parent) {
-            foreach (class_implements($parent, false) as $interface) {
-                unset($ownInterfaces[$interface]);
-            }
-        }
-
-        foreach ($ownInterfaces as $interface) {
-            foreach (class_implements($interface) as $interface) {
-                unset($ownInterfaces[$interface]);
-            }
-        }
-
-        return $ownInterfaces;
-    }
 }
