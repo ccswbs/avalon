@@ -17,7 +17,7 @@
     "drupal/admin_toolbar": "^1.24",
     "drupal/anchor_link": "^1.6",
     "drupal/bootstrap": "^3.11",
-    "drupal/console": "^1",
+    "drupal/console": "~1.0",
     "drupal/core": "^8",
     "drupal/devel": "^1.2",
     "drupal/easy_breadcrumb": "^1.6",
