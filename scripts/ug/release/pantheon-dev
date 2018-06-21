@@ -41,7 +41,7 @@ if [ -z "$LEGACY_SITE" ]
 fi
 
 # Install Drupal
-terminus drush $SITE.$ENV -- site-install -y ug --config-dir=sites/default/config </dev/null
+terminus drush $SITE.$ENV -- site-install -y ug --config-dir=config </dev/null
 
 # Auto-discover legacy database connection details
 if [ -z "$LEGACY_DATABASE" ]
