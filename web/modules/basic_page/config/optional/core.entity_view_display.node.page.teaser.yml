@@ -1,0 +1,35 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.page.comment_node_page
+    - field.field.node.page.field_page_attachments
+    - field.field.node.page.field_page_body
+    - field.field.node.page.field_page_category
+    - field.field.node.page.field_tags
+    - node.type.page
+  module:
+    - text
+    - user
+id: node.page.teaser
+targetEntityType: node
+bundle: page
+mode: teaser
+content:
+  field_page_body:
+    label: hidden
+    weight: 0
+    type: text_summary_or_trimmed
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  comment_node_page: true
+  field_page_attachments: true
+  field_page_category: true
+  field_tags: true

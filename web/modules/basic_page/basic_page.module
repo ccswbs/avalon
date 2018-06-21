@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains basic_page.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function basic_page_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the basic_page module.
+    case 'help.page.basic_page':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Basic Page module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function basic_page_theme() {
+  return [
+    'basic_page' => [
+      'render element' => 'children',
+    ],
+  ];
+}
