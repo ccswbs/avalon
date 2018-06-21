@@ -42,9 +42,9 @@ terminus drush $SITE.$MULTIDEV -- migrate-import --update --group=migrate_drupal
 export BEHAT_PARAMS='{"extensions" : {"Behat\\MinkExtension" : {"base_url" : "http://'$MULTIDEV'-'$SITE'.pantheonsite.io"} }}'
 if [ -n "$AGENT_ID" ]
 then
-  vendor/bin/behat --config=private/test/behat/config-ci.yml --format junit --out ${RESULTS} || true
+  vendor/bin/behat --config=tests/ug/config-ci.yml --format junit --out ${RESULTS} || true
 else
-  vendor/bin/behat --config=private/test/behat/config-ci.yml 
+  vendor/bin/behat --config=tests/ug/config-ci.yml 
 fi
 
 # Delete multidev environment (and branch)
