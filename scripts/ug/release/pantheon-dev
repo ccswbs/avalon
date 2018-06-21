@@ -19,6 +19,7 @@ LEGACY_HOST=${LEGACY_HOST:-}
 LEGACY_PORT=${LEGACY_PORT:-}
 TERMINUS_PLUGINS_DIR=~/.terminus/plugins
 TERMINUS_SECRETS_PLUGIN_HOME=$TERMINUS_PLUGINS_DIR/terminus-secrets-plugin
+COMPOSER=/usr/local/bin/composer
 
 # Clone site repository
 cd $TEMP
@@ -62,7 +63,7 @@ if [ ! -d $TERMINUS_PLUGINS_DIR ]
 # Install Terminus secrets plugin
 if [ ! -d $TERMINUS_SECRETS_PLUGIN_HOME ]
   then
-    php composer.phar create-project -d $TERMINUS_PLUGINS_DIR pantheon-systems/terminus-secrets-plugin:~1
+    $COMPOSER create-project -d $TERMINUS_PLUGINS_DIR pantheon-systems/terminus-secrets-plugin:~1
   fi
 
 # Create empty secrets file
