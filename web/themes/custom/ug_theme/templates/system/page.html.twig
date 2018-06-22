@@ -116,10 +116,10 @@
       {# Content #}
       {%
         set content_classes = [
-          page.sidebar_first is empty and page.sidebar_second is empty ? 'col-sm-12',
-          page.sidebar_first is empty and page.sidebar_second ? 'col-sm-9',
-          page.sidebar_first and page.sidebar_second is empty ? 'col-sm-9 col-sm-push-3',
-          page.sidebar_first and page.sidebar_second ? 'col-sm-6 col-sm-push-3',
+          page.sidebar_first is empty and page.secondary is empty ? 'col-sm-12',
+          page.sidebar_first is empty and page.secondary ? 'col-sm-9',
+          page.sidebar_first and page.secondary is empty ? 'col-sm-9 col-sm-push-3',
+          page.sidebar_first and page.secondary ? 'col-sm-6 col-sm-push-3',
         ]
       %}
       <section{{ content_attributes.addClass(content_classes) }}>
@@ -148,7 +148,7 @@
       {# Sidebar First #}
       {% if page.sidebar_first %}
         {% block sidebar_first %}
-          {% set sidebar_first_pull_class = 'col-sm-pull-' ~ (page.sidebar_second ? '6' : '9') %}
+          {% set sidebar_first_pull_class = 'col-sm-pull-' ~ (page.secondary ? '6' : '9') %}
           <aside class="col-sm-3 {{ sidebar_first_pull_class }}" role="complementary">
             {{ page.sidebar_first }}
           </aside>
@@ -156,10 +156,10 @@
       {% endif %}
 
       {# Sidebar Second #}
-      {% if page.sidebar_second %}
-        {% block sidebar_second %}
+      {% if page.secondary %}
+        {% block secondary %}
           <aside class="col-sm-3" role="complementary">
-            {{ page.sidebar_second }}
+            {{ page.secondary }}
           </aside>
         {% endblock %}
       {% endif %}
