@@ -1,9 +1,0 @@
-uuid: e10cf8a3-e907-4f77-82db-b07a32b41434
-langcode: en
-status: true
-dependencies: {  }
-name: 'Page category'
-vid: page_category
-description: ''
-hierarchy: 0
-weight: 0
