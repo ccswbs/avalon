@@ -6,6 +6,7 @@ open: null
 close: null
 uid: 1
 template: false
+archive: false
 id: information_request
 title: 'Information request'
 description: ''
@@ -146,3 +147,5 @@ handlers:
       return_path: ''
       sender_mail: ''
       sender_name: ''
+      exclude_empty_checkbox: false
+      twig: false

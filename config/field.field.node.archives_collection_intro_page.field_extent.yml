@@ -1,0 +1,21 @@
+uuid: e3feb924-033e-43d2-941e-a3fef94a4297
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_extent
+    - node.type.archives_collection_intro_page
+  module:
+    - text
+id: node.archives_collection_intro_page.field_extent
+field_name: field_extent
+entity_type: node
+bundle: archives_collection_intro_page
+label: Extent
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

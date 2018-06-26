@@ -1,0 +1,17 @@
+uuid: 462316b3-2335-4caa-b4b4-b962dae5e5ab
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: 'Archives - Collection Intro Page'
+type: archives_collection_intro_page
+description: 'Used to create a page which gives a brief introduction to a new archival/special collection.'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

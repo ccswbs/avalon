@@ -1,0 +1,21 @@
+uuid: 7cd95dc7-5b2b-4085-9e66-64bd9f8ae17c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_type_s_of_materials
+    - node.type.archives_collection_intro_page
+  module:
+    - options
+id: node.archives_collection_intro_page.field_type_s_of_materials
+field_name: field_type_s_of_materials
+entity_type: node
+bundle: archives_collection_intro_page
+label: 'Type(s) Of Materials'
+description: 'What type(s) of materials does this specific collection contain?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

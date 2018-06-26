@@ -1,0 +1,21 @@
+uuid: 0b4ef68b-d132-4810-ae9e-b0c1365b4e1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_archives_category
+    - node.type.archives_collection_intro_page
+  module:
+    - options
+id: node.archives_collection_intro_page.field_archives_category
+field_name: field_archives_category
+entity_type: node
+bundle: archives_collection_intro_page
+label: 'Archives Category'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,28 @@
+uuid: 8ad6148f-4364-4fec-9e33-d68f9792b012
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.archives_collection_intro_page.body
+    - node.type.archives_collection_intro_page
+  module:
+    - text
+    - user
+id: node.archives_collection_intro_page.teaser
+targetEntityType: node
+bundle: archives_collection_intro_page
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 101
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden: {  }

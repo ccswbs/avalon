@@ -1,0 +1,22 @@
+uuid: 2bda1ac8-2d3f-4bf3-8e28-ceb21534f995
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.archives_collection_intro_page
+id: node.archives_collection_intro_page.promote
+field_name: promote
+entity_type: node
+bundle: archives_collection_intro_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

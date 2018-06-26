@@ -1,0 +1,21 @@
+uuid: b2897a49-d643-436f-be61-fdacb7a53bd9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_other_category
+    - node.type.archives_collection_intro_page
+  module:
+    - options
+id: node.archives_collection_intro_page.field_other_category
+field_name: field_other_category
+entity_type: node
+bundle: archives_collection_intro_page
+label: 'Other Category'
+description: 'Should this collection appear in another collecting area?'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

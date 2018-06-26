@@ -1,0 +1,57 @@
+uuid: 0317eb53-2348-4d20-8edc-6e0086c8f5eb
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_type_s_of_materials
+field_name: field_type_s_of_materials
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: plans
+      label: 'Architectural Plans'
+    -
+      value: artifacts
+      label: Artifacts
+    -
+      value: art
+      label: Artwork
+    -
+      value: av
+      label: 'Audiovisual Material'
+    -
+      value: electronic
+      label: 'Electronic Records'
+    -
+      value: maps
+      label: Maps
+    -
+      value: micro
+      label: Microfilm
+    -
+      value: pics
+      label: Photographs
+    -
+      value: posters
+      label: Posters
+    -
+      value: published
+      label: 'Published Material'
+    -
+      value: drawings
+      label: 'Technical Drawings'
+    -
+      value: unpublished
+      label: 'Unpublished Material and Manuscripts'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

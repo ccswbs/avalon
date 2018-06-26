@@ -1,0 +1,19 @@
+uuid: 4b774020-bc4b-4040-a224-0128aaae305a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_dates
+    - node.type.archives_collection_intro_page
+id: node.archives_collection_intro_page.field_dates
+field_name: field_dates
+entity_type: node
+bundle: archives_collection_intro_page
+label: Dates
+description: 'Be as specific as you can be. Enter dates in the standard format, YYYY-MM-DD, eg: 1901-12-25'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

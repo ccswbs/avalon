@@ -1,0 +1,21 @@
+uuid: 627cbbb9-6727-41ab-9815-6882bb2bf38c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_published_
+    - node.type.archives_collection_intro_page
+id: node.archives_collection_intro_page.field_published_
+field_name: field_published_
+entity_type: node
+bundle: archives_collection_intro_page
+label: 'Published?'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

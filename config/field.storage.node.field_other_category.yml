@@ -1,0 +1,45 @@
+uuid: 683139a0-d989-43eb-b7aa-529471de7228
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_other_category
+field_name: field_other_category
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Agriculture
+      label: 'Agriculture and Rural Heritage'
+    -
+      value: Culinary
+      label: Culinary
+    -
+      value: Montgomery
+      label: 'LM Montgomery'
+    -
+      value: Theatre
+      label: 'LW Conolly Theatre Archives'
+    -
+      value: 'Landscape Architecture'
+      label: 'Landscape Architecture'
+    -
+      value: Rare
+      label: 'Rare Books'
+    -
+      value: Regional
+      label: 'Regional and Campus History'
+    -
+      value: Scottish
+      label: 'Scottish Studies'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

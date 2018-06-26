@@ -1,0 +1,22 @@
+uuid: f3a3cd3a-bb47-4f7b-9f82-945921d43148
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.archives_collection_intro_page
+  module:
+    - text
+id: node.archives_collection_intro_page.body
+field_name: body
+entity_type: node
+bundle: archives_collection_intro_page
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

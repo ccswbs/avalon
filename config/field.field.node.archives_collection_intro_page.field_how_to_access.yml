@@ -1,0 +1,24 @@
+uuid: 344b6fa6-e027-4796-9979-156d2c859878
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_how_to_access
+    - node.type.archives_collection_intro_page
+  module:
+    - text
+id: node.archives_collection_intro_page.field_how_to_access
+field_name: field_how_to_access
+entity_type: node
+bundle: archives_collection_intro_page
+label: 'How To Access'
+description: 'Explain how to get access to these resources. This might contain a link to a canned search in Primo, or it might link to an external digital collection, or it might simply say: come on down to the archives.'
+required: false
+translatable: false
+default_value:
+  -
+    value: "<p>This collection is available for viewing on-site in <a href=\"/where/areas/area/splcol\">Archival &amp; Special Collections</a> during our regular <a href=\"/service-hours\">business hours</a>.</p>\r\n"
+    format: filtered_html
+default_value_callback: ''
+settings: {  }
+field_type: text_long
