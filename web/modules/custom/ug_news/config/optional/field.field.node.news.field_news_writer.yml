@@ -1,0 +1,18 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_writer
+    - node.type.news
+id: node.news.field_news_writer
+field_name: field_news_writer
+entity_type: node
+bundle: news
+label: 'Written by'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

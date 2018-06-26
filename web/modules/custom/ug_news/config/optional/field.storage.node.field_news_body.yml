@@ -1,0 +1,19 @@
+uuid: 60c23295-73f2-4db0-98ec-51f00a6ebc6e
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_news_body
+field_name: field_news_body
+entity_type: node
+type: text_with_summary
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

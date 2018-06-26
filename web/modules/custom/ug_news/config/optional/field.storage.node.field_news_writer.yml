@@ -1,0 +1,21 @@
+uuid: 02276aee-2287-4433-bd86-4d244d6b1b1f
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_news_writer
+field_name: field_news_writer
+entity_type: node
+type: string
+settings:
+  max_length: 80
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

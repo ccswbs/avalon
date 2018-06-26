@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains ug_news.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ug_news_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ug_news module.
+    case 'help.page.ug_news':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('UG News') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ug_news_theme() {
+  return [
+    'ug_news' => [
+      'render element' => 'children',
+    ],
+  ];
+}
