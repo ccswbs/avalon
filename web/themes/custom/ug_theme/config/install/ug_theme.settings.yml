@@ -15,6 +15,7 @@ logo:
   path: ''
   url: ''
   use_default: 1
+cdn_provider: ''
 navbar_inverse: 1
 navbar_position: static-top
 region_wells:
@@ -28,7 +29,5 @@ region_wells:
   sidebar_first: ''
   secondary: ''
   footer: ''
-cdn_provider: ''
 breadcrumb_home: 1
-breadcrumb_title: 0
 table: ''
