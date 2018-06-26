@@ -1,9 +1,0 @@
-uuid: dccf5134-6c20-47ff-aabe-bff155dbddae
-langcode: en
-status: true
-dependencies: {  }
-name: Tags
-vid: tags
-description: ''
-hierarchy: 0
-weight: 0
