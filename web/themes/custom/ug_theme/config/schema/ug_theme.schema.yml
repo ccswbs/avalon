@@ -1,0 +1,4 @@
+# Schema for the theme setting configuration file of the University of Guelph theme.
+ug_theme.settings:
+  type: theme_settings
+  label: 'University of Guelph theme settings'
