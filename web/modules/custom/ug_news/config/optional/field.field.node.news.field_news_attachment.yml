@@ -1,0 +1,26 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_news_attachment
+    - node.type.news
+  module:
+    - file
+id: node.news.field_news_attachment
+field_name: field_news_attachment
+entity_type: node
+bundle: news
+label: Attachment
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_directory: ''
+  file_extensions: 'txt pdf doc docx rtf png gif jpg jpeg zip xls xlsx ppt pptx csv dmg'
+  max_filesize: ''
+  description_field: true
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: file

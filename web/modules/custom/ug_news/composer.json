@@ -1,0 +1,14 @@
+{
+  "name": "drupal/ug_news",
+  "type": "drupal-module",
+  "description": "UG News",
+  "keywords": ["Drupal"],
+  "license": "GPL-2.0+",
+  "homepage": "https://www.drupal.org/project/ug_news",
+  "minimum-stability": "dev",
+  "support": {
+    "issues": "https://www.drupal.org/project/issues/ug_news",
+    "source": "http://cgit.drupalcode.org/ug_news"
+  },
+  "require": { }
+}

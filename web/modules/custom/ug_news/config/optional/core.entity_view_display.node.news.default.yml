@@ -1,0 +1,78 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_display.comment.comment_node_news.default
+    - field.field.node.news.comment_node_news
+    - field.field.node.news.field_news_attachment
+    - field.field.node.news.field_news_body
+    - field.field.node.news.field_news_caption
+    - field.field.node.news.field_news_link
+    - field.field.node.news.field_news_media
+    - field.field.node.news.field_news_tags
+    - field.field.node.news.field_news_writer
+    - field.field.node.news.field_tags
+    - node.type.news
+  module:
+    - comment
+    - file
+    - text
+    - user
+id: node.news.default
+targetEntityType: node
+bundle: news
+mode: default
+content:
+  comment_node_news:
+    label: hidden
+    type: comment_default
+    weight: 5
+    settings:
+      view_mode: default
+      pager_id: 0
+    third_party_settings: {  }
+    region: content
+  field_news_attachment:
+    label: above
+    weight: 4
+    type: file_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_news_body:
+    label: hidden
+    weight: 3
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_news_caption:
+    label: inline
+    weight: 2
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_news_media:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: content
+  field_news_writer:
+    label: inline
+    weight: 0
+    type: string
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_news_link: true
+  field_news_tags: true
+  field_tags: true
+  links: true

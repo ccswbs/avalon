@@ -35,7 +35,7 @@ git fetch upstream
 git reset --hard ${RELEASE}
 git push --force origin master
 
-
+# No legacy site, so skip site install, migration 
 if [ -z "$LEGACY_SITE" ]
   then
      exit 0;
