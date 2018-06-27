@@ -1,0 +1,38 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.page.comment_node_page
+    - field.field.node.page.field_page_attachments
+    - field.field.node.page.field_page_body
+    - field.field.node.page.field_page_category
+    - field.field.node.page.field_tags
+    - node.type.page
+  module:
+    - file
+    - text
+    - user
+id: node.page.default
+targetEntityType: node
+bundle: page
+mode: default
+content:
+  field_page_attachments:
+    label: above
+    weight: 1
+    type: file_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_page_body:
+    label: hidden
+    weight: 0
+    type: text_default
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  comment_node_page: true
+  field_page_category: true
+  field_tags: true
+  links: true
