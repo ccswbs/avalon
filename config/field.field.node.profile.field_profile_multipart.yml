@@ -1,0 +1,31 @@
+uuid: 7d95aabb-d919-4adc-88c3-9d2dd4231492
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_multipart
+    - node.type.profile
+    - paragraphs.paragraphs_type.field_profile_multipart
+  module:
+    - entity_reference_revisions
+id: node.profile.field_profile_multipart
+field_name: field_profile_multipart
+entity_type: node
+bundle: profile
+label: 'Profile sections'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      field_profile_multipart: field_profile_multipart
+    target_bundles_drag_drop:
+      field_profile_multipart:
+        enabled: true
+        weight: 2
+field_type: entity_reference_revisions

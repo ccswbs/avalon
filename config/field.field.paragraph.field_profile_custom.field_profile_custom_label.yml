@@ -1,0 +1,29 @@
+uuid: 6fda1e6a-0015-44f5-890b-fdd814fbee0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_profile_custom_label
+    - paragraphs.paragraphs_type.field_profile_custom
+    - taxonomy.vocabulary.profile_field_labels
+id: paragraph.field_profile_custom.field_profile_custom_label
+field_name: field_profile_custom_label
+entity_type: paragraph
+bundle: field_profile_custom
+label: Label
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      profile_field_labels: profile_field_labels
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: profile_field_labels
+field_type: entity_reference

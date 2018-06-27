@@ -1,0 +1,34 @@
+uuid: 52e2703e-cd39-4491-b31f-2e070b4eec72
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_custom
+    - node.type.profile
+    - paragraphs.paragraphs_type.field_profile_custom
+  module:
+    - entity_reference_revisions
+id: node.profile.field_profile_custom
+field_name: field_profile_custom
+entity_type: node
+bundle: profile
+label: 'Profile fields'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 0
+    target_bundles:
+      field_profile_custom: field_profile_custom
+    target_bundles_drag_drop:
+      field_profile_custom:
+        enabled: true
+        weight: 3
+      field_profile_multipart:
+        weight: 4
+        enabled: false
+field_type: entity_reference_revisions

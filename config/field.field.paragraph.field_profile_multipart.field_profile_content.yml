@@ -1,0 +1,19 @@
+uuid: 2069d6ff-a814-42b5-b8cc-d035cf6ae00b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_profile_content
+    - paragraphs.paragraphs_type.field_profile_multipart
+id: paragraph.field_profile_multipart.field_profile_content
+field_name: field_profile_content
+entity_type: paragraph
+bundle: field_profile_multipart
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

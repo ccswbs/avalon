@@ -1,0 +1,30 @@
+uuid: 1a93fd90-a7e8-4412-85e5-bbdf73ab1e4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.field_profile_custom.field_profile_custom_content
+    - field.field.paragraph.field_profile_custom.field_profile_custom_label
+    - paragraphs.paragraphs_type.field_profile_custom
+id: paragraph.field_profile_custom.default
+targetEntityType: paragraph
+bundle: field_profile_custom
+mode: default
+content:
+  field_profile_custom_content:
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_profile_custom_label:
+    weight: 1
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

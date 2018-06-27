@@ -1,0 +1,39 @@
+uuid: 0f0c649d-c134-451f-9d2a-366619c488fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.field_profile_custom.field_profile_custom_content
+    - field.field.paragraph.field_profile_custom.field_profile_custom_label
+    - paragraphs.paragraphs_type.field_profile_custom
+  module:
+    - content_moderation
+id: paragraph.field_profile_custom.default
+targetEntityType: paragraph
+bundle: field_profile_custom
+mode: default
+content:
+  field_profile_custom_content:
+    weight: 103
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_profile_custom_label:
+    weight: 102
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -10,11 +10,13 @@ dependencies:
     - field.field.node.profile.field_profile_attachments
     - field.field.node.profile.field_profile_caption
     - field.field.node.profile.field_profile_category
+    - field.field.node.profile.field_profile_custom
     - field.field.node.profile.field_profile_email
     - field.field.node.profile.field_profile_faxnumber
     - field.field.node.profile.field_profile_image
     - field.field.node.profile.field_profile_lab
     - field.field.node.profile.field_profile_lastname
+    - field.field.node.profile.field_profile_multipart
     - field.field.node.profile.field_profile_name
     - field.field.node.profile.field_profile_office
     - field.field.node.profile.field_profile_research
@@ -30,6 +32,7 @@ dependencies:
     - node.type.profile
   module:
     - comment
+    - entity_reference_revisions
     - link
     - text
     - user
@@ -45,6 +48,20 @@ content:
     settings:
       view_mode: default
       pager_id: 0
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_profile_custom:
+    type: entity_reference_revisions_entity_view
+    weight: 102
+    label: above
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
   field_profile_email:
@@ -69,6 +86,15 @@ content:
     type: string
     settings:
       link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  field_profile_multipart:
+    type: entity_reference_revisions_entity_view
+    weight: 101
+    label: above
+    settings:
+      view_mode: default
+      link: ''
     third_party_settings: {  }
     region: content
   field_profile_office:
@@ -109,6 +135,8 @@ content:
   links:
     weight: 100
     region: content
+    settings: {  }
+    third_party_settings: {  }
 hidden:
   field_profile_address: true
   field_profile_align_names: true

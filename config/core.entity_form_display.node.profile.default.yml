@@ -9,11 +9,13 @@ dependencies:
     - field.field.node.profile.field_profile_attachments
     - field.field.node.profile.field_profile_caption
     - field.field.node.profile.field_profile_category
+    - field.field.node.profile.field_profile_custom
     - field.field.node.profile.field_profile_email
     - field.field.node.profile.field_profile_faxnumber
     - field.field.node.profile.field_profile_image
     - field.field.node.profile.field_profile_lab
     - field.field.node.profile.field_profile_lastname
+    - field.field.node.profile.field_profile_multipart
     - field.field.node.profile.field_profile_name
     - field.field.node.profile.field_profile_office
     - field.field.node.profile.field_profile_research
@@ -30,9 +32,11 @@ dependencies:
     - node.type.profile
   module:
     - comment
+    - content_moderation
     - file
     - image
     - link
+    - paragraphs
     - path
     - text
 id: node.profile.default
@@ -88,6 +92,18 @@ content:
     settings: {  }
     third_party_settings: {  }
     region: content
+  field_profile_custom:
+    type: entity_reference_paragraphs
+    weight: 122
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+    region: content
   field_profile_email:
     weight: 16
     type: string_textfield
@@ -126,6 +142,18 @@ content:
     settings:
       size: 60
       placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_profile_multipart:
+    type: entity_reference_paragraphs
+    weight: 121
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
     third_party_settings: {  }
     region: content
   field_profile_name:

@@ -1,6 +1,6 @@
 uuid: d581c894-a734-40e6-901f-88b13527e08a
-name: appserver-9206f3c9.c.pantheon-dmz.internal
-mail: wsadmin@uoguelph.ca
+name: Site-Install
+mail: admin@example.com
 slogan: ''
 page:
   403: ''
@@ -11,5 +11,4 @@ weight_select_max: 100
 langcode: en
 default_langcode: en
 _core:
-  default_config_hash: AyT9s8OUcclfALRE_imByOMgtZ19eOlqdF6zI3p7yqo
-mail_notification: ''
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

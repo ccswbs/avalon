@@ -1,0 +1,29 @@
+uuid: 572c5dd4-4619-4369-bc91-7c9780f40995
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.field_profile_multipart.field_profile_content
+    - field.field.paragraph.field_profile_multipart.field_profile_heading
+    - paragraphs.paragraphs_type.field_profile_multipart
+id: paragraph.field_profile_multipart.default
+targetEntityType: paragraph
+bundle: field_profile_multipart
+mode: default
+content:
+  field_profile_content:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  field_profile_heading:
+    weight: 0
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+hidden: {  }

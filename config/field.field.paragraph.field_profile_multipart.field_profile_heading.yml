@@ -1,0 +1,29 @@
+uuid: 374bb699-a97d-4a33-80c8-48a516eeb0e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_profile_heading
+    - paragraphs.paragraphs_type.field_profile_multipart
+    - taxonomy.vocabulary.profile_field_headings
+id: paragraph.field_profile_multipart.field_profile_heading
+field_name: field_profile_heading
+entity_type: paragraph
+bundle: field_profile_multipart
+label: Heading
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      profile_field_headings: profile_field_headings
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

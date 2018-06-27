@@ -1,0 +1,39 @@
+uuid: cb2817de-45b6-4c18-8682-b891e087ab2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.field_profile_multipart.field_profile_content
+    - field.field.paragraph.field_profile_multipart.field_profile_heading
+    - paragraphs.paragraphs_type.field_profile_multipart
+  module:
+    - content_moderation
+id: paragraph.field_profile_multipart.default
+targetEntityType: paragraph
+bundle: field_profile_multipart
+mode: default
+content:
+  field_profile_content:
+    weight: 102
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_profile_heading:
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 100
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

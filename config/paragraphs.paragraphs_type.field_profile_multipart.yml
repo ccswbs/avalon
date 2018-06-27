@@ -1,0 +1,9 @@
+uuid: a7b4712d-e8d3-4c01-9550-73badea48afd
+langcode: en
+status: true
+dependencies: {  }
+id: field_profile_multipart
+label: 'Profile sections'
+icon_uuid: null
+description: ''
+behavior_plugins: {  }

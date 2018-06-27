@@ -1,0 +1,20 @@
+uuid: e2ed92ef-9168-4b29-949e-a6cb108aa00a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - taxonomy
+id: paragraph.field_profile_custom_label
+field_name: field_profile_custom_label
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false
