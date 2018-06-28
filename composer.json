@@ -138,6 +138,11 @@
         ".htaccess",
         "web.config"
       ]
+    },
+    "patches": {
+      "drupal/core": {
+        "#2954776 - Can not uninstall Field Layout while Layout Builder is installed": "https://www.drupal.org/files/issues/2018-06-14/2954776-layout_install-19.patch"
+      }
     }
   },
   "config": {

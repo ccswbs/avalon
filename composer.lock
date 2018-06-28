@@ -1,10 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9d5763b039d4f54e21d54eb886aff3af",
+    "content-hash": "66acbc3d977da3fa053782722a3b30a3",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -1999,6 +1999,9 @@
                     "recurse": false,
                     "replace": false,
                     "merge-extra": false
+                },
+                "patches_applied": {
+                    "#2954776 - Can not uninstall Field Layout while Layout Builder is installed": "https://www.drupal.org/files/issues/2018-06-14/2954776-layout_install-19.patch"
                 }
             },
             "autoload": {
