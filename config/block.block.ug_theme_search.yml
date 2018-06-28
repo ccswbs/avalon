@@ -1,0 +1,26 @@
+uuid: 46bf6d49-96fb-4c9c-9ef7-61a9c69d3680
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+  theme:
+    - ug_theme
+id: ug_theme_search
+theme: ug_theme
+region: content_top
+weight: 0
+provider: null
+plugin: search_form_block
+settings:
+  id: search_form_block
+  label: 'Search form'
+  provider: search
+  label_display: '0'
+visibility:
+  request_path:
+    id: request_path
+    pages: '<front>'
+    negate: true
+    context_mapping: {  }

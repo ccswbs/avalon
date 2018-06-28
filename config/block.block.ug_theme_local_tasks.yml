@@ -1,0 +1,20 @@
+uuid: bf94155a-2531-4029-8247-cea98fc12bf5
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ug_theme
+id: ug_theme_local_tasks
+theme: ug_theme
+region: content
+weight: -2
+provider: null
+plugin: local_tasks_block
+settings:
+  id: local_tasks_block
+  label: Tabs
+  provider: core
+  label_display: '0'
+  primary: true
+  secondary: true
+visibility: {  }

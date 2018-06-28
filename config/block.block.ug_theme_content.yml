@@ -1,0 +1,20 @@
+uuid: d9c21131-c077-4dcf-b791-a456a6fca6a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ug_theme
+id: ug_theme_content
+theme: ug_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

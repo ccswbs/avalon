@@ -1,0 +1,20 @@
+uuid: 357e69e7-9c42-4008-94af-8f50373c7c91
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - ug_theme
+id: ug_theme_help
+theme: ug_theme
+region: help
+weight: 0
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

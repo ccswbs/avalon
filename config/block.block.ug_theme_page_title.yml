@@ -1,0 +1,18 @@
+uuid: 6c552c02-5758-4acc-a907-14eb78e441dc
+langcode: en
+status: true
+dependencies:
+  theme:
+    - ug_theme
+id: ug_theme_page_title
+theme: ug_theme
+region: content
+weight: -4
+provider: null
+plugin: page_title_block
+settings:
+  id: page_title_block
+  label: 'Page title'
+  provider: core
+  label_display: '0'
+visibility: {  }

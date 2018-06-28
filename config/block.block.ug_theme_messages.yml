@@ -1,0 +1,20 @@
+uuid: 27d792c1-4cd9-4c86-8dc8-c80d8b6359be
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ug_theme
+id: ug_theme_messages
+theme: ug_theme
+region: content
+weight: -1
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: Messages
+  provider: system
+  label_display: '0'
+visibility: {  }
