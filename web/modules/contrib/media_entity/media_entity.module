@@ -82,3 +82,16 @@ function media_entity_copy_icons($source, $destination) {
     }
   }
 }
+
+/**
+ * Implements hook_menu_links_discovered_alter().
+ */
+function media_entity_menu_links_discovered_alter(&$links) {
+  $view = \Drupal::getContainer()->get('entity_type.manager')
+    ->getStorage('view')->load('media');
+  if ($view && $view->getDisplay('media_page_list') && $view->status() == TRUE) {
+    return;
+  }
+  unset($links['entity.media.collection']);
+  unset($links['entity.media.add']);
+}

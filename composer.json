@@ -142,6 +142,9 @@
     "patches": {
       "drupal/core": {
         "#2954776 - Can not uninstall Field Layout while Layout Builder is installed": "https://www.drupal.org/files/issues/2018-06-14/2954776-layout_install-19.patch"
+      },
+      "drupal/media_entity": {
+        "#2831071 -Dynamically define menu links": "https://www.drupal.org/files/issues/dynamically_define_menu-2831071-17.patch"
       }
     }
   },

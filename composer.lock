@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "66acbc3d977da3fa053782722a3b30a3",
+    "content-hash": "737f85533f18d664739d625014ff582b",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -3378,6 +3378,9 @@
                         "status": "covered",
                         "message": "Covered by Drupal's security advisory policy"
                     }
+                },
+                "patches_applied": {
+                    "#2831071 -Dynamically define menu links": "https://www.drupal.org/files/issues/dynamically_define_menu-2831071-17.patch"
                 }
             },
             "notification-url": "https://packages.drupal.org/8/downloads",

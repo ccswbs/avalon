@@ -210,7 +210,20 @@ class MediaUiFunctionalTest extends MediaEntityFunctionalTestBase {
     $assert_session->pageTextContains($first_media_bundle->label());
     $assert_session->pageTextContains($second_media_item->label());
     $assert_session->pageTextContains($second_media_bundle->label());
+  }
 
+  /**
+   * Tests the default view.
+   */
+  public function testDefaultView() {
+    $this->drupalGet('admin/structure/views/view/media/delete');
+    $this->drupalPostForm(NULL, [], t('Delete'));
+    // Tests that the default view does't cause errors when deleted.
+    $this->drupalGet('admin/content');
+    $this->assertSession()->statusCodeEquals(200);
+    $this->assertSession()->linkNotExists('Media');
+    $this->drupalGet('admin/content/media');
+    $this->assertSession()->statusCodeEquals(404);
   }
 
 }
