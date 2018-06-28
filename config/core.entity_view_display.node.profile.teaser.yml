@@ -36,6 +36,9 @@ targetEntityType: node
 bundle: profile
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_profile_image:
     label: hidden
     weight: 0
@@ -55,10 +58,12 @@ hidden:
   field_profile_attachments: true
   field_profile_caption: true
   field_profile_category: true
+  field_profile_custom: true
   field_profile_email: true
   field_profile_faxnumber: true
   field_profile_lab: true
   field_profile_lastname: true
+  field_profile_multipart: true
   field_profile_name: true
   field_profile_office: true
   field_profile_research: true

@@ -23,5 +23,6 @@ hidden:
   checked: true
   description: true
   feed_icon: true
+  field_category: true
   image: true
   link: true

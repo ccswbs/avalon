@@ -18,6 +18,9 @@ targetEntityType: node
 bundle: page
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_page_body:
     label: hidden
     weight: 0

@@ -29,6 +29,9 @@ targetEntityType: node
 bundle: course_outline
 mode: teaser
 content:
+  content_moderation_control:
+    weight: -20
+    region: content
   field_course_code:
     label: inline
     weight: 0
