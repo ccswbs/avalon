@@ -1,0 +1,10 @@
+name: 'landing_page'
+type: module
+description: 'Landing Page module'
+core: 8.x
+package: 'Custom'
+dependencies:
+  - bootstrap_paragraphs
+  - layout_discovery
+  - field_layout
+  - layout_builder

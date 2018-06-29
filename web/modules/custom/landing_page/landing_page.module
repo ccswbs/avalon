@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains landing_page.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function landing_page_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the landing_page module.
+    case 'help.page.landing_page':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Landing Page module') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function landing_page_theme() {
+  return [
+    'landing_page' => [
+      'render element' => 'children',
+    ],
+  ];
+}
