@@ -6,5 +6,6 @@ label: 'Site builder'
 weight: 2
 is_admin: null
 permissions:
+  - 'administer content types'
   - 'administer views'
 
