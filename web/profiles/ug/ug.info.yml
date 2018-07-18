@@ -39,6 +39,8 @@ dependencies:
   - views_ui
   - tour
   - automated_cron
+  - page_manager
+  - page_manager_ui
 themes:
   - bartik
   - seven

@@ -10,6 +10,7 @@ permissions:
   - 'administer content types'
   - 'administer node display'
   - 'administer node fields'
+  - 'administer pages'
   - 'administer views'
   - 'view the administration theme'
 
