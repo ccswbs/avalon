@@ -1,0 +1,37 @@
+uuid: 8a02be39-0d54-4251-b193-861d9b57998f
+langcode: en
+status: true
+dependencies: {  }
+id: news_image
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Images (News)'
+source:
+  plugin: d7_node
+  node_type: news
+process:
+  name: field_news_caption
+  uid: uid
+  field_image:
+    plugin: iterator
+    source: field_news_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  status: status
+  created: created
+  changed: changed
+destination:
+  plugin: 'entity:media'
+  default_bundle: image
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

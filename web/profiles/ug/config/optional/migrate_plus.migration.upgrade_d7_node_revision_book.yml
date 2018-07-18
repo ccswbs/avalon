@@ -1,0 +1,68 @@
+uuid: 3db8dbae-0d4f-4bfc-8300-b838322c24db
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_book
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Book page)'
+source:
+  plugin: d7_node_revision
+  node_type: book
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_book/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_book_attachments:
+    plugin: iterator
+    source: field_book_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_book_category:
+    plugin: iterator
+    source: field_book_category
+    process:
+      target_id: tid
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: book
+migration_dependencies:
+  required:
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
+    71: upgrade_d7_node_course_outline
+    72: upgrade_d7_node_event
+    73: upgrade_d7_node_faq
+    74: upgrade_d7_node_feature
+    75: upgrade_d7_node_news
+    76: upgrade_d7_node_page
+    77: upgrade_d7_node_profile
+    78: upgrade_d7_node_service
+    79: upgrade_d7_node_social
+    80: upgrade_d7_node_webform
+  optional: {  }

@@ -1,0 +1,63 @@
+uuid: 93d1264e-4498-44ca-bed9-13c3896651e4
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_book
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Nodes (Book page)'
+source:
+  plugin: d7_node
+  node_type: book
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_book/0/status: comment
+  body:
+    plugin: get
+    source: body
+  field_book_attachments:
+    plugin: iterator
+    source: field_book_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_book_category:
+    plugin: iterator
+    source: field_book_category
+    process:
+      target_id: tid
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+  moderation_state:
+    plugin: default_value
+    default_value: published
+destination:
+  plugin: 'entity:node'
+  default_bundle: book
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

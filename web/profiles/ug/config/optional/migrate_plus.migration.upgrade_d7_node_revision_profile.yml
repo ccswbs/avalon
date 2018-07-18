@@ -1,0 +1,138 @@
+uuid: 0a0e0c1a-da6a-470d-939a-20ee1c9d15e1
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_profile
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Profile)'
+source:
+  plugin: d7_node_revision
+  node_type: profile
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_profile/0/status: comment
+  field_profile_address:
+    plugin: get
+    source: field_profile_address
+  field_profile_align_names:
+    plugin: get
+    source: field_profile_align_names
+  field_profile_attachments:
+    plugin: iterator
+    source: field_profile_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_profile_caption:
+    plugin: get
+    source: field_profile_caption
+  field_profile_category:
+    plugin: iterator
+    source: field_profile_category
+    process:
+      target_id: tid
+  field_profile_custom: field_profile_custom
+  field_profile_email:
+    plugin: get
+    source: field_profile_email
+  field_profile_faxnumber:
+    plugin: get
+    source: field_profile_faxnumber
+  field_profile_image:
+    plugin: iterator
+    source: field_profile_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_profile_lab:
+    plugin: get
+    source: field_profile_lab
+  field_profile_lastname:
+    plugin: get
+    source: field_profile_lastname
+  field_profile_multipart: field_profile_multipart
+  field_profile_name:
+    plugin: get
+    source: field_profile_name
+  field_profile_office:
+    plugin: get
+    source: field_profile_office
+  field_profile_research:
+    plugin: iterator
+    source: field_profile_research
+    process:
+      target_id: tid
+  field_profile_role:
+    plugin: iterator
+    source: field_profile_role
+    process:
+      target_id: tid
+  field_profile_subunit:
+    plugin: iterator
+    source: field_profile_subunit
+    process:
+      target_id: tid
+  field_profile_summary:
+    plugin: get
+    source: field_profile_summary
+  field_profile_teaser:
+    plugin: get
+    source: field_profile_teaser
+  field_profile_telephonenumber:
+    plugin: get
+    source: field_profile_telephonenumber
+  field_profile_title:
+    plugin: get
+    source: field_profile_title
+  field_profile_unit:
+    plugin: iterator
+    source: field_profile_unit
+    process:
+      target_id: tid
+  field_profile_website:
+    plugin: field_link
+    source: field_profile_website
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: profile
+migration_dependencies:
+  required:
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
+    71: upgrade_d7_node_course_outline
+    72: upgrade_d7_node_event
+    73: upgrade_d7_node_faq
+    74: upgrade_d7_node_feature
+    75: upgrade_d7_node_news
+    76: upgrade_d7_node_page
+    77: upgrade_d7_node_profile
+    78: upgrade_d7_node_service
+    79: upgrade_d7_node_social
+    80: upgrade_d7_node_webform
+  optional: {  }

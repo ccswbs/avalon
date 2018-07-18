@@ -1,0 +1,63 @@
+uuid: 53b413d0-ecaf-47c3-9314-7c14da10ddae
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_page
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Nodes (Page)'
+source:
+  plugin: d7_node
+  node_type: page
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_page/0/status: comment
+  field_page_attachments:
+    plugin: iterator
+    source: field_page_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_page_body:
+    plugin: get
+    source: field_page_body
+  field_page_category:
+    plugin: iterator
+    source: field_page_category
+    process:
+      target_id: tid
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+  moderation_state:
+    plugin: default_value
+    default_value: published
+destination:
+  plugin: 'entity:node'
+  default_bundle: page
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

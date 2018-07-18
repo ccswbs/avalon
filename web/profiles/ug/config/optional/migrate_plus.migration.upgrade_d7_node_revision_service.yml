@@ -1,0 +1,74 @@
+uuid: 3e62e343-2f89-402e-95c9-40078a466f65
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_service
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Service)'
+source:
+  plugin: d7_node_revision
+  node_type: service
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_service/0/status: comment
+  field_service_audience:
+    plugin: iterator
+    source: field_service_audience
+    process:
+      target_id: tid
+  field_service_category:
+    plugin: iterator
+    source: field_service_category
+    process:
+      target_id: tid
+  field_service_description:
+    plugin: get
+    source: field_service_description
+  field_service_keywords:
+    plugin: iterator
+    source: field_service_keywords
+    process:
+      target_id: tid
+  field_service_price:
+    plugin: get
+    source: field_service_price
+  field_service_private: field_service_private
+  field_service_public: field_service_public
+  field_service_related:
+    plugin: get
+    source: field_service_related
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: service
+migration_dependencies:
+  required:
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
+    71: upgrade_d7_node_course_outline
+    72: upgrade_d7_node_event
+    73: upgrade_d7_node_faq
+    74: upgrade_d7_node_feature
+    75: upgrade_d7_node_news
+    76: upgrade_d7_node_page
+    77: upgrade_d7_node_profile
+    78: upgrade_d7_node_service
+    79: upgrade_d7_node_social
+    80: upgrade_d7_node_webform
+  optional: {  }

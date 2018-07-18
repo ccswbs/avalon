@@ -1,0 +1,18 @@
+#!/bin/bash
+
+set -euo pipefail
+
+TERMINUS=terminus
+SITE=ug-avalon
+ENV=$USER
+REMOTE=pantheon
+GIT=git
+PROFILE=ug
+DRUSH="$TERMINUS drush $SITE.$ENV --"
+
+$TERMINUS connection:set $SITE.$ENV git \
+	&& $GIT push $REMOTE HEAD:$ENV \
+	&& $TERMINUS connection:set $SITE.$ENV sftp \
+	&& $DRUSH site-install -y $PROFILE --config-dir=../config </dev/null \
+	&& $DRUSH uli
+

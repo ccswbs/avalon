@@ -41,6 +41,7 @@ dependencies:
   - automated_cron
   - page_manager
   - page_manager_ui
+  - migrate_tools
 themes:
   - bartik
   - seven

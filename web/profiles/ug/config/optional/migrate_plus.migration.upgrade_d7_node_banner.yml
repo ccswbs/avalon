@@ -1,0 +1,77 @@
+uuid: 9bdc7b61-2090-42c1-9b34-888e0121cf12
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_banner
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Nodes (Banner)'
+source:
+  plugin: d7_node
+  node_type: banner
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_banner/0/status: comment
+  field_banner_alttext:
+    plugin: get
+    source: field_banner_alttext
+  field_banner_category:
+    plugin: iterator
+    source: field_banner_category
+    process:
+      target_id: tid
+  field_banner_headline:
+    plugin: get
+    source: field_banner_headline
+  field_banner_image:
+    plugin: iterator
+    source: field_banner_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_banner_link:
+    plugin: field_link
+    source: field_banner_link
+  field_banner_text:
+    plugin: get
+    source: field_banner_text
+  field_banner_weight:
+    plugin: get
+    source: field_banner_weight
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+  moderation_state:
+    plugin: default_value
+    default_value: published
+destination:
+  plugin: 'entity:node'
+  default_bundle: banner
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

@@ -1,0 +1,42 @@
+uuid: 21c29757-92a2-4ca3-ad31-7c673077265f
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_url_alias
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'URL aliases'
+source:
+  plugin: d7_url_alias
+  constants:
+    slash: /
+process:
+  source:
+    plugin: concat
+    source:
+      - constants/slash
+      - source
+  alias:
+    plugin: concat
+    source:
+      - constants/slash
+      - alias
+  langcode: language
+  node_translation:
+    -
+      plugin: explode
+      source: source
+      delimiter: /
+    -
+      plugin: extract
+      index:
+        - 1
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_node_translation
+destination:
+  plugin: url_alias
+migration_dependencies:
+  required: {  }
+  optional: {  }

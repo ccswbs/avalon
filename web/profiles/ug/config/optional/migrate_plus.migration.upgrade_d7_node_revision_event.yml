@@ -1,0 +1,110 @@
+uuid: 95bb8b3f-ab79-4477-9912-5f33c4aca6d3
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_event
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Event)'
+source:
+  plugin: d7_node_revision
+  node_type: event
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_event/0/status: comment
+  field_event_attachments:
+    plugin: iterator
+    source: field_event_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_event_body:
+    plugin: get
+    source: field_event_body
+  field_event_category:
+    plugin: iterator
+    source: field_event_category
+    process:
+      target_id: tid
+  field_event_datetime_range:
+    plugin: iterator
+    source: field_event_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+      end_value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value2
+  field_event_date:
+    plugin: iterator
+    source: field_event_date
+    process:
+      value:
+        plugin: format_date
+        from_format: 'Y-m-d H:i:s'
+        to_format: 'Y-m-d\TH:i:s'
+        source: value
+  field_event_image:
+    plugin: iterator
+    source: field_event_image
+    process:
+      target_id: fid
+      alt: alt
+      title: title
+      width: width
+      height: height
+  field_event_image_caption:
+    plugin: get
+    source: field_event_image_caption
+  field_event_link:
+    plugin: field_link
+    source: field_event_link
+  field_event_location:
+    plugin: get
+    source: field_event_location
+  field_event_multipart: field_event_multipart
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: event
+migration_dependencies:
+  required:
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
+    71: upgrade_d7_node_course_outline
+    72: upgrade_d7_node_event
+    73: upgrade_d7_node_faq
+    74: upgrade_d7_node_feature
+    75: upgrade_d7_node_news
+    76: upgrade_d7_node_page
+    77: upgrade_d7_node_profile
+    78: upgrade_d7_node_service
+    79: upgrade_d7_node_social
+    80: upgrade_d7_node_webform
+  optional: {  }

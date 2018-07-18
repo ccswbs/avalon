@@ -1,0 +1,44 @@
+uuid: 8b04d82a-96a8-4b35-b139-0a88695b9b3d
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_profile_role
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (Profile role)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: profile_role
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: upgrade_d7_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  forum_container: is_container
+  changed: timestamp
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: profile_role
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance

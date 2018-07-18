@@ -1,0 +1,47 @@
+uuid: d86114fa-c136-47e0-8fd1-8760ee970745
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_taxonomy_term_event_heading
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Taxonomy terms (Event heading)'
+source:
+  plugin: d7_taxonomy_term
+  bundle: event_heading
+process:
+  tid: tid
+  vid:
+    plugin: migration_lookup
+    migration: upgrade_d7_taxonomy_vocabulary
+    source: vid
+  name: name
+  description/value: description
+  description/format: format
+  weight: weight
+  parent_id:
+    -
+      plugin: skip_on_empty
+      method: process
+      source: parent
+    -
+      plugin: migration_lookup
+      migration: upgrade_d7_taxonomy_term
+  parent:
+    plugin: default_value
+    default_value: 0
+    source: '@parent_id'
+  forum_container: is_container
+  changed: timestamp
+  field_glyphicon:
+    plugin: get
+    source: field_glyphicon
+destination:
+  plugin: 'entity:taxonomy_term'
+  default_bundle: event_heading
+migration_dependencies:
+  required:
+    - upgrade_d7_taxonomy_vocabulary
+  optional:
+    - upgrade_d7_field_instance

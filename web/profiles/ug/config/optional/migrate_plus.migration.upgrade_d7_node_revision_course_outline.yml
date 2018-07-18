@@ -1,0 +1,111 @@
+uuid: 731c3c75-0587-4008-bd75-e0e9aec236bc
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_revision_course_outline
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Node revisions (Course outline)'
+source:
+  plugin: d7_node_revision
+  node_type: course_outline
+process:
+  nid: nid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_course_outline/0/status: comment
+  field_course_acad_level:
+    plugin: iterator
+    source: field_course_acad_level
+    process:
+      target_id: tid
+  field_course_attachments:
+    plugin: iterator
+    source: field_course_attachments
+    process:
+      target_id: fid
+      display: display
+      description: description
+  field_course_body:
+    plugin: get
+    source: field_course_body
+  field_course_category:
+    plugin: iterator
+    source: field_course_category
+    process:
+      target_id: tid
+  field_course_code:
+    plugin: get
+    source: field_course_code
+  field_course_department:
+    plugin: iterator
+    source: field_course_department
+    process:
+      target_id: tid
+  field_course_instructor:
+    plugin: get
+    source: field_course_instructor
+  field_course_instructor_url:
+    plugin: field_link
+    source: field_course_instructor_url
+  field_course_level:
+    plugin: iterator
+    source: field_course_level
+    process:
+      target_id: tid
+  field_course_name:
+    plugin: get
+    source: field_course_name
+  field_course_section:
+    plugin: get
+    source: field_course_section
+  field_course_subject:
+    plugin: iterator
+    source: field_course_subject
+    process:
+      target_id: tid
+  field_course_term:
+    plugin: iterator
+    source: field_course_term
+    process:
+      target_id: tid
+  field_course_website:
+    plugin: field_link
+    source: field_course_website
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+destination:
+  plugin: 'entity_revision:node'
+  default_bundle: course_outline
+migration_dependencies:
+  required:
+    69: upgrade_d7_node_banner
+    70: upgrade_d7_node_book
+    71: upgrade_d7_node_course_outline
+    72: upgrade_d7_node_event
+    73: upgrade_d7_node_faq
+    74: upgrade_d7_node_feature
+    75: upgrade_d7_node_news
+    76: upgrade_d7_node_page
+    77: upgrade_d7_node_profile
+    78: upgrade_d7_node_service
+    79: upgrade_d7_node_social
+    80: upgrade_d7_node_webform
+  optional: {  }

@@ -1,0 +1,56 @@
+uuid: 9812ff6a-d0a3-4fea-b76d-8d68861a8ed7
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_node_faq
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'Nodes (FAQ)'
+source:
+  plugin: d7_node
+  node_type: faq
+process:
+  nid: tnid
+  vid: vid
+  langcode:
+    plugin: default_value
+    source: language
+    default_value: und
+  title: title
+  uid: node_uid
+  status: status
+  created: created
+  changed: changed
+  promote: promote
+  sticky: sticky
+  revision_uid: revision_uid
+  revision_log: log
+  revision_timestamp: timestamp
+  comment_node_faq/0/status: comment
+  field_faq_answer:
+    plugin: get
+    source: field_faq_answer
+  field_faq_category:
+    plugin: iterator
+    source: field_faq_category
+    process:
+      target_id: tid
+  field_tags:
+    plugin: iterator
+    source: field_tags
+    process:
+      target_id: tid
+  moderation_state:
+    plugin: default_value
+    default_value: published
+destination:
+  plugin: 'entity:node'
+  default_bundle: faq
+migration_dependencies:
+  required:
+    - upgrade_d7_user
+    - upgrade_d7_node_type
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_comment_field_instance

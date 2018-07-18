@@ -1,0 +1,49 @@
+uuid: 214bdae9-5e88-4dab-9d5b-e9cdfd247881
+langcode: en
+status: true
+dependencies: {  }
+id: upgrade_d7_user
+migration_tags:
+  - 'Drupal 7'
+migration_group: migrate_drupal_7
+label: 'User accounts'
+source:
+  plugin: d7_user
+process:
+  uid: uid
+  name: name
+  pass: pass
+  mail: mail
+  created: created
+  access: access
+  login: login
+  status: status
+  timezone: timezone
+  langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: false
+  preferred_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  preferred_admin_langcode:
+    plugin: user_langcode
+    source: language
+    fallback_to_site_default: true
+  init: init
+  roles:
+    plugin: migration_lookup
+    migration: upgrade_d7_user_role
+    source: roles
+destination:
+  plugin: 'entity:user'
+migration_dependencies:
+  required:
+    - upgrade_d7_user_role
+  optional:
+    - upgrade_d7_field_instance
+    - upgrade_d7_file
+    - upgrade_user_picture_field_instance
+    - upgrade_user_picture_entity_display
+    - upgrade_user_picture_entity_form_display
