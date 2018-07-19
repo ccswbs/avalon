@@ -42,7 +42,9 @@ if [ -z "$LEGACY_SITE" ]
 fi
 
 # Install Drupal
-terminus drush $SITE.$ENV -- site-install -y ug --config-dir=../config </dev/null
+terminus connection:set $SITE.$ENV sftp
+terminus drush $SITE.$ENV -- site-install -y minimal --config-dir=../config </dev/null
+terminus connection:set $SITE.$ENV git
 
 # Auto-discover legacy database connection details
 if [ -z "$LEGACY_DATABASE" ]
