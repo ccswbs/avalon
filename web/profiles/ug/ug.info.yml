@@ -42,6 +42,7 @@ dependencies:
   - page_manager
   - page_manager_ui
   - migrate_tools
+  - panels
 themes:
   - bartik
   - seven
