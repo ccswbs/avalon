@@ -31,9 +31,8 @@ git clone $GIT_URL $SITE
 cd $SITE
 git remote add upstream $UPSTREAM_URL
 git fetch upstream
-#git rebase ${RELEASE}
-git reset --hard ${RELEASE}
-git push --force origin master
+git rebase upstream/${RELEASE}
+git push origin master
 
 # No legacy site, so skip site install, migration 
 if [ -z "$LEGACY_SITE" ]
@@ -42,7 +41,7 @@ if [ -z "$LEGACY_SITE" ]
 fi
 
 # Install Drupal
-terminus drush $SITE.$ENV -- site-install -y ug --config-dir=../config </dev/null
+terminus drush $SITE.$ENV -- site-install -y ug </dev/null
 
 # Auto-discover legacy database connection details
 if [ -z "$LEGACY_DATABASE" ]
