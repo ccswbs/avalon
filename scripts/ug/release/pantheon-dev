@@ -31,7 +31,7 @@ git clone $GIT_URL $SITE
 cd $SITE
 git remote add upstream $UPSTREAM_URL
 git fetch upstream
-git rebase upstream/${RELEASE}
+git rebase ${RELEASE}
 git push origin master
 
 # No legacy site, so skip site install, migration 
