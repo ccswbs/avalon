@@ -1,0 +1,7 @@
+{
+  "name": "drupal/ug_profile",
+  "type": "drupal-module",
+  "description": "UG Profile",
+  "minimum-stability": "dev",
+  "require": { }
+}

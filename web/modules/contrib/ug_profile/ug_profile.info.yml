@@ -1,4 +1,4 @@
-name: ug_profile
+name: UG Profile
 type: module
 description: 'UG Profile'
 core: 8.x
@@ -10,5 +10,7 @@ dependencies:
   - taxonomy
   - text
   - user
+  - paragraphs
+  - content_moderation
 version: null
 php: 5.5.9

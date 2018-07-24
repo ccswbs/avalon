@@ -5414,23 +5414,12 @@
         "source": {
             "type": "git",
             "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile",
-            "reference": "061350c43cbce8cfbf3cfd625d94be78179e4773"
+            "reference": "c90a4d73b2338452182b11c0351af95700b4ec01"
         },
-        "time": "2018-07-24T19:23:55+00:00",
-        "type": "drupal-custom-module",
+        "time": "2018-07-24T23:07:52+00:00",
+        "type": "drupal-module",
         "installation-source": "source",
-        "license": [
-            "GPL-2.0+"
-        ],
-        "description": "UG Profile",
-        "homepage": "https://www.drupal.org/project/ug_profile",
-        "keywords": [
-            "Drupal"
-        ],
-        "support": {
-            "issues": "https://www.drupal.org/project/issues/ug_profile",
-            "source": "http://cgit.drupalcode.org/ug_profile"
-        }
+        "description": "UG Profile"
     },
     {
         "name": "drupal/url_embed",
