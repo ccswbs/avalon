@@ -99,8 +99,6 @@
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "find .circleci/scripts/pantheon/ -type f | xargs chmod 755",
-      "find tests/scripts/ -type f | xargs chmod 755",
       "@prepare-for-pantheon"
     ],
     "post-create-project-cmd": [

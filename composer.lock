@@ -4346,7 +4346,7 @@
             "source": {
                 "type": "git",
                 "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile",
-                "reference": "ce6a0ad5da177d460e7a7bb0af1a206d0401f908"
+                "reference": "061350c43cbce8cfbf3cfd625d94be78179e4773"
             },
             "type": "drupal-custom-module",
             "license": [
@@ -4361,7 +4361,7 @@
                 "issues": "https://www.drupal.org/project/issues/ug_profile",
                 "source": "http://cgit.drupalcode.org/ug_profile"
             },
-            "time": "2018-07-24T16:45:32+00:00"
+            "time": "2018-07-24T19:23:55+00:00"
         },
         {
             "name": "drupal/url_embed",
