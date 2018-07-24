@@ -1,0 +1,9 @@
+uuid: b99e13bc-616e-43c0-990c-99c3541c49a6
+langcode: en
+status: true
+dependencies: {  }
+name: 'Area of research'
+vid: profile_research
+description: ''
+hierarchy: 0
+weight: 0

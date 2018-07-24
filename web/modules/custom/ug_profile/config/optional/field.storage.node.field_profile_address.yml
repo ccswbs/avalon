@@ -1,0 +1,19 @@
+uuid: 92896582-882c-438d-b381-818df196c9d5
+langcode: und
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_profile_address
+field_name: field_profile_address
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

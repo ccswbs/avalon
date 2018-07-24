@@ -1,0 +1,28 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_profile_subunit
+    - node.type.profile
+    - taxonomy.vocabulary.profile_subunit
+id: node.profile.field_profile_subunit
+field_name: field_profile_subunit
+entity_type: node
+bundle: profile
+label: Sub-unit
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      profile_subunit: profile_subunit
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

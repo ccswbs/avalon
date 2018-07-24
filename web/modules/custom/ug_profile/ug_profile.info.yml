@@ -1,0 +1,14 @@
+name: ug_profile
+type: module
+description: 'UG Profile'
+core: 8.x
+package: UG
+mtime: 1532441027
+dependencies:
+  - image
+  - node
+  - taxonomy
+  - text
+  - user
+version: null
+php: 5.5.9
