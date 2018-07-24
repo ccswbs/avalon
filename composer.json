@@ -7,7 +7,9 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-    }
+    },
+    { "type": "git", "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug" },
+    { "type": "git", "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile" }
   ],
   "require": {
     "php": ">=7.0.8",
@@ -47,6 +49,7 @@
     "drupal/rules": "3.0-alpha3",
     "drupal/social_media": "^1.3",
     "drupal/social_media_links": "^2.6",
+    "drupal/ug": "dev-master",
     "drupal/url_embed": "^1.0@alpha",
     "drupal/views_taxonomy_term_name_depth": "^3.3",
     "drupal/webform": "^5.0@beta",
@@ -72,7 +75,7 @@
   "conflict": {
     "drupal/drupal": "*"
   },
-  "minimum-stability": "alpha",
+  "minimum-stability": "dev",
   "prefer-stable": true,
   "autoload": {
     "classmap": [
@@ -84,7 +87,6 @@
       "@prepare-for-pantheon",
       "composer install --optimize-autoloader --no-dev"
     ],
-    "remove-git-submodules": "find . -mindepth 2 -type d -name .git | xargs rm -rf",
     "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
     "code-sniff": "echo 'No code sniff step defined.'",
     "unit-test": "echo 'No unit test step defined.'",
@@ -93,13 +95,13 @@
     "post-install-cmd": [
       "@drupal-scaffold",
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
-      "@remove-git-submodules"
+      "@prepare-for-pantheon"
     ],
     "post-update-cmd": [
       "DrupalProject\\composer\\ScriptHandler::createRequiredFiles",
       "find .circleci/scripts/pantheon/ -type f | xargs chmod 755",
       "find tests/scripts/ -type f | xargs chmod 755",
-      "@remove-git-submodules"
+      "@prepare-for-pantheon"
     ],
     "post-create-project-cmd": [
       "@drupal-scaffold",
@@ -113,7 +115,7 @@
       "web/core": ["type:drupal-core"],
       "web/modules/contrib/{$name}": ["type:drupal-module"],
       "web/modules/custom/{$name}": ["type:drupal-custom-module"],
-      "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+      "web/profiles/{$name}": ["type:drupal-profile"],
       "web/themes/contrib/{$name}": ["type:drupal-theme"],
       "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
       "drush/contrib/{$name}": ["type:drupal-drush"]

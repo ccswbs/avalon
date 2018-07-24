@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "f4ac0b9bdd3a38bc938011167729b6e1",
+    "content-hash": "6bab4da6a3cbc2470ad2b94071132dcf",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4318,6 +4318,50 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/typed_data"
             }
+        },
+        {
+            "name": "drupal/ug",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug",
+                "reference": "8560fc8e20c359675b1770acee471f5e0726fe7b"
+            },
+            "require": {
+                "drupal/ug_profile": "dev-master"
+            },
+            "type": "drupal-profile",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "UG",
+            "keywords": [
+                "Drupal"
+            ],
+            "time": "2018-07-24T17:24:40+00:00"
+        },
+        {
+            "name": "drupal/ug_profile",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile",
+                "reference": "ce6a0ad5da177d460e7a7bb0af1a206d0401f908"
+            },
+            "type": "drupal-custom-module",
+            "license": [
+                "GPL-2.0+"
+            ],
+            "description": "UG Profile",
+            "homepage": "https://www.drupal.org/project/ug_profile",
+            "keywords": [
+                "Drupal"
+            ],
+            "support": {
+                "issues": "https://www.drupal.org/project/issues/ug_profile",
+                "source": "http://cgit.drupalcode.org/ug_profile"
+            },
+            "time": "2018-07-24T16:45:32+00:00"
         },
         {
             "name": "drupal/url_embed",
@@ -10309,13 +10353,13 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "alpha",
+    "minimum-stability": "dev",
     "stability-flags": {
         "drupal/bootstrap_paragraphs": 10,
         "drupal/facebook_pixel": 15,
         "drupal/inline_entity_form": 10,
         "drupal/page_manager": 10,
-        "drupal/rules": 15,
+        "drupal/ug": 20,
         "drupal/url_embed": 15,
         "drupal/webform": 10
     },

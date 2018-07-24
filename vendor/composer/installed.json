@@ -5385,6 +5385,54 @@
         }
     },
     {
+        "name": "drupal/ug",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug",
+            "reference": "8560fc8e20c359675b1770acee471f5e0726fe7b"
+        },
+        "require": {
+            "drupal/ug_profile": "dev-master"
+        },
+        "time": "2018-07-24T17:24:40+00:00",
+        "type": "drupal-profile",
+        "installation-source": "source",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "description": "UG",
+        "keywords": [
+            "Drupal"
+        ]
+    },
+    {
+        "name": "drupal/ug_profile",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile",
+            "reference": "ce6a0ad5da177d460e7a7bb0af1a206d0401f908"
+        },
+        "time": "2018-07-24T16:45:32+00:00",
+        "type": "drupal-custom-module",
+        "installation-source": "source",
+        "license": [
+            "GPL-2.0+"
+        ],
+        "description": "UG Profile",
+        "homepage": "https://www.drupal.org/project/ug_profile",
+        "keywords": [
+            "Drupal"
+        ],
+        "support": {
+            "issues": "https://www.drupal.org/project/issues/ug_profile",
+            "source": "http://cgit.drupalcode.org/ug_profile"
+        }
+    },
+    {
         "name": "drupal/url_embed",
         "version": "1.0.0-alpha1",
         "version_normalized": "1.0.0.0-alpha1",
