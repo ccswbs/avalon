@@ -32,6 +32,9 @@ cd $SITE
 git remote add upstream $UPSTREAM_URL
 git fetch upstream
 git rebase ${RELEASE}
+composer install
+git add -A .
+git commit -m "Release ${RELEASE}"
 git push origin master
 
 # No legacy site, so skip site install, migration 
