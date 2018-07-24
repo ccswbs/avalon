@@ -72,6 +72,7 @@ class ScriptHandler
       $dirsToDelete[] = $dir;
     }
     $fs = new Filesystem();
+    $fs->chmod($dirsToDelete, 0777, 0000, true);
     $fs->remove($dirsToDelete);
 
     // Fix up .gitignore: remove everything above the "::: cut :::" line
