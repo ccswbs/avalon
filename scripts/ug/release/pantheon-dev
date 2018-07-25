@@ -21,6 +21,9 @@ TERMINUS_PLUGINS_DIR=~/.terminus/plugins
 TERMINUS_SECRETS_PLUGIN_HOME=$TERMINUS_PLUGINS_DIR/terminus-secrets-plugin
 COMPOSER=/usr/local/bin/composer
 
+# Put site in git mode
+terminus connection:set $SITE.$ENV git </dev/null
+
 # Clone site repository
 cd $TEMP
 rm -rf $SITE
@@ -39,6 +42,9 @@ if [ -z "$LEGACY_SITE" ]
   then
      exit 0;
 fi
+
+# Put site in SFTP mode
+terminus connection:set $SITE.$ENV sftp </dev/null
 
 # Install Drupal
 terminus drush $SITE.$ENV -- site-install -y ug </dev/null
