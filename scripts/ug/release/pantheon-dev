@@ -38,7 +38,9 @@ git fetch upstream
 git rebase ${RELEASE}
 composer install
 git add -A .
-git commit -m "Release ${RELEASE}"
+git config --global user.name "VSTS Agent"
+git config --global user.email wsadmin@uoguelph.ca
+git commit -m "${RELEASE_RELEASEDESCRIPTION}"
 git push origin master
 
 # No legacy site, so skip site install, migration 
