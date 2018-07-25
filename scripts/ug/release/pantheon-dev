@@ -49,6 +49,9 @@ terminus connection:set $SITE.$ENV sftp </dev/null
 # Install Drupal
 terminus drush $SITE.$ENV -- site-install -y ug </dev/null
 
+# Enable migration modules
+terminus drush $SITE.$ENV -- en -y ug_upgrade_d7
+
 # Auto-discover legacy database connection details
 if [ -z "$LEGACY_DATABASE" ]
   then
