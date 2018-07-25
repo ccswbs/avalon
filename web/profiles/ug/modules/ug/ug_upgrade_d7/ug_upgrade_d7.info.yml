@@ -1,0 +1,12 @@
+name: UG Upgrade D7
+type: module
+description: 'Upgrade from a Drupal 7 site'
+core: 8.x
+package: UG
+dependencies:
+  - migrate
+  - migrate_drupal
+  - migrate_drupal_ui
+  - migrate_plus
+  - migrate_tools
+  - migrate_upgrade
