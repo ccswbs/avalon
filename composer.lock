@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "6bab4da6a3cbc2470ad2b94071132dcf",
+    "content-hash": "25b269485beeec5f0c251eaf15a8f8e6",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -4318,39 +4318,6 @@
             "support": {
                 "source": "http://cgit.drupalcode.org/typed_data"
             }
-        },
-        {
-            "name": "drupal/ug",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug",
-                "reference": "8560fc8e20c359675b1770acee471f5e0726fe7b"
-            },
-            "require": {
-                "drupal/ug_profile": "dev-master"
-            },
-            "type": "drupal-profile",
-            "license": [
-                "GPL-2.0+"
-            ],
-            "description": "UG",
-            "keywords": [
-                "Drupal"
-            ],
-            "time": "2018-07-24T17:24:40+00:00"
-        },
-        {
-            "name": "drupal/ug_profile",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile",
-                "reference": "c90a4d73b2338452182b11c0351af95700b4ec01"
-            },
-            "type": "drupal-module",
-            "description": "UG Profile",
-            "time": "2018-07-24T23:07:52+00:00"
         },
         {
             "name": "drupal/url_embed",
@@ -10348,7 +10315,6 @@
         "drupal/facebook_pixel": 15,
         "drupal/inline_entity_form": 10,
         "drupal/page_manager": 10,
-        "drupal/ug": 20,
         "drupal/url_embed": 15,
         "drupal/webform": 10
     },

@@ -43,6 +43,7 @@ dependencies:
   - page_manager_ui
   - migrate_tools
   - panels
+  - ug_profile
 themes:
   - bartik
   - seven
