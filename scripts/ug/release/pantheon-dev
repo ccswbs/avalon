@@ -22,6 +22,7 @@ TERMINUS_SECRETS_PLUGIN_HOME=$TERMINUS_PLUGINS_DIR/terminus-secrets-plugin
 COMPOSER=/usr/local/bin/composer
 
 # Install required PHP extensions
+apt-get update
 apt-get install -y php-gd
 
 # Clone site repository
