@@ -10,6 +10,7 @@ dependencies:
     - node.type.page
   module:
     - comment
+    - content_moderation
     - file
     - path
     - text

@@ -2,7 +2,7 @@
 
 /**
  * @file
- * Contains basic_page.module.
+ * Contains ug_page.module.
  */
 
 use Drupal\Core\Routing\RouteMatchInterface;
@@ -10,13 +10,13 @@ use Drupal\Core\Routing\RouteMatchInterface;
 /**
  * Implements hook_help().
  */
-function basic_page_help($route_name, RouteMatchInterface $route_match) {
+function ug_page_help($route_name, RouteMatchInterface $route_match) {
   switch ($route_name) {
-    // Main module help for the basic_page module.
-    case 'help.page.basic_page':
+    // Main module help for the ug_page module.
+    case 'help.page.ug_page':
       $output = '';
       $output .= '<h3>' . t('About') . '</h3>';
-      $output .= '<p>' . t('Basic Page module') . '</p>';
+      $output .= '<p>' . t('UG Page') . '</p>';
       return $output;
 
     default:
@@ -26,9 +26,9 @@ function basic_page_help($route_name, RouteMatchInterface $route_match) {
 /**
  * Implements hook_theme().
  */
-function basic_page_theme() {
+function ug_page_theme() {
   return [
-    'basic_page' => [
+    'ug_page' => [
       'render element' => 'children',
     ],
   ];
