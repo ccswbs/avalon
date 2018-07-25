@@ -53,11 +53,3 @@ if (file_exists($local_settings)) {
  * modifying settings.php.
  */
 $settings['install_profile'] = 'ug';
-
-$databases['default']['default'] = array (
-  'database' => 'sites/default/files/.ht.sqlite',
-  'prefix' => '',
-  'namespace' => 'Drupal\\Core\\Database\\Driver\\sqlite',
-  'driver' => 'sqlite',
-);
-$settings['hash_salt'] = 'lT1d1zYjM7ZtHb5Hu7J9JZrPUzd7ltJrCvDtAOmvLwTqE9AkyJeYngYV6tcdjwBwABVOapO76A';
