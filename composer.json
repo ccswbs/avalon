@@ -7,9 +7,7 @@
     {
       "type": "composer",
       "url": "https://packages.drupal.org/8"
-    },
-    { "type": "git", "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug" },
-    { "type": "git", "url": "ssh://ccswds@vs-ssh.visualstudio.com:22/Avalon/_ssh/ug_profile" }
+    }
   ],
   "require": {
     "php": ">=7.0.8",
