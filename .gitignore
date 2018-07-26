@@ -25,6 +25,9 @@ web/sites/*/settings.local.php
 web/sites/*/services*.yml
 !web/sites/*/services.pantheon.*.yml
 
+# Prevent accidental changes to settings.php
+web/sites/*/settings.php
+
 # Note that services.local.yml is not loaded by default. If you would like
 # to use this file add the following to your settings.local.php file:
 #   $settings['container_yamls'][] = __DIR__ . '/services.local.yml';
