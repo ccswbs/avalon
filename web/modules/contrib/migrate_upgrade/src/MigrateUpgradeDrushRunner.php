@@ -1,10 +1,5 @@
 <?php
 
-/**
- * @file
- * Contains \Drupal\migrate_upgrade\MigrateUpgradeDrushRunner.
- */
-
 namespace Drupal\migrate_upgrade;
 
 use Drupal\migrate\Plugin\MigrationInterface;
@@ -12,13 +7,14 @@ use Drupal\migrate\Event\MigrateEvents;
 use Drupal\migrate\Event\MigrateIdMapMessageEvent;
 use Drupal\migrate\MigrateExecutable;
 use Drupal\Core\StringTranslation\StringTranslationTrait;
-use Drupal\migrate_drupal\MigrationCreationTrait;
+use Drupal\migrate_drupal\MigrationConfigurationTrait;
 use Drupal\migrate_plus\Entity\Migration;
 use Drupal\migrate_plus\Entity\MigrationGroup;
+use Drupal\Core\Database\Database;
 
 class MigrateUpgradeDrushRunner {
 
-  use MigrationCreationTrait;
+  use MigrationConfigurationTrait;
   use StringTranslationTrait;
 
   /**
@@ -50,32 +46,107 @@ class MigrateUpgradeDrushRunner {
   protected $databaseStateKey;
 
   /**
+   * List of D6 node migration IDs we've seen.
+   *
+   * @var array
+   */
+  protected $nodeMigrations = [];
+
+  /**
+   * List of process plugin IDs used to lookup migrations.
+   *
+   * @var array
+   */
+  protected $migrationLookupPluginIds = [
+    'migration',
+    'migration_lookup',
+  ];
+
+  /**
    * From the provided source information, instantiate the appropriate migrations
    * in the active configuration.
    *
    * @throws \Exception
    */
   public function configure() {
-    $db_url = drush_get_option('legacy-db-url');
-    $db_spec = drush_convert_db_from_db_url($db_url);
-    $db_prefix = drush_get_option('legacy-db-prefix');
-    $db_spec['prefix'] = $db_prefix;
+    $legacy_db_key = drush_get_option('legacy-db-key');
+    if (!empty($legacy_db_key)) {
+      $connection = Database::getConnection('default', drush_get_option('legacy-db-key'));
+      $this->version = $this->getLegacyDrupalVersion($connection);
+      $database_state['key'] = drush_get_option('legacy-db-key');
+      $database_state_key = 'migrate_drupal_' . $this->version;
+      \Drupal::state()->set($database_state_key, $database_state);
+      \Drupal::state()->set('migrate.fallback_state_key', $database_state_key);
+    }
+    else {
+      $db_url = drush_get_option('legacy-db-url');
+      $db_spec = drush_convert_db_from_db_url($db_url);
+      $db_prefix = drush_get_option('legacy-db-prefix');
+      $db_spec['prefix'] = $db_prefix;
+      $connection = $this->getConnection($db_spec);
+      $this->version = $this->getLegacyDrupalVersion($connection);
+      $this->createDatabaseStateSettings($db_spec, $this->version);
+    }
 
-    $connection = $this->getConnection($db_spec);
-    $this->version = $this->getLegacyDrupalVersion($connection);
-    $this->createDatabaseStateSettings($db_spec, $this->version);
     $this->databaseStateKey = 'migrate_drupal_' . $this->version;
     $migrations = $this->getMigrations($this->databaseStateKey, $this->version);
     $this->migrationList = [];
     foreach ($migrations as $migration) {
-      $destination = $migration->get('destination');
-      if ($destination['plugin'] === 'entity:file') {
-        // Make sure we have a single trailing slash.
-        $source_base_path = rtrim(drush_get_option('legacy-root'), '/') . '/';
-        $destination['source_base_path'] = $source_base_path;
-        $migration->set('destination', $destination);
-      }
+      $this->applyFilePath($migration);
+      $this->expandNodeMigrations($migration);
       $this->migrationList[$migration->id()] = $migration;
+    }
+  }
+
+  /**
+   * Adds the source base path configuration to relevant migrations.
+   *
+   * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+   *   Migration to alter with the provided path.
+   */
+  protected function applyFilePath(MigrationInterface $migration) {
+    $destination = $migration->getDestinationConfiguration();
+    if ($destination['plugin'] === 'entity:file') {
+      // Make sure we have a single trailing slash.
+      $source_base_path = rtrim(drush_get_option('legacy-root'), '/') . '/';
+      $source = $migration->getSourceConfiguration();
+      $source['constants']['source_base_path'] = $source_base_path;
+      $migration->set('source', $source);
+    }
+  }
+
+  /**
+   * For D6 term_node migrations, make sure the nid reference is expanded.
+   *
+   * @param \Drupal\migrate\Plugin\MigrationInterface $migration
+   *   Migration to alter with the list of node migrations.
+   */
+  protected function expandNodeMigrations(MigrationInterface $migration) {
+    $source = $migration->getSourceConfiguration();
+    // Track the node migrations as we see them.
+    if ($source['plugin'] == 'd6_node') {
+      $this->nodeMigrations[] = $migration->id();
+    }
+    elseif ($source['plugin'] == 'd6_term_node' || $source['plugin'] == 'd6_term_node_revision') {
+      if ($source['plugin'] == 'd6_term_node') {
+        $id_property = 'nid';
+      }
+      else {
+        $id_property = 'vid';
+      }
+      // If the ID mapping is to the underived d6_node migration, replace
+      // it with an expanded list of node migrations.
+      $process = $migration->getProcess();
+      $new_nid_process = [];
+      foreach ($process[$id_property] as $delta => $plugin_configuration) {
+        if (in_array($plugin_configuration['plugin'], $this->migrationLookupPluginIds) &&
+            is_string($plugin_configuration['migration']) &&
+            substr($plugin_configuration['migration'], -7) == 'd6_node') {
+          $plugin_configuration['migration'] = $this->nodeMigrations;
+        }
+        $new_nid_process[$delta] = $plugin_configuration;
+      }
+      $migration->setProcessOfProperty($id_property, $new_nid_process);
     }
   }
 
@@ -111,16 +182,30 @@ class MigrateUpgradeDrushRunner {
       'shared_configuration' => [
         'source' => [
           'key' => 'drupal_' . $this->version,
-          'database' => $db_info['database'],
         ]
       ]
     ];
+
+    // Only add the database connection info to the configuration entity
+    // if it was passed in as a parameter.
+    if (!empty(drush_get_option('legacy-db-url'))) {
+      $group['shared_configuration']['source']['database'] = $db_info['database'];
+    }
+
+    // Ditto for the key.
+    if (!empty(drush_get_option('legacy-db-key'))) {
+      $group['shared_configuration']['source']['key'] = drush_get_option('legacy-db-key');
+    }
+
     $group = MigrationGroup::create($group);
     $group->save();
     foreach ($this->migrationList as $migration_id => $migration) {
       drush_print(dt('Exporting @migration as @new_migration',
         ['@migration' => $migration_id, '@new_migration' => $this->modifyId($migration_id)]));
       $entity_array['id'] = $migration_id;
+      $entity_array['class'] = $migration->get('class');
+      $entity_array['cck_plugin_method'] = $migration->get('cck_plugin_method');
+      $entity_array['field_plugin_method'] = $migration->get('field_plugin_method');
       $entity_array['migration_group'] = $this->databaseStateKey;
       $entity_array['migration_tags'] = $migration->get('migration_tags');
       $entity_array['label'] = $migration->get('label');
@@ -150,15 +235,47 @@ class MigrateUpgradeDrushRunner {
         $entity_array['migration_dependencies'][$type][$key] = $this->modifyId($dependency);
       }
     }
-    foreach ($entity_array['process'] as $destination => $process) {
-      if (is_array($process)) {
-        if ($process['plugin'] == 'migration') {
-          $entity_array['process'][$destination]['migration'] =
-            $this->modifyId($process['migration']);
+    $this->substituteMigrationIds($entity_array['process']);
+    return $entity_array;
+  }
+
+  /**
+   * Recursively substitute IDs for migration plugins.
+   *
+   * @param mixed $process
+   */
+  protected function substituteMigrationIds(&$process) {
+    if (is_array($process)) {
+      // We found a migration plugin, change the ID.
+      if (isset($process['plugin']) && in_array($process['plugin'], $this->migrationLookupPluginIds)) {
+        if (is_array($process['migration'])) {
+          $new_migration = [];
+          foreach ($process['migration'] as $migration) {
+            $new_migration[] = $this->modifyId($migration);
+          }
+          $process['migration'] = $new_migration;
+        }
+        else {
+          $process['migration'] = $this->modifyId($process['migration']);
+        }
+        // The source_ids configuration for migrate_lookup is keyed by
+        // migration id.  If it is there, we need to rekey to the new ids.
+        if (isset($process['source_ids']) && is_array($process['source_ids'])) {
+          $new_source_ids = [];
+          foreach ($process['source_ids'] as $migration_id => $source_ids) {
+            $new_migration_id = $this->modifyId($migration_id);
+            $new_source_ids[$new_migration_id] = $source_ids;
+          }
+          $process['source_ids'] = $new_source_ids;
+        }
+      }
+      else {
+        // Recurse on each array member.
+        foreach ($process as &$subprocess) {
+          $this->substituteMigrationIds($subprocess);
         }
       }
     }
-    return $entity_array;
   }
 
   /**

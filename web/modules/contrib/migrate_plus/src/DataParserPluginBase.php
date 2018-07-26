@@ -73,7 +73,6 @@ abstract class DataParserPluginBase extends PluginBase implements DataParserPlug
     return new static($configuration, $plugin_id, $plugin_definition);
   }
 
-
   /**
    * Returns the initialized data fetcher plugin.
    *
@@ -111,8 +110,11 @@ abstract class DataParserPluginBase extends PluginBase implements DataParserPlug
     $this->fetchNextRow();
     // If there was no valid row there, try the next url (if any).
     if (is_null($this->currentItem)) {
-      if ($this->nextSource()) {
+      while ($this->nextSource()) {
         $this->fetchNextRow();
+        if ($this->valid()) {
+          break;
+        }
       }
     }
     if ($this->valid()) {
@@ -125,7 +127,7 @@ abstract class DataParserPluginBase extends PluginBase implements DataParserPlug
   /**
    * Opens the specified URL.
    *
-   * @param $url
+   * @param string $url
    *   URL to open.
    *
    * @return bool
@@ -134,8 +136,9 @@ abstract class DataParserPluginBase extends PluginBase implements DataParserPlug
   abstract protected function openSourceUrl($url);
 
   /**
-   * Retrieves the next row of data from the open source URL, populating
-   * currentItem.
+   * Retrieves the next row of data. populating currentItem.
+   *
+   * Retrieves from the open source URL.
    */
   abstract protected function fetchNextRow();
 

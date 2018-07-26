@@ -6,8 +6,6 @@ use Drupal\Core\Form\FormStateInterface;
 use Drupal\Core\Url;
 
 /**
- * Class MigrationEditForm
- *
  * Provides the edit form for our Migration entity.
  *
  * @package Drupal\migrate_tools\Form
@@ -33,21 +31,19 @@ class MigrationEditForm extends MigrationFormBase {
     $actions = parent::actions($form, $form_state);
     $actions['submit']['#value'] = t('Update Migration');
 
-    // Add the group parameter to the delete URL.
-    $this->addGroupParameter($actions['delete']['#url'], $this->getEntity()->get('migration_group'));
-
     return $actions;
   }
 
   /**
+   * Add group route parameter.
+   *
    * @param \Drupal\Core\Url $url
    *   The URL associated with an operation.
-   *
-   * @param $migration_group
+   * @param string $migration_group
    *   The migration's parent group.
    */
   protected function addGroupParameter(Url $url, $migration_group) {
-    $route_parameters = $url->getRouteParameters() + array('migration_group' => $migration_group);
+    $route_parameters = $url->getRouteParameters() + ['migration_group' => $migration_group];
     $url->setRouteParameters($route_parameters);
   }
 

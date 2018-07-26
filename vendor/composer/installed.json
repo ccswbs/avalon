@@ -2130,18 +2130,18 @@
     },
     {
         "name": "drupal/bootstrap",
-        "version": "3.11.0",
-        "version_normalized": "3.11.0.0",
+        "version": "3.12.0",
+        "version_normalized": "3.12.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/bootstrap",
-            "reference": "8.x-3.11"
+            "reference": "8.x-3.12"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.11.zip",
-            "reference": "8.x-3.11",
-            "shasum": "6ff80e37e2e1f916646300889f3392764c9cdb32"
+            "url": "https://ftp.drupal.org/files/projects/bootstrap-8.x-3.12.zip",
+            "reference": "8.x-3.12",
+            "shasum": "acce113d101364e1a1d141a050994550522cf9dd"
         },
         "require": {
             "drupal/core": "~8.0"
@@ -2152,8 +2152,8 @@
                 "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-3.11",
-                "datestamp": "1520793438",
+                "version": "8.x-3.12",
+                "datestamp": "1532095085",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -2197,18 +2197,18 @@
     },
     {
         "name": "drupal/bootstrap_paragraphs",
-        "version": "2.0.0-beta3",
-        "version_normalized": "2.0.0.0-beta3",
+        "version": "2.0.0-beta5",
+        "version_normalized": "2.0.0.0-beta5",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/bootstrap_paragraphs",
-            "reference": "8.x-2.0-beta3"
+            "reference": "8.x-2.0-beta5"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/bootstrap_paragraphs-8.x-2.0-beta3.zip",
-            "reference": "8.x-2.0-beta3",
-            "shasum": "5203c0dbdb7795c77687f9e42181bff87d945e8d"
+            "url": "https://ftp.drupal.org/files/projects/bootstrap_paragraphs-8.x-2.0-beta5.zip",
+            "reference": "8.x-2.0-beta5",
+            "shasum": "d0f75fd3aa8800a967045e1de9b27179e52cda00"
         },
         "require": {
             "drupal/core": "*",
@@ -2218,8 +2218,7 @@
         },
         "require-dev": {
             "drupal/contact_formatter": "*",
-            "drupal/paragraphs": "*",
-            "drupal/webform": "*"
+            "drupal/paragraphs": "*"
         },
         "type": "drupal-module",
         "extra": {
@@ -2227,8 +2226,8 @@
                 "dev-2.x": "2.x-dev"
             },
             "drupal": {
-                "version": "8.x-2.0-beta3",
-                "datestamp": "1520222584",
+                "version": "8.x-2.0-beta5",
+                "datestamp": "1531408721",
                 "security-coverage": {
                     "status": "not-covered",
                     "message": "Beta releases are not covered by Drupal security advisories."
@@ -2652,17 +2651,17 @@
     },
     {
         "name": "drupal/core",
-        "version": "8.5.4",
-        "version_normalized": "8.5.4.0",
+        "version": "8.5.5",
+        "version_normalized": "8.5.5.0",
         "source": {
             "type": "git",
             "url": "https://github.com/drupal/core.git",
-            "reference": "6b4dc1cf3347761f63152a31786b4680b8ac7781"
+            "reference": "900c28f19d4b5643f43c1cf046684046402eaac4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/drupal/core/zipball/6b4dc1cf3347761f63152a31786b4680b8ac7781",
-            "reference": "6b4dc1cf3347761f63152a31786b4680b8ac7781",
+            "url": "https://api.github.com/repos/drupal/core/zipball/900c28f19d4b5643f43c1cf046684046402eaac4",
+            "reference": "900c28f19d4b5643f43c1cf046684046402eaac4",
             "shasum": ""
         },
         "require": {
@@ -2831,7 +2830,7 @@
             "symfony/debug": "^3.4.0",
             "symfony/phpunit-bridge": "^3.4.3"
         },
-        "time": "2018-06-06T21:02:51+00:00",
+        "time": "2018-07-04T21:08:11+00:00",
         "type": "drupal-core",
         "extra": {
             "merge-plugin": {
@@ -2863,9 +2862,7 @@
                 "replace": false,
                 "merge-extra": false
             },
-            "patches_applied": {
-                "#2954776 - Can not uninstall Field Layout while Layout Builder is installed": "https://www.drupal.org/files/issues/2018-06-14/2954776-layout_install-19.patch"
-            }
+            "patches_applied": []
         },
         "installation-source": "dist",
         "autoload": {
@@ -3719,18 +3716,18 @@
     },
     {
         "name": "drupal/google_analytics",
-        "version": "2.2.0",
-        "version_normalized": "2.2.0.0",
+        "version": "2.3.0",
+        "version_normalized": "2.3.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/google_analytics",
-            "reference": "8.x-2.2"
+            "reference": "8.x-2.3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-2.2.zip",
-            "reference": "8.x-2.2",
-            "shasum": "15cd0642ad99f3776a46b702e5012713405a0733"
+            "url": "https://ftp.drupal.org/files/projects/google_analytics-8.x-2.3.zip",
+            "reference": "8.x-2.3",
+            "shasum": "9ea88a81925ba538d9fa7ac6ce4f1598e5ee48e4"
         },
         "require": {
             "drupal/core": "~8.0"
@@ -3745,8 +3742,8 @@
                 "dev-2.x": "2.x-dev"
             },
             "drupal": {
-                "version": "8.x-2.2",
-                "datestamp": "1506372845",
+                "version": "8.x-2.3",
+                "datestamp": "1531469021",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -3826,22 +3823,22 @@
     },
     {
         "name": "drupal/image_widget_crop",
-        "version": "2.1.0",
-        "version_normalized": "2.1.0.0",
+        "version": "2.2.0",
+        "version_normalized": "2.2.0.0",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/image_widget_crop",
-            "reference": "8.x-2.1"
+            "reference": "8.x-2.2"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/image_widget_crop-8.x-2.1.zip",
-            "reference": "8.x-2.1",
-            "shasum": "76bda9a8c8d3149149bb7812e48e9f14e9ce1ffb"
+            "url": "https://ftp.drupal.org/files/projects/image_widget_crop-8.x-2.2.zip",
+            "reference": "8.x-2.2",
+            "shasum": "0a61cfedc409c5ef448174f26060cd6c291d6a11"
         },
         "require": {
             "drupal/core": "*",
-            "drupal/crop": "1.0 - 2.0"
+            "drupal/crop": "^1.0 || ^2.0"
         },
         "require-dev": {
             "drupal/crop": "*",
@@ -3857,8 +3854,8 @@
                 "dev-2.x": "2.x-dev"
             },
             "drupal": {
-                "version": "8.x-2.1",
-                "datestamp": "1510136887",
+                "version": "8.x-2.2",
+                "datestamp": "1530698921",
                 "security-coverage": {
                     "status": "covered",
                     "message": "Covered by Drupal's security advisory policy"
@@ -4628,34 +4625,38 @@
     },
     {
         "name": "drupal/migrate_plus",
-        "version": "2.0.0-beta2",
-        "version_normalized": "2.0.0.0-beta2",
+        "version": "4.0.0-beta3",
+        "version_normalized": "4.0.0.0-beta3",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/migrate_plus",
-            "reference": "8.x-2.0-beta2"
+            "reference": "8.x-4.0-beta3"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-2.0-beta2.zip",
-            "reference": "8.x-2.0-beta2",
-            "shasum": "0b29113a3c00c7ab3ba73e811da3450edca4c0bb"
+            "url": "https://ftp.drupal.org/files/projects/migrate_plus-8.x-4.0-beta3.zip",
+            "reference": "8.x-4.0-beta3",
+            "shasum": "a0da6dc169a0315bf29a8dd0ee2146d18215a56b"
         },
         "require": {
-            "drupal/core": "^8.1"
+            "drupal/core": "^8.3"
         },
         "require-dev": {
             "drupal/migrate_example_advanced_setup": "*",
             "drupal/migrate_example_setup": "*"
         },
+        "suggest": {
+            "ext-soap": "*",
+            "sainsburys/guzzle-oauth2-plugin": "3.0 required for the OAuth2 authentication plugin"
+        },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
-                "dev-2.x": "2.x-dev"
+                "dev-4.x": "4.x-dev"
             },
             "drupal": {
-                "version": "8.x-2.0-beta2",
-                "datestamp": "1476307439",
+                "version": "8.x-4.0-beta3",
+                "datestamp": "1519400592",
                 "security-coverage": {
                     "status": "not-covered",
                     "message": "Beta releases are not covered by Drupal security advisories."
@@ -4688,41 +4689,50 @@
     },
     {
         "name": "drupal/migrate_tools",
-        "version": "2.0.0-beta1",
-        "version_normalized": "2.0.0.0-beta1",
+        "version": "4.0.0-rc1",
+        "version_normalized": "4.0.0.0-RC1",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/migrate_tools",
-            "reference": "8.x-2.0-beta1"
+            "reference": "8.x-4.0-rc1"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-2.0-beta1.zip",
-            "reference": "8.x-2.0-beta1",
-            "shasum": "bf823a9d08d08b99d5ea1469729b30f9969ef519"
+            "url": "https://ftp.drupal.org/files/projects/migrate_tools-8.x-4.0-rc1.zip",
+            "reference": "8.x-4.0-rc1",
+            "shasum": "1c66adfaecfbcb8dee4bd9cf7bd249c1beb08c40"
         },
         "require": {
-            "drupal/core": "^8.1",
-            "drupal/migrate_plus": "*"
+            "drupal/core": "^8.3",
+            "drupal/migrate_plus": "^4"
+        },
+        "require-dev": {
+            "drupal/coder": "^8",
+            "drupal/migrate_source_csv": "^2.2"
         },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
-                "dev-2.x": "2.x-dev"
+                "dev-4.x": "4.x-dev"
             },
             "drupal": {
-                "version": "8.x-2.0-beta1",
-                "datestamp": "1476313439",
+                "version": "8.x-4.0-rc1",
+                "datestamp": "1531143824",
                 "security-coverage": {
                     "status": "not-covered",
-                    "message": "Beta releases are not covered by Drupal security advisories."
+                    "message": "RC releases are not covered by Drupal security advisories."
+                }
+            },
+            "drush": {
+                "services": {
+                    "drush.services.yml": "^9"
                 }
             }
         },
         "installation-source": "dist",
         "notification-url": "https://packages.drupal.org/8/downloads",
         "license": [
-            "GPL-2.0-or-later"
+            "GPL-2.0+"
         ],
         "authors": [
             {
@@ -4739,48 +4749,53 @@
             }
         ],
         "description": "Tools to assist in developing and running migrations.",
-        "homepage": "https://www.drupal.org/project/migrate_tools",
+        "homepage": "http://drupal.org/project/migrate_tools",
         "support": {
-            "source": "http://cgit.drupalcode.org/migrate_tools"
+            "source": "http://cgit.drupalcode.org/migrate_tools",
+            "issues": "http://drupal.org/project/migrate_tools",
+            "irc": "irc://irc.freenode.org/drupal-migrate"
         }
     },
     {
         "name": "drupal/migrate_upgrade",
-        "version": "2.0.0-beta1",
-        "version_normalized": "2.0.0.0-beta1",
+        "version": "3.0.0-rc4",
+        "version_normalized": "3.0.0.0-RC4",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/migrate_upgrade",
-            "reference": "8.x-2.0-beta1"
+            "reference": "8.x-3.0-rc4"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/migrate_upgrade-8.x-2.0-beta1.zip",
-            "reference": "8.x-2.0-beta1",
-            "shasum": "d5458312b74f2d6975b76d5f1115368b364c91b7"
+            "url": "https://ftp.drupal.org/files/projects/migrate_upgrade-8.x-3.0-rc4.zip",
+            "reference": "8.x-3.0-rc4",
+            "shasum": "345d56e98c763e19617d317aaece3cded22670ea"
         },
         "require": {
-            "drupal/core": "^8.1",
+            "drupal/core": "*",
             "drupal/migrate_plus": "*"
+        },
+        "require-dev": {
+            "drupal/coder": "^8"
         },
         "type": "drupal-module",
         "extra": {
             "branch-alias": {
-                "dev-2.x": "2.x-dev"
+                "dev-3.x": "3.x-dev"
             },
             "drupal": {
-                "version": "8.x-2.0-beta1",
-                "datestamp": "1472752139",
+                "version": "8.x-3.0-rc4",
+                "datestamp": "1519400285",
                 "security-coverage": {
                     "status": "not-covered",
-                    "message": "Beta releases are not covered by Drupal security advisories."
+                    "message": "RC releases are not covered by Drupal security advisories."
                 }
             }
         },
         "installation-source": "dist",
         "notification-url": "https://packages.drupal.org/8/downloads",
         "license": [
-            "GPL-2.0-or-later"
+            "GPL-2.0+"
         ],
         "authors": [
             {
@@ -5572,25 +5587,26 @@
     },
     {
         "name": "drupal/webform",
-        "version": "5.0.0-rc15",
-        "version_normalized": "5.0.0.0-RC15",
+        "version": "5.0.0-rc16",
+        "version_normalized": "5.0.0.0-RC16",
         "source": {
             "type": "git",
             "url": "https://git.drupal.org/project/webform",
-            "reference": "8.x-5.0-rc15"
+            "reference": "8.x-5.0-rc16"
         },
         "dist": {
             "type": "zip",
-            "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-rc15.zip",
-            "reference": "8.x-5.0-rc15",
-            "shasum": "b018959277d4e528f2d6a1ec9e39513d7667f7ce"
+            "url": "https://ftp.drupal.org/files/projects/webform-8.x-5.0-rc16.zip",
+            "reference": "8.x-5.0-rc16",
+            "shasum": "033611e87c3d715f5081022ebcd1e183333a72e7"
         },
         "require": {
             "drupal/core": "*"
         },
         "require-dev": {
+            "drupal/address": "~1.4",
             "drupal/devel": "*",
-            "drupal/token": "*",
+            "drupal/token": "~1.3",
             "drupal/webform_node": "*",
             "drupal/webform_scheduled_email": "*"
         },
@@ -5600,8 +5616,8 @@
                 "dev-5.x": "5.x-dev"
             },
             "drupal": {
-                "version": "8.x-5.0-rc15",
-                "datestamp": "1528795685",
+                "version": "8.x-5.0-rc16",
+                "datestamp": "1530298420",
                 "security-coverage": {
                     "status": "not-covered",
                     "message": "RC releases are not covered by Drupal security advisories."
@@ -8454,8 +8470,8 @@
     },
     {
         "name": "symfony/browser-kit",
-        "version": "v3.4.11",
-        "version_normalized": "3.4.11.0",
+        "version": "v3.4.13",
+        "version_normalized": "3.4.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/browser-kit.git",
@@ -8571,17 +8587,17 @@
     },
     {
         "name": "symfony/config",
-        "version": "v3.4.11",
-        "version_normalized": "3.4.11.0",
+        "version": "v3.4.13",
+        "version_normalized": "3.4.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/config.git",
-            "reference": "73e055cf2e6467715f187724a0347ea32079967c"
+            "reference": "1fffdeb349ff36a25184e5564c25289b1dbfc402"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/config/zipball/73e055cf2e6467715f187724a0347ea32079967c",
-            "reference": "73e055cf2e6467715f187724a0347ea32079967c",
+            "url": "https://api.github.com/repos/symfony/config/zipball/1fffdeb349ff36a25184e5564c25289b1dbfc402",
+            "reference": "1fffdeb349ff36a25184e5564c25289b1dbfc402",
             "shasum": ""
         },
         "require": {
@@ -8602,7 +8618,7 @@
         "suggest": {
             "symfony/yaml": "To use the yaml reference dumper"
         },
-        "time": "2018-05-14T16:49:53+00:00",
+        "time": "2018-06-19T14:02:58+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -8708,8 +8724,8 @@
     },
     {
         "name": "symfony/css-selector",
-        "version": "v2.8.41",
-        "version_normalized": "2.8.41.0",
+        "version": "v2.8.43",
+        "version_normalized": "2.8.43.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/css-selector.git",
@@ -8894,17 +8910,17 @@
     },
     {
         "name": "symfony/dom-crawler",
-        "version": "v3.4.11",
-        "version_normalized": "3.4.11.0",
+        "version": "v3.4.13",
+        "version_normalized": "3.4.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/dom-crawler.git",
-            "reference": "201b210fafcdd193c1e45b2994bf7133fb6263e8"
+            "reference": "54c9e817b74c7be1840344bf4feaa7a7d02abfb8"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/201b210fafcdd193c1e45b2994bf7133fb6263e8",
-            "reference": "201b210fafcdd193c1e45b2994bf7133fb6263e8",
+            "url": "https://api.github.com/repos/symfony/dom-crawler/zipball/54c9e817b74c7be1840344bf4feaa7a7d02abfb8",
+            "reference": "54c9e817b74c7be1840344bf4feaa7a7d02abfb8",
             "shasum": ""
         },
         "require": {
@@ -8918,7 +8934,7 @@
         "suggest": {
             "symfony/css-selector": ""
         },
-        "time": "2018-05-01T22:53:27+00:00",
+        "time": "2018-07-05T11:53:23+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -9018,24 +9034,24 @@
     },
     {
         "name": "symfony/filesystem",
-        "version": "v3.4.11",
-        "version_normalized": "3.4.11.0",
+        "version": "v3.4.13",
+        "version_normalized": "3.4.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/filesystem.git",
-            "reference": "8e03ca3fa52a0f56b87506f38cf7bd3f9442b3a0"
+            "reference": "8dab220fec8fc904821485326b29a6c670286124"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/filesystem/zipball/8e03ca3fa52a0f56b87506f38cf7bd3f9442b3a0",
-            "reference": "8e03ca3fa52a0f56b87506f38cf7bd3f9442b3a0",
+            "url": "https://api.github.com/repos/symfony/filesystem/zipball/8dab220fec8fc904821485326b29a6c670286124",
+            "reference": "8dab220fec8fc904821485326b29a6c670286124",
             "shasum": ""
         },
         "require": {
             "php": "^5.5.9|>=7.0.8",
             "symfony/polyfill-ctype": "~1.8"
         },
-        "time": "2018-05-16T08:49:21+00:00",
+        "time": "2018-07-09T13:25:43+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -9070,23 +9086,23 @@
     },
     {
         "name": "symfony/finder",
-        "version": "v3.4.11",
-        "version_normalized": "3.4.11.0",
+        "version": "v3.4.13",
+        "version_normalized": "3.4.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/finder.git",
-            "reference": "472a92f3df8b247b49ae364275fb32943b9656c6"
+            "reference": "3a8c3de91d2b2c68cd2d665cf9d00f7ef9eaa394"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/finder/zipball/472a92f3df8b247b49ae364275fb32943b9656c6",
-            "reference": "472a92f3df8b247b49ae364275fb32943b9656c6",
+            "url": "https://api.github.com/repos/symfony/finder/zipball/3a8c3de91d2b2c68cd2d665cf9d00f7ef9eaa394",
+            "reference": "3a8c3de91d2b2c68cd2d665cf9d00f7ef9eaa394",
             "shasum": ""
         },
         "require": {
             "php": "^5.5.9|>=7.0.8"
         },
-        "time": "2018-05-16T08:49:21+00:00",
+        "time": "2018-06-19T20:52:10+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -9936,17 +9952,17 @@
     },
     {
         "name": "symfony/var-dumper",
-        "version": "v3.4.11",
-        "version_normalized": "3.4.11.0",
+        "version": "v3.4.13",
+        "version_normalized": "3.4.13.0",
         "source": {
             "type": "git",
             "url": "https://github.com/symfony/var-dumper.git",
-            "reference": "0e6545672d8c9ce70dd472adc2f8b03155a46f73"
+            "reference": "c501f46bb1eaf4c8d65ba070ab65a1986da1cd7f"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/0e6545672d8c9ce70dd472adc2f8b03155a46f73",
-            "reference": "0e6545672d8c9ce70dd472adc2f8b03155a46f73",
+            "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c501f46bb1eaf4c8d65ba070ab65a1986da1cd7f",
+            "reference": "c501f46bb1eaf4c8d65ba070ab65a1986da1cd7f",
             "shasum": ""
         },
         "require": {
@@ -9965,7 +9981,7 @@
             "ext-intl": "To show region name in time zone dump",
             "ext-symfony_debug": ""
         },
-        "time": "2018-04-26T12:42:15+00:00",
+        "time": "2018-07-09T08:21:26+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
