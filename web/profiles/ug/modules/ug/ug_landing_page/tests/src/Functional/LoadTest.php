@@ -1,6 +1,6 @@
 <?php
 
-namespace Drupal\Tests\landing_page\Functional;
+namespace Drupal\Tests\ug_landing_page\Functional;
 
 use Drupal\Core\Url;
 use Drupal\Tests\BrowserTestBase;
@@ -8,7 +8,7 @@ use Drupal\Tests\BrowserTestBase;
 /**
  * Simple test to ensure that main page loads with module enabled.
  *
- * @group landing_page
+ * @group ug_landing_page
  */
 class LoadTest extends BrowserTestBase {
 
@@ -17,7 +17,7 @@ class LoadTest extends BrowserTestBase {
    *
    * @var array
    */
-  public static $modules = ['landing_page'];
+  public static $modules = ['ug_landing_page'];
 
   /**
    * A user with permission to administer site configuration.

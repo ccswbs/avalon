@@ -1,0 +1,74 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_bootstrap_sections
+    - node.type.landing_page
+    - paragraphs.paragraphs_type.bp_accordion_section
+    - paragraphs.paragraphs_type.bp_tab_section
+  module:
+    - entity_reference_revisions
+id: node.landing_page.field_bootstrap_sections
+field_name: field_bootstrap_sections
+entity_type: node
+bundle: landing_page
+label: 'Bootstrap sections'
+description: 'This is for adding Bootstrap sections to your content, like accordions, tabs, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    negate: 1
+    target_bundles:
+      bp_accordion_section: bp_accordion_section
+      bp_tab_section: bp_tab_section
+    target_bundles_drag_drop:
+      bp_accordion:
+        weight: 16
+        enabled: false
+      bp_accordion_section:
+        enabled: true
+        weight: 17
+      bp_blank:
+        weight: 18
+        enabled: false
+      bp_block:
+        weight: 19
+        enabled: false
+      bp_carousel:
+        weight: 20
+        enabled: false
+      bp_columns:
+        weight: 21
+        enabled: false
+      bp_columns_three_uneven:
+        weight: 22
+        enabled: false
+      bp_columns_two_uneven:
+        weight: 23
+        enabled: false
+      bp_column_wrapper:
+        weight: 24
+        enabled: false
+      bp_image:
+        weight: 25
+        enabled: false
+      bp_modal:
+        weight: 26
+        enabled: false
+      bp_simple:
+        weight: 27
+        enabled: false
+      bp_tabs:
+        weight: 28
+        enabled: false
+      bp_tab_section:
+        enabled: true
+        weight: 29
+      bp_view:
+        weight: 30
+        enabled: false
+field_type: entity_reference_revisions

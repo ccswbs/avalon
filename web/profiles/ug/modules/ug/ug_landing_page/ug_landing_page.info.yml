@@ -1,0 +1,5 @@
+name: 'UG Landing Page'
+type: module
+description: 'Use to add landing pages to your site.'
+core: 8.x
+package: 'UG'
