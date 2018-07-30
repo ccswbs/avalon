@@ -12,7 +12,7 @@ followrefs: null
 weight: null
 bind_method: service_account
 binddn: 'uid=drupalpx,ou=people,o=uoguelph.ca'
-bindpw: kk984ii
+bindpw: xxxxxxxx
 basedn: 'ou=People,o=uoguelph.ca'
 user_attr: uid
 account_name_attr: ''
