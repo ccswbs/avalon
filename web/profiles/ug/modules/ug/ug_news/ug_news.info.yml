@@ -18,3 +18,4 @@ dependencies:
   - taxonomy
   - menu_ui
   - image
+  - media_entity_image
