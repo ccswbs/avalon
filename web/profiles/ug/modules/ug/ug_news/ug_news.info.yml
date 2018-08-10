@@ -3,3 +3,19 @@ type: module
 description: 'UG News'
 core: 8.x
 package: 'UG'
+dependencies:
+  - comment
+  - entity_browser
+  - file
+  - link
+  - path
+  - text
+  - user
+  - node
+  - entity_browser_entity_form
+  - views
+  - media_entity
+  - taxonomy
+  - menu_ui
+  - image
+  - media_entity_image
